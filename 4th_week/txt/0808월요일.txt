@@ -1,0 +1,119 @@
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+
+
+윈도우시작 cmd입력 command
+C:\User\~~~> cls
+C:\User\~~~> path
+C:\User\~~~> cls
+C:\User\~~~> sqlplus  system/1234
+SQL> clear screen;   
+SQL> col name for a10 ;
+SQL> col email for a15 ;
+SQL> col grade for a2 ;
+SQL> col id for 9999
+
+
+SQL> update sosi set salary=salary*2.78  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+SQL> select name,salary, trunc(salary,1) from sosi;   
+SQL> select name,salary, round(salary,1) from sosi;   
+SQL> select name,salary, floor(salary) from sosi;     
+
+SQL> select  trunc(avg(salary),2) from sosi;   --소숫점2자릿수
+SQL> select  round(avg(salary),2) from sosi;   --소숫점2자릿수
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+SQL> select *  from  sosi ;
+SQL> desc sosi ;
+SQL> set pagesize 1200 ;
+SQL> set linesize 1200 ;
+SQL> clear screen;
+
+
+  간단한설명 버젼및 생성된년도
+SQL> show user ;
+     system
+
+
+ create table  sosi (
+     id number(4) primary key ,
+    name varchar2(10) ,
+     salary number ,
+    birth date ,
+    email varchar2(20)  ,
+    grade varchar2(4)
+  ) ;
+
+
+1번째 www.oracle.com사이트가입
+2번째 작업폴더 C:\workspace
+3번째 https://github.com/posasi2000/itedu
+
+백단 서비스 
+데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+ㄴ오라클db서비스유지
+  ㄴ제어판=>관리도구=>서비스
+    ㄴOracleServiceXE 시작
+    ㄴOracleXEListener 시작
+오라클db서버설치 XE교육용=무료
+C:\oraclexe
+ ㄴC:\oraclexe\app\oracle\product\11.2.0\server
+
+여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
+강사컴퓨터 C:\Users\Posasi
+
+강사컴퓨터 오라클 삭제중입니다.
+여러분 따라 하지 마세요
+3시에 다시 수업합니다
+강사키보드가 청축이라서  음소거해제 한 상태입니다.
+
+
+
+뷰view보여주는 화면
+ ㄴ웹브라우저출력을 위해서 html,css,javascript
+
+*------------------------------------------------------------------------------
+웹서비스 백엔드 개발
+(4시간+(3일*8시간)=28시간)
+백엔드backend 데이터베이스 서버
+ ㄴ오라클,IBM,MS,Tmax 
+ ㄴMySQL,마리아db, 노SQL적용 몽고디비
+
+
+8/8
+오후교육 14:00~18:00(4시간)
+8/9 ~ 8/11
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-DBMS시스템 이해
+-SQL언어(DDL,DML,DCL)
+-insert처리,select, 집합함수
+-sequence,sub쿼리,조인이해
+-내장함수
+
+웹프로그래밍 응용 
+(6일*8시간=48시간)
+8/12 ~ 8/22
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Java프로그램, 이클립스설치
+-db연결 및 내장객체 이해
+-게시판글등록,출력
+-페이징,검색처리
+-로그인처리,session
+-MVC2모델 Servlet활용
+-Weekly 미니플젝
+
+
+웹서비스 아키텍처 
+(4일*8시간=32시간)
+8/23 ~ 8/26
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Node.js설치,웹서버 만들기
+-Web server launching
+-Node 동기/비동기처리,파일처리
+-db처리, 데이터입력, 출력
