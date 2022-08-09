@@ -106,33 +106,45 @@ SQL
 
 
 SQL> insert  into sosi(id,name,salary,birth,email,grade) 
-     values(7789, 'hong', 79, sysdate, 'bc@sk.com', 'F');        
+     values(7789, 'hong', 79, sysdate, 'bc@kt.com', 'F');        
 
 SQL> insert  into sosi(id,name,salary,birth,email,grade) 
-     values(7790, 'lee', 23, sysdate, 'bb@sk.com', 'C'); 
+     values(7790, 'lee', 23, sysdate, 'lee@lg.com', 'C'); 
 
 SQL> insert  into sosi(id,name,salary,birth,email,grade) 
      values(2234, 'young', 96, sysdate, 'kim@it.org', 'A'); 
 
---여기까지 기술합니다 08-08-월요일 지금시간 4:20분배포
 SQL> commit ;
 SQL> select id, name, salary, birth, email, grade  from  sosi ;
 SQL> clear screen;
 SQL> select *  from  sosi ;
 
+SQL> col name for a10 ;
+SQL> col email for a15 ;
+SQL> col grade for a2 ;
+SQL> select *  from  sosi ;
+SQL> desc sosi ;
+SQL> set pagesize 1200 ;
+SQL> set linesize 1200 ;
+SQL> clear screen;
 
-SQL> insert  into sosi(id,name,salary,birth,email,grade) 
-     values(6600, 'aaa', 24, sysdate, 'aa@gs.com', 'B');  
+--E.F codd학자분 RDB설계 정의  문자/문자열은 무조건 ' '
+  insert  into sosi  
+  values(6600, 'aaa', 24, sysdate, 'aa@gs.com', 'B');  
 
-SQL> insert  into sosi(id,name,salary,birth,email,grade) 
-    values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
+  insert  into sosi(id,name,salary,birth,email,grade) 
+  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
 
 SQL> commit ;
+문제1] id, name, email  3개열만 출력 
+ SQL> select  id, name, email from  sosi ;
+문제2] 행번호 rownum, id, name, email   4개열만 출력
+ SQL> select rownum, id, name, email from  sosi ;
+문제3] 모든데이터 출력 
+ SQL> select *  from  sosi ;
+
+SQL> col id for 99 ; 
 SQL> select id, name, salary, birth, email, grade  from  sosi ;
-SQL> col name for a10 
-SQL> col email for a12
-SQL> col grade for a3
-SQL> col id for 9999
 SQL> select *  from  sosi ;
 SQL> select id,name,grade  from  sosi ;
 
@@ -140,41 +152,30 @@ SQL> select id,name,grade  from  sosi ;
  insert  into sosi(id,name,salary,birth,email,grade) 
      values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
 
- insert  into sosi(id,name,salary,birth,email,grade) 
-    values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C');  
-
-insert into sosi values(7754, 'kim', 57, sysdate, 'aa@sk.com', 'A'); 
-insert into sosi values(3357, 'red', 92, sysdate, 'aa@sk.com', 'B');
+insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
+insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
 commit ;
 
 SQL> select *  from  sosi ;
 SQL> select  id,name,salary,birth,email,grade  from  sosi ; 
 SQL> select *  from  sosi ;
 
-
-insert  into sosi(id,name,salary,birth,email,grade) 
-     values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
-
-insert  into sosi(id,name,salary,birth,email,grade) 
-    values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C');  
-
-insert into sosi values(7754, 'kim', 57, sysdate, 'aa@sk.com', 'A'); 
-insert into sosi values(3357, 'red', 92, sysdate, 'aa@sk.com', 'B');
+SQL> select  sysdate from dual ;  -dual가짜더미테이블 
 
 insert into sosi  
-values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
+ values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
 
-insert into sosi(id, name, salary, birth, email, grade)
-values(6000,'태연',100,to_date('19/12/12'), 'aa@girl.com', 'A');
+insert into sosi
+ values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
 
- insert into sosi   
- values(2000,'티파니',90,to_date('17/11/13'), 'bb@girl.com', 'B');
+insert into sosi   
+ values(2000,'윤아',90,to_date('17/11/13'), 'bb@girl.com', 'F');
 
 insert into sosi
  values(3000,'제니',120,to_date('17/10/25'), 'cc@girl.com', 'C');
 
- insert into sosi 
-    values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
+insert into sosi 
+ values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
 commit;
 select * from sosi ;
 
@@ -190,62 +191,130 @@ SQL> select rownum, id, name, salary, birth, email, grade  from sosi ;
 
 SQL> select rownum,  *  from sosi ;  --에러
 SQL> select  *, rownum  from sosi ;  --에러
-SQL> select rownum, si.* from  sosi  si ;  --훨씬편해요
+SQL> select rownum, ss.* from  sosi  ss ;  --훨씬편해요
 
-SQL> select * from  sosi where id = 2 ;
-SQL> select * from  sosi where id = 3 ;
 
-SQL> update sosi set name='bts' where id = 2 ;
-SQL> update sosi set name='아이유' where id = 3 ;
+SQL> select * from  sosi where id = 2000 ;
+SQL> select * from  sosi where id = 3000 ;
+
+SQL> update sosi set name='bts' ;
+SQL> select *  from sosi  ;
+SQL> rollback ;
+SQL> select *  from sosi  ;
+SQL> clear screen;
+
+SQL> update sosi set name='bts' where id = 2000  ;
 SQL> commit ;
 SQL> select *  from sosi  ;
-
-SQL> update sosi set id=2100 where id=2 ;
-SQL> update sosi set id=3000 where id=3 ;
-SQL> update sosi set id=4600 where id=4 ;
-SQL> select * from  sosi   ; 
-SQL> commit ;
-
-
-SQL> select * from  sosi ;
-SQL> update sosi set name='dong' ; --데이터변경 조건이 없으면 전부 dong으로 변경
-SQL> select * from  sosi ;
-SQL> rollback;  -- 수정갱신 취소 
-SQL> select *   from sosi ;
-SQL> commit ;
 
 
 태연 데이터를  고길동로 변경갱신
 SQL> update sosi set name='고길동', salary=73,
-     birth=to_char('20/07/05'),
-     email='go@aa.com', grade='D' where id = 6000 ;
+     birth=to_char('21/07/05'),
+     email='gg@aa.com', grade='D' where id = 6000 ;
 
-김고은 데이터를  이름=cake,은 여=21  변경갱신
-SQL> update sosi set name='cake', salary=21 where id=7000 ;
 SQL> select * from  sosi ;
 SQL> commit ; 
 
---레코드갯수 , 최대값, 최소값, 평균 
-SQL> select  max(salary) from sosi;
-SQL> select  min(salary) from sosi;
-SQL> select  avg(salary) from sosi;
-SQL> select  count(id)  from  sosi;   ;
+insert신규등록, 데이터추출select ~~, 데이터수정update ~~ where,
+데이터삭제delete ~~ where
+
+SQL> delete * from sosi ; --에러발생 
+SQL> delete   from sosi ; --모든데이터삭제
+SQL> select * from  sosi ;
+SQL> rollback ;
+SQL> select * from  sosi ;
+
+--table구조에 필드추가, 필드타입수정, 필드명변경 ~~~~ alter명령실습
+SQL> select  count(*)  from  sosi;   
+SQL> select  count(id)  from  sosi;   
 SQL> select  count(id) as "cnt" from  sosi;  
 SQL> select  count(id) as 'cnt' from  sosi; -에러
 SQL> select  count(id) as  cnt from  sosi; 
+SQL> select  count(*)  cnt from  sosi;  --추천
+SQL> select  count(id)  cnt from  sosi;  --추천
+
+--레코드갯수 , 최대값, 최소값, 평균 
+SQL> select  max(salary)  최대값 from sosi;
+SQL> select  min(salary)  최소값 from sosi;
+SQL> select  avg(salary)  평균값 from sosi;
 
 
-SQL> clear screen 
-SQL> update sosi set salary=salary*2.78  ;
+윈도우시작->cmd입력후
+C:\User~~~> sqlplus  system/1234
+SQL> show user ;
+SQL> clear screen ; 
+SQL> 생략함어제입력한 급여갱신 update sosi set salary=salary*2.78  ;
+SQL> select  *  from sosi  ;
+
+    --기본급여에 조건없이 전체데이터 3.1415곱하기 인상적용
+SQL> update sosi set salary=salary*3.1415  ;
 SQL> commit ;
 SQL> select  *  from sosi  ;
-SQL> select name,salary, trunc(salary,2) from sosi;   --소숫점2자릿수
-SQL> select name,salary, round(salary,2) from sosi;   --소숫점2자릿수
-SQL> select name,salary, floor(salary) from sosi;     --소숫점버리기
 
-SQL> select  trunc(avg(salary),2) from sosi;   --소숫점2자릿수
-SQL> select  round(avg(salary),2) from sosi;   --소숫점2자릿수
-SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+
+ --update 1.23갱신은 강사만 실행합니다 
+ update sosi set salary=salary*1.23  ;
+ commit ;
+ select  *  from sosi  ;
+
+SQL> select  avg(salary)   from sosi; 
+     AVG(SALARY)
+     -----------
+     677.368659
+
+SQL> select  trunc(avg(salary),2) from sosi;    --3째자릿수 반올림X
+	TRUNC(AVG(SALARY),2)
+	--------------------
+               677.36
+
+SQL> select  round(avg(salary),2) from sosi;    --3째자릿수 반올림O
+	ROUND(AVG(SALARY),2)
+	--------------------
+              677.37
+
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기 바닥floor버림함수
+     	FLOOR(AVG(SALARY))
+	------------------
+               677
+
+SQL> select  ceil(avg(salary)) from sosi;    --정산을받을때 적용좋아요
+
+	CEIL(AVG(SALARY))
+	-----------------
+              678
+
+SQL> select  avg(salary) from sosi;  --평균 603.946125
+SQL> select floor(7.6) from dual ;   --정답 7
+SQL> select ceil(6.2) from dual ;    --정답 7
+
+
+SQL> select name,salary 급여, trunc(salary,2) from sosi;   --3째자릿수 반올림X
+SQL> select name,salary 급여, round(salary,2) from sosi;   --3째자릿수 반올림O
+SQL> select name,salary 급여, floor(salary) from sosi;     --소숫점버리기 바닥floor버림함수
+
+SQL> select  34.678,  floor( 34.678)  	from  dual ; 
+    	34.678 		FLOOR(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> select  34.678,  round( 34.678,2)  from  dual ;
+   	 34.678 	ROUND(34.678,2)
+	---------- ---------------
+ 	   34.678           34.68
+ 
+SQL> select  34.678,  ceil( 34.678)  	from  dual ; 
+ 	   34.678      CEIL(34.678)
+	---------- ------------
+   	 34.678           35
+
+SQL> select  -34.678,  ceil( -34.678)  	from  dual ; 
+
+
+SQL> select  34.678,  trunc( 34.678)  	from  dual ; 
+   	 34.678 	TRUNC(34.678)
+	---------- -------------
+   	 34.678            34
 
 ★---------------------------------------------------------------------------
 내장함수------------- --------------------------------------------------------
@@ -253,11 +322,8 @@ SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
  SQL> select * from dual;
 
 - 임시 데이터 출력 결과
-  SQL> select  2+3*7    결과    from dual;
-  SQL> select  2+3*7    '결과'  from dual;   에러발생
-  SQL> select  2+3*7    "결과"  from dual;   
-  SQL> select  2+3*7 as "결과"  from dual;
-
+  SQL> select  2+3*7  결과    from dual;
+  SQL> select  2+3*7  "결과"  from dual;   
 
 - lower() : 소문자
   SQL> select lower('REDPLUS') as red from dual;
@@ -269,17 +335,39 @@ SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
   SQL> select  initcap('red plus') as a from dual;
 
 - concat() : 문자열 연결
-  SQL> select concat('green', 'color') from dual;
+  SQL> select concat('green ', 'color') from dual;  
+
+--08-08-월요일 5:43  종료무렵 여기까지 실습  
+--08-09-화요일 
+
 
 
 - length(), lengthb() : 문자열 길이 - 1byte반환, 3byte반환
-  SQL> select length('redplus') , lengthb('redplus') from dual;
-  SQL> select length('레드') , lengthb('레드') from dual;
+  lengthb(char)함수는 문자열의 길이를 byte단위로 구하는 함수
+
+  SQL> select length('red') , lengthb('red') from dual;
+	LENGTH('RED') LENGTHB('RED')
+	------------- --------------
+             3              3
+
+  SQL> select length('오라클') , lengthb('오라클') from dual;
+	LENGTH('오라클')   LENGTHB('오라클')
+	---------------- -----------------
+               3                9
 
 
   SQL> clear screen ; 
 - substr(), substrb() : 문자열 추출  한글일때 3byte취급
-  SQL> select substr('RedPlus', 1, 3) from dual;
+  SQL> select substr('RedPlus', 1, 3), substrb('RedPlus', 1, 3) from dual;
+	 SUBSTR  SUBSTR
+	 ------  ------
+	 Red      Red
+
+  SQL> select substr('사과나무', 1, 3) 결과1  , substrb('사과나무', 1, 3) 결과2 from dual;
+	결과1             결과2
+	------------   ------
+	사과나             사
+
 
 - instr() : 문자열 시작 위치 
   SQL> select instr('RedPlus', 'Plus') from dual;
@@ -291,127 +379,306 @@ SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
   SQL> select rpad('RedPlus', 10, '@') from dual;
 
 - trim() : 양쪽 공백 문자만 제거
-  SQL> select trim('   from  RedPlus  ') from dual;   --실습
+  SQL> select trim('   from  RedPlus  ') from dual;   
 
 - abs() : 절대값
  SQL> select abs(-234) from dual;  --실습
 
 - floor() : 소수자리 버리기
   SQL> select floor(12.345) from dual;  --실습
+	 FLOOR(12.345)
+	 -------------
+           12
 
 - trunc() : 소수점 특정 자리 자르기
-  SQL> select trunc(67.8549, 3) from dual;   --실습
-
- select trunc(67.8579, 2) from dual ;
-   TRUNC(67.8579,2)
-    ----------------
+  SQL> select trunc(67.8549, 2) from dual;   
+    	TRUNC(67.8549,2)
+	----------------
            67.85
 
- select round(67.8579, 2) from dual ;
-    ROUND(67.8579,2)
-    ----------------
-           67.86
+ SQL> select round(67.8579, 2) from dual ;
+          ROUND(67.8579,2)
+        ----------------
+            67.86
 
 
 - mod() : 나머지
-  SQL> select mod(5, 3) from dual;   --실습
+  SQL> select mod(5, 3) from dual;   
 
 SQL> select 7/4 from dual ;
 
        7/4
-----------
+     ----------
       1.75
 
 SQL> select 7%4 from dual ;
-  select 7%4 from dual
+     select 7%4 from dual
         *
-  ERROR at line 1:
-  ORA-00911: invalid character
+    ERROR at line 1:
+    ORA-00911: invalid character
 
 
-- sysdate( ) 괄호하면 에러  : 날짜
+- sysdate정답/ sysdate( ) 괄호하면 에러  : 날짜
   SQL> select sysdate from dual;   --실습
   SQL> select sysdate() from dual;   --에러
 
 
-select to_char(sysdate, 'day') from dual;
---결과 : 월요일
+  SQL> select to_char(sysdate, 'day') from dual;
+	--결과 : 화요일
 
-select to_char(sysdate, 'dy') from dual;
---결과 : 월
+  SQL> select to_char(sysdate, 'dy') from dual;
+	--결과 : 월
 
-SQL> select  34.678,  floor( 34.678)  	from  dual ; 
-SQL> select  34.678,  round( 34.678,2)  from  dual ; 
-SQL> select  34.678,  ceil( 34.678)  	from  dual ; 
-SQL> select  34.678,  trunc( 34.678)  	from  dual ; 
-
-
-
-
-아래 case 조건 기술하지 마세요
+SQL> select * from sosi ;
 SQL> select name, grade ,
      case 
-       when grade = 'A'  then  '최고수준'
-       when grade = 'B'  then  '합격수준'
-       when grade = 'C'  then  '보통수준'
+       when grade = 'A'  then  '최고'
+       when grade = 'B'  then  '합격'
+       when grade = 'C'  then  '보통'
        when grade = 'D'  then  '좀노력'
        when grade = 'F'  then  '재수강'
-      end   
+      end 평가  
    from sosi;
 
 
 - decode() : case문과 같은 기능
 SQL> select id, name, grade,
-     decode( grade , 'A', '10번', 'B', '20번', 'C', '30번', ' ')
+     decode( grade , 'A', '10번', 'B', '20번', 'C', '30번', '기타') 번호
      from sosi ;
 
 
-- round() : 반올림
-SQL> select name, round(salary, 2) from sosi  where grade= 'A';
+delete from sosi where id > 7700 ;
+commit ;
+select * from  sosi ;
+delete from sosi where id > 7755 ;
+commit ;
+select * from  sosi ;
+
+insert into sosi values(3345, 'red', 370, sysdate,  'aa@it.com', 'F');
+insert into sosi values(3378, 'blue', 450, sysdate, 'bb@ra.org', 'A');
+insert into sosi values(3399, 'city', 140, sysdate, 'cc@sn.net', 'C');
+insert into sosi values(3345, 'rain', 370, sysdate,  'aa@it.com', 'D');
+insert into sosi values(3311, 'cake', 450, sysdate, 'bb@ra.org', 'A');
+
+insert into sosi values(5545, 'kim', 70, sysdate,  'km@it.com', 'B');
+insert into sosi values(5578, 'hong', 50, sysdate, 'hg@ra.org', 'A');
+insert into sosi values(5599, 'kang', 40, sysdate, 'ng@sn.net', 'B');
+insert into sosi values(5545, 'choi', 60, sysdate,  'ci@it.com', 'F');
+insert into sosi values(5511, 'goo',  20, sysdate, 'go@ra.org', 'A');
+commit ;
+select * from  sosi ;
 
 
-- 조건이 2개 있을경우 
+
+/*
+[김밥, 꼬마김밥, 양반김, 김치, 김치찌개, 총각김치, 파김치, 갓김치, 고래밥,  파래김]
+▶ 김% : 김밥, 김치, 김치찌개
+▶ %김 : 양반김,파래김
+▶ %김치% : 김치, 김치찌개, 총각김치, 파김치, 갓김치
+*/
+
+-- 조건이 2개 있을경우  and, or 논리연산자 사용기술
 SQL> select * from sosi where  grade='A'  and  grade='B' ;
 SQL> select * from sosi where  grade='A'  or  grade='B' ;
-SQL> select * from sosi where  grade='a'  or  grade='b' ;  --데이터가 없습니다
-SQL> select * from sosi where  grade in ('A', 'B');
+SQL> select * from sosi where  grade='A'  or  grade='b' ; 
+SQL> select * from sosi where  grade in ('A', 'B'); 
 SQL> commit ;
 
-SQL> update sosi set grade ='S' where name='lee' ;
-SQL> update sosi set  name='east' ;   
-SQL> select  * from  sosi  ; 
+-- order by 필드  asc생략가능/desc역순
+-- select 필드명,~~~ from T명  where조건~  order by id asc ;
+-- select 필드명,~~~ from T명  where조건~  order by id ; --asc생략가능
+-- select 필드명,~~~ from T명  where조건~  order by id desc ; 역순
 
-SQL> rollback ;
-SQL> select  * from  sosi  ; 
+SQL> select * from sosi where  grade='A' ;
+SQL> select * from sosi where grade='A'  order by id desc ;
+SQL> select * from sosi where grade='A'  order by id  ;
+SQL> select * from sosi where grade='A'  order by name ;
+SQL> 에러발생 select * from sosi order by id  where grade='A'  ;
 
+insert into sosi values(9945, 'kim', 66, sysdate,  'ci@it.com', 'D');
+insert into sosi values(9933, 'lee',  22, sysdate, 'go@ra.org', 'D');
+commit ;
 
---grade가 'A' 인 곳 salary 10% 인상
-SQL> update sosi  set  salary=salary*1.1  where grade='A';
-SQL> update sosi  set  salary=salary*2  ;  --조건없이 급여전체변경
-SQL> commit ;
-SQL> select  * from  sosi ;
-
-
---  grade가 'D'인 곳 삭제
+--  name가 'gugu'인 곳 삭제
 --  delete  from  테이블  ; 
 SQL> select  *  from  sosi ;
-SQL> delete  *  from  sosi;   --에러 삭제select쿼리문은 * 기술하면 에러 
-SQL> delete   from  sosi;   --절대금지 전부 삭제
+SQL> 문법에러 delete  *  from  sosi;  
+SQL> 금지 전체삭제 delete    from  sosi;   
+SQL> select  *  from  sosi ;
+SQL> rollback ;
+
+SQL> select  *  from  sosi ;
+SQL> delete from sosi where name = 'gugu';
+SQL> commit ;
 SQL> select  *  from  sosi ;
 
-SQL> rollback ;
-SQL> select  *  from  sosi ;
-SQL> delete from sosi where grade = 'D';
-SQL> delete from sosi where salary > 300;
 
  
 --트랜잭션 : 
-  rollback : 마지막  되돌리기
+  rollback : 마지막  되돌리기(select쿼리문제외)
   commit : 완전히 DB에 저장하기
+  상식] 서버에 데이터를 select쿼리문 추출한데이터를 본인컴퓨터에서 제어 
+       데이터셋=레코드셋=dataset,recordset
+
+#--------------------------------------------------------------------------------------------------------------------------------------------
+SQL> select * from  sosiCOPY;
+SQL> create table  sosiCOPY  
+     as
+     select * from  sosi ; 
+
+SQL> update sosi  set salary = salary*10; 
+SQL> commit ;
+SQL> select  * from sosi ;
+SQL> select  * from sosi  where  salary > 450 ; 
+SQL> select  * from sosi  where  salary = 700 ;
+SQL> select  * from sosi  where  salary < 500 ;
+
+문제]  salary  500 ~ 1200 사이 
+SQL> select * from sosi   where salary >= 500 and salary <= 1200 ;
+SQL> select * from sosi   where  salary  between 500  and  1200 ;
+
+SQL>select * from sosi  where  name = 'lee'    ;
+SQL>select * from sosi  where  name = lee      ;  --에러 
+SQL>select * from sosi  where  name = "lee"    ;  --에러 
+
+SQL> select name || '님 ' || ' 메일주소 ' || email  from sosi ;
+SQL> select name || '님 ' || ' 등급은 '   || grade  || ' 입니다' from sosi ;
 
 
-SQL> drop sequence   test _seq ;
+ where 필드명 like  '%김%' 
+[김밥, 꼬마김밥, 양반김, 김치, 김치찌개, 총각김치, 파김치, 갓김치, 고래밥]
+▶ 김% : 김밥, 김치, 김치찌개
+▶ %김 : 양반김
+▶ %김치% : 김치, 김치찌개, 총각김치, 파김치, 갓김치
+
+
+SQL> select * from sosi  where  name like  '%e%'    ;
+SQL> select * from sosi  where  name = like  '%e%'  ;  	--에러
+SQL> select * from sosi  where  name  like '*e*'    ;    --에러
+
+SQL> select  * from sosi  where name like '%e%' order by id ;
+SQL> select  * from sosi order by id  where name like '%e%';에러
+
+SQL> select * from sosi  where  id = 3378 ;
+SQL> select * from sosi  where  id != 3378 ;
+SQL> select * from sosi  where  id <> 3378 ;
+
+
+insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@it.com', 'A');
+insert into sosi values(2000,'연아',90,to_date('17/11/16'),  'bb@it.com', 'F');
+insert into sosi values(3000,'제니',120,to_date('17/10/25'), 'cc@it.com', 'C');
+commit ;
+select * from sosi ;
+
+SQL> select * from sosi where birth < '19/12/12' ;
+SQL> select * from sosi where to_char(birth, 'yymmdd') = '191212';  
+SQL> select * from sosi where to_char(birth, 'yyyymmdd') = '20191212' ; 
+
+
+문제]  2017년 1월1일부터 ~ 2021년 12월31까지 조회
+SQL>  
+
+
+문제] 현재날짜에서-birth필드
+SQL> select id,name,birth,round(sysdate-birth) 일수 from sosi ;
+
+SQL> update sosi set  salary=(salary*120) ;
+SQL> commit ;
+SQL> select * from sosi ; 
+
+SQL> select id, name, salary from sosi ;
+SQL> select id, name, salary, to_char(salary, '$099,999,999') as pay from sosi ;
+       2000 김연아     $000,115,000
+SQL> select id, name, salary, to_char(salary, '$99,999,999') as pay from sosi ;
+       2000 김연아     $115,000
+SQL> select id, name, salary, to_char(salary, 'L099,999,999') as pay from sosi ;
+        2000 김연아   ￦000,115,000
+SQL> select id, name, salary, to_char(salary, 'L99,999,999') as pay from sosi ;
+       2000 김연아    ￦115,000
+
+
+문제] 급여의 평균
+SQL> select avg(salary) 평균  from sosi ;
+SQL> select avg(salary) 평균  from sosi group by grade ;
+SQL> select grade, avg(salary) 평균  from sosi group by grade ;
+SQL> select grade, avg(salary) 평균  from sosi group by grade order by grade ;
+SQL> select grade, avg(salary) 평균  from sosi group by grade having  avg(salary)> 80000 ;
+
+문제] 급여의 A등급의 평균출력  
+SQL> select grade, avg(salary) 평균  from sosi group by grade ;
+
+SQL> select grade, avg(salary) 평균  from sosi group by grade  having grade='A' ;
+	 GRAD       평균
+	---- ----------
+	 A        235200
+
+SQL> select grade, avg(salary) 평균  from sosi where grade='A'   group by grade  ;
+	 GRAD       평균
+	---- ----------
+	 A        235200
+
+문제] 급여의 평균에서 8만이상인 데이터출력 
+SQL> select grade, avg(salary) 평균  from sosi group by grade  having avg(salary) > 80000 ;
+SQL> select grade, avg(salary) 평균  from sosi where avg(salary) > 80000   group by grade ;
+
+
+
+SQL> select grade , 
+     to_char(sum(salary), 'L99,999,999') as 급여합계
+     from sosi 
+     group by grade  
+     order by grade ;
+
+	GRAD 급여합계
+	---- ------------------------------------------
+	A             ￦1,176,000
+	B               ￦132,000
+	C               ￦212,400
+	D               ￦105,600
+	F               ￦567,600
+
+
+
+SQL> select grade, 
+     to_char(avg(salary), 'L99,999.99')  as avg 
+     from sosi group by grade  order by grade ;
+
+
+SQL> select grade , sum(salary) from  sosi  group by grade  order by grade ;
+SQL> select grade , sum(salary) from  sosi  
+     group by grade
+     having sum(salary)> 80000 
+     order by grade ;
+
+SQL> select grade , to_char(sum(salary), 'L99,999') 급여 
+     from sosi 
+     group by grade
+     having sum(salary)> 80000 
+     order by grade ;
+
+SQL> insert into sosi 
+     values ( 2000, 'young', 987, sysdate, 'ng@lg.com', 'B' ) ;
+SQL> desc sosi ;
+★---------------------------------------------------------------------------------------------------------------------------------------------
+create sequence  시퀀스이름 
+INCREMENT BY 1 : 시퀀스 실행 시 증가시킬 값
+START WITH 1 : 시퀀스의 시작값이다. (MINVALUE과 같거나 커야 한다)
+MINVALUE : 시퀀스가 시작되는 최솟값이다.
+MAXVALUE : 시퀀스가 끝나는 최댓값이다.
+NOCYCLE | CYCLE : NOCYCLE (반복안함), CYCLE(시퀀스의 최댓값에 도달 시 최솟값 1부터 다시시작)
+NOCACHE | CACHE : NOCACHE(사용안함), CACHE(캐시를 사용하여 미리 값을 할당해 놓아서 속도가 빠르며, 동시 사용자가 많을 경우 유리)
+NOORDER | ORDER : NOORDER(사용안함), ORDER(요청 순서로 값을 생성하여 발생 순서를 보장하지만 조금의 시스템 부하가 있음)
+
+SQL> drop sequence  m_seq ; --여러분은 에러발생 
+SQL> create sequence  m_seq  increment by 1 start with 1 nocycle nocache;
+SQL> select sequence_name from user_sequences;
+SQL> select m_seq.nextval  from  dual ; --시퀀스값증가 
+SQL> select m_seq.currval  from  dual ; --시퀀스 마지막값 확인
+
+--시퀀스순번발생 : 
+SQL> drop sequence    test _seq ;
 SQL> create sequence  test _seq ;  --시퀀스는 자동번호 1부터시작 1씩증가 
+SQL> select sequence_name from user_sequences;
 
 SQL> drop table test ;
 SQL> create table  test (
@@ -421,192 +688,88 @@ SQL> create table  test (
      ) ;
 SQL> commit ;
 
-SQL>insert into test values(test _seq.nextval, 'abc', 23);
-SQL>insert into test values(test _seq.nextval, 'xyz', 34);
-SQL>insert into test values(test _seq.nextval, 'blue',78);
-
+SQL> insert into test values(test_seq.nextval, 'abc', 23);
+SQL> insert into test values(test_seq.nextval, 'xyz', 34);
+SQL> insert into test values(test_seq.nextval, 'blue',78);
 SQL> select * from test;
 
 SQL> delete from test  where name='xyz' ;
 SQL> select * from test;
-SQL> insert  into test  values(test _seq.nextval, 'oreo', 41) ;
+SQL> insert  into test  values(test_seq.nextval, 'oreo', 41) ;
 SQL> select * from test ;   
 SQL> commit ;
 
 
-#--------------------------------------------------------------------------
-Table구조변경
-1) 새로운컬럼 추가       Alter   table 테이블명 add ( 필드명   타입) ;
-2) 기존컬럼의 타입변경    Alter   table 테이블명 Modify(필드  타입) ;
-3) 기존컬럼필드명 변경    Alter   table  테이블명  rename  column 구필드명 to  신새로운필드명
-4) 컬럼 삭제           Alter   table 테이블명 Drop (column이름만);
-5) 테이블 삭제         Drop	    table  테이블명;   --저장공간을 그대로 유지하면서 테이타삭제됨 
-6) 테이블절삭          Truncate   table 테이블명;  --저장공간도 테이타삭제됨 
-
-
---시퀀스 확인
-SQL> select sequence_name  from user_sequences;  
-SQL> select test_seq.currval  from  dual ; --시퀀스 마지막값 확인
-SQL> select test_seq.nextval  from  dual ; --시퀀스값증가 
-
-insert into sosi values(3345, 'red', 370, sysdate, 'aa@girl.com', 'F');
-insert into sosi values(3378, 'blue', 450, sysdate, 'aa@girl.com', 'A');
-insert into sosi values(3399, 'city', 140, sysdate, 'aa@girl.com', 'F');
-
-SQL>select  * from sosi ;
-SQL>select  * from sosi  where  salary > 300 ; 
-SQL>select  * from sosi  where  salary = 370 ;
-SQL>select  * from sosi  where  salary < 200 ;
-
-문제1]  salary  100 ~ 400 사이 
-SQL> select * from sosi   where salary >= 100 and salary <= 400 ;
-SQL> select * from sosi   where  salary  between 100  and  400 ;
-
-SQL>select * from sosi  where  name = 'lee'    ;
-SQL>select * from sosi  where  name = lee      ;  --에러 
-SQL>select * from sosi  where  name = "lee"    ;  --에러 
-
-SQL>select * from sosi  where  name like  '%e%'    ;
-SQL>select * from sosi  where  name = like  '%e%'  ;  	--에러
-SQL>select * from sosi  where  name  like '*e*'    ;    --에러
-
-SQL> select  * from sosi  where name like '%e%' order by id ;
-SQL> select  * from sosi order by id  where name like '%e%';에러
-
-SQL>select * from sosi  where  id = 3345 ;
-SQL>select * from sosi  where  id != 3345 ;
-SQL>select * from sosi  where  id <> 3345 ;
-
-SQL> select * from sosi where birth < '19/12/21' ;
-SQL> select * from sosi where to_char(birth, 'yymmdd') = '190521'
-SQL> select * from sosi where to_char(birth, 'yyyymmdd') = '20190521' ;
-
-SQL> update  sosi set birth=to_char('15/05/23') where name='dong';
-SQL> update  sosi set birth=to_char('16/12/29') where name='red';
-
-SQL> select * from sosi order by birth desc; 권장
-SQL> select * from sosi where birth < '19/05/21' ;
-
-문제]  2017년 1월1일부터 ~ 2019년 12월31까지 조회
-SQL>  select * from  sosi
-      where birth between '15/01/01' and '18/12/31'  ;
-
-문제] 현재날짜에서-birth필드
-SQL> select id,name,birth,round(sysdate-birth) 일수 from sosi ;
-
-SQL> update sosi set  salary=(salary*120) ;
-SQL> commit ;
-SQL> select * from sosi ; 
-
-
-SQL> select id, name, to_char(salary, '$099,999,999') as sal from sosi ;
-       7000 김고은     $000,115,000
-SQL> select id, name, to_char(salary, '$99,999,999') as sal from sosi ;
-       7000 김고은     $115,000
-SQL> select id, name, to_char(salary, 'L099,999,999') as sal from sosi ;
-        7000 김고은   ￦000,115,000
-SQL> select id, name, to_char(salary, 'L99,999,999') as sal from sosi ;
-       7000 김고은    ￦115,000
-
-SQL> select grade , 
-     to_char(sum(salary), 'L99,999,999') as total 
-     from sosi group by grade  order by grade ;
-
-GRA TOTAL
---- ------------------------------------------
-A              ￦396,400
-B              ￦232,200
-C              ￦193,800
-F               ￦89,800
-
-
-
-SQL> select grade, 
-     to_char(avg(salary), 'L99,999.99')  as avg 
-     from sosi group by grade  order by grade ;
-
-GRA AVG
---- ----------------------------------------
-A           ￦99,100.00
-B           ￦77,400.00
-C           ￦64,600.00
-F           ￦89,800.00
-
-
-SQL> select grade , sum(salary) from  sosi  group by grade  order by grade ;
-SQL> select grade , sum(salary) from  sosi  group by grade
-     having sum(salary)> 2000 order by grade ;
-
-SQL> select grade , to_char(sum(salary), 'L99,999') from sosi group by grade
-     having sum(salary)> 2000 order by grade ;
-
-SQL> select grade, avg(salary) from sosi group by grade ;
-SQL> select grade, avg(salary) from sosi group by grade order by grade;
-SQL> select grade, to_char(avg(salary), 'L99,999.99')  as avg from sosi group by grade ;
-
-SQL> select grade, avg(salary) from sosi 
-            group by grade having avg(salary)< 1000;
-
-SQL> select grade, avg(salary) avg from sosi group by grade
-     having avg(salary) < 1000
-     order by grade ;
-
-
-
-
-SQL> drop sequence  bbs_seq ;
-SQL> create sequence  bbs_seq ; --1부터시작 1씩증가 
-
-SQL> drop table bbs ;
-SQL> create table   bbs  (
-          key number  primary key ,
-          name varchar2(10) not null  ,
-          pay number(3)  
-       )  ;
-SQL> commit ;
-
-SQL>insert into  bbs  values(bbs_seq.nextval, 'abc', 23);
-SQL>insert into  bbs  values(bbs_seq.nextval, 'xyz', 34);
-SQL>insert into  bbs  values(bbs_seq.nextval, 'blue',78);
-SQL>insert into  bbs  values(bbs_seq.nextval, 'red',45);
-SQL>insert into  bbs  values(bbs_seq.nextval, 'orange',56);
-
-SQL> select * from  bbs ;
-
-SQL> delete from  bbs   where name='xyz' ;
-SQL> select * from  bbs ;
-SQL> insert  into   bbs  values(test _seq.nextval, 'oreo', 41) ;
-SQL> select * from  bbs  ;   
-SQL> commit ;
-
-
+★-----------------------------------------------------------------------------------------
 제약에는 5가지종류가 있습니다
 1) Not null :  컬럼에 null값 허용하지 않음
-2) unique : 컬럼값이 유일해야 함 unique = not null + primary key
-3) primary key : 컬럼값이 유일하고  null허용하지 않음 (PK)
+2) unique : 컬럼값이 유일해야 함 
+3) primary key : 컬럼값이 유일하고  null허용하지 않음 primary key = not null + unique
 4) Foreign key : 다른테이블의 컬럼을 참조하는 키(FK)       
 5) check : 컬럼조건에 참인값만 허용함 
 --check 제약조건삭제 없으면 에러 발생합니다 
 --제약조건에서 없는 입력을 방지할수 있습니다
 
-SQL> drop  drop temp ;
+SQL> drop  table temp ;
 SQL> create table  temp(
-   empid  number(4) ,
-   empname  varchar2(10),
-   sal  number(7,2),
-   comm  number(5,2),
-   constraint  TEMP_chk_sal  check(sal>comm)  
+    empid  number(4) ,
+    empname  varchar2(10),
+    sal  number(7,2) ,
+    comm  number(5,2),
+    constraint  temp_chk_sal  check(sal>comm)  
 );       --만약에  보너스가 더 크면 check제약  
  
-SQL>insert into temp values( 2234, 'aaa', 4500, 91) ;
-SQL>insert into temp values( 2237, 'bbb', 4500, 91) ;
-SQL>commit ;
-SQL>select  * from temp ;
-SQL>insert into temp values( 2239, 'ccc', 780, 9800) ; --제약조건에러
-SQL>insert into temp values( 3345, 'ddd', 4500, 91) ;
-SQL>insert into temp values( 2239, 'ccc', 3400, 7600) ; --제약조건에러
+SQL> insert into temp values( 2234, 'aaa', 4500, 91) ;
+SQL> insert into temp values( 2237, 'bbb', 4500, 91) ;
+SQL> commit ;
+SQL> select  * from temp ;
+SQL> insert into temp values( 2239, 'ccc', 780, 9800) ; --제약조건에러
+SQL> insert into temp values( 3345, 'ddd', 4500, 91) ;
+SQL> insert into temp values( 2239, 'ccc', 3400, 7600) ; --제약조건에러
+
+#자동숫자발생 sequence, 제약조건 check까지 확인
+#--------------------------------------------------------------------------
+Table구조변경
+1) 새로운컬럼 추가       alter   table  테이블명 add ( 필드명   타입) ;
+2) 기존컬럼의 타입변경    alter   table  테이블명 Modify(필드  타입) ;
+3) 기존컬럼필드명 변경    alter   table  테이블명  rename  column 구필드명 to  신새로운필드명
+4) 컬럼 삭제            alter   table  테이블명 drop column  필드이름;
+5) 테이블 삭제          drop   table   테이블명;  
 
 
+
+--tblMember 테이블 생성
+ drop table tblmember ;
+ create table tblmember (
+    num NUMBER,
+    name VARCHAR2(10),
+    age NUMBER,
+    addr VARCHAR2(30)
+ );
+ commit ;
+
+--tblMember 테이블에 phone 필드 추가
+ alter table tblMember add phone varchar(10);
+ desc tblMember ;
+
+--tblMember 테이블에 phone 필드의 크기 변경
+ alter table tblMember modify (phone varchar2(20));
+ desc tblMember ;
+
+--tblMember 테이블의 phone 필드의 이름을 mobilephone 변경
+ alter table tblMember rename column phone to mobilephone;
+ alter table tblMember rename column  addr to city;
+ desc tblMember ;
+
+--tblMember 테이블의 mobilephone 필드 삭제
+ alter table tblMember drop column  mobilephone;
+ desc tblMember ;
+
+--tblMember 테이블 제거
+ drop table tblMember;
+ commit ;
+ desc tblMember ; 에러발생
+#--------------------------------------------------------------------------
 --port번호 변경  웹서버포트 8080/ 오라클포트를 9000변경하면 좋아요
 시작 =>  cmd창 ->  sqlplus   system/1234
 SQL>  select dbms_xdb.getHttpPort() from dual;  --포트확인
@@ -619,4 +782,13 @@ SQL> exit
 
 C:\Users\~ > exit
 
-----------------------------------------------------------------------------------/
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+
+윈도우시작 cmd입력 command
+C:\User\~~~> cls
+C:\User\~~~> sqlplus  system/1234
+
+ clear screen;   
+ col name for a10 ;
+ col email for a15 ;
+ col grade for a4 ;
+ col id for 9999
+
+
+SQL> update sosi set salary=salary*2.78  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+SQL> update sosi set salary=salary*3.1415  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+
+
+SQL> select  avg(salary) from sosi; 
+      AVG(SALARY)
+      -----------
+      603.946125
+
+SQL> select  trunc(avg(salary),2) from sosi;    --3째자릿수 반올림X
+	 TRUNC(AVG(SALARY),2)
+	 --------------------
+              603.94
+
+SQL> select  round(avg(salary),2) from sosi;    --3째자릿수 반올림O
+	 ROUND(AVG(SALARY),2)
+	 --------------------
+              603.95
+
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+      	 FLOOR(AVG(SALARY))
+	 ------------------
+               603
+
+SQL> select name,salary 급여, trunc(salary,2) from sosi;   --3째자릿수 반올림X
+SQL> select name,salary 급여, round(salary,2) from sosi;   --3째자릿수 반올림O
+SQL> select name,salary 급여, floor(salary) from sosi;     --소숫점버리기 
+SQL> clear screen;
+
+SQL> select  34.678,  floor( 34.678)  	from  dual ; 
+    	34.678 		FLOOR(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> select  34.678,  round( 34.678,2)  from  dual ;
+   	 34.678 	ROUND(34.678,2)
+	---------- ---------------
+ 	   34.678           34.68
+ 
+SQL> select  34.678,  ceil( 34.678)  	from  dual ; 
+ 	   34.678      CEIL(34.678)
+	---------- ------------
+   	 34.678           35
+
+SQL> select  34.678,  trunc( 34.678)  	from  dual ; 
+   	 34.678 	TRUNC(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> show user ;
+ 
+ create table  sosi (
+     id number(4) primary key ,
+    name varchar2(10) ,
+     salary number ,
+    birth date ,
+    email varchar2(20)  ,
+    grade varchar2(4)
+  ) ;
+
+commit;
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7789, 'hong', 79, sysdate, 'bc@kt.com', 'F');        
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7790, 'lee', 23, sysdate, 'lee@lg.com', 'C'); 
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(2234, 'young', 96, sysdate, 'kim@it.org', 'A'); 
+
+insert  into sosi(id,name,salary,birth,email,grade)  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
+insert  into sosi(id,name,salary,birth,email,grade)  values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
+insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
+insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
+
+insert into sosi  values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
+insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
+insert into sosi  values(2000,'윤아',90,to_date('17/11/13'), 'bb@girl.com', 'F');
+
+insert into sosi values(3000,'제니',120,to_date('17/10/25'), 'cc@girl.com', 'C');
+insert into sosi values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
+commit;
+select * from sosi ;
+
+1번째 www.oracle.com사이트가입
+2번째 작업폴더 C:\workspace
+3번째 https://github.com/posasi2000/itedu
+
+백단 서비스 
+데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+ㄴ오라클db서비스유지
+  ㄴ제어판=>관리도구=>서비스
+    ㄴOracleServiceXE 시작
+    ㄴOracleXEListener 시작
+오라클db서버설치 XE교육용=무료
+C:\oraclexe
+ ㄴC:\oraclexe\app\oracle\product\11.2.0\server
+
+여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
+강사컴퓨터 C:\Users\Posasi
+
+강사컴퓨터 오라클 삭제중입니다.
+여러분 따라 하지 마세요
+3시에 다시 수업합니다
+강사키보드가 청축이라서  음소거해제 한 상태입니다.
+
+
+
+뷰view보여주는 화면
+ ㄴ웹브라우저출력을 위해서 html,css,javascript
+
+*------------------------------------------------------------------------------
+웹서비스 백엔드 개발
+(4시간+(3일*8시간)=28시간)
+백엔드backend 데이터베이스 서버
+ ㄴ오라클,IBM,MS,Tmax 
+ ㄴMySQL,마리아db, 노SQL적용 몽고디비
+
+
+8/8
+오후교육 14:00~18:00(4시간)
+8/9 ~ 8/11
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-DBMS시스템 이해
+-SQL언어(DDL,DML,DCL)
+-insert처리,select, 집합함수
+-sequence,sub쿼리,조인이해
+-내장함수
+
+웹프로그래밍 응용 
+(6일*8시간=48시간)
+8/12 ~ 8/22
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Java프로그램, 이클립스설치
+-db연결 및 내장객체 이해
+-게시판글등록,출력
+-페이징,검색처리
+-로그인처리,session
+-MVC2모델 Servlet활용
+-Weekly 미니플젝
+
+
+웹서비스 아키텍처 
+(4일*8시간=32시간)
+8/23 ~ 8/26
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Node.js설치,웹서버 만들기
+-Web server launching
+-Node 동기/비동기처리,파일처리
+-db처리, 데이터입력, 출력

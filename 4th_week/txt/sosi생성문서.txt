@@ -1,0 +1,71 @@
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+
+윈도우시작 cmd입력 command
+C:\User\~~~> cls
+C:\User\~~~> sqlplus  system/1234
+
+
+ 
+SQL> edit c:/workspace/mysosi.sql
+
+ create table  sosi (
+     id number(4) primary key ,
+    name varchar2(10) ,
+     salary number ,
+    birth date ,
+    email varchar2(20)  ,
+    grade varchar2(4)
+  ) ;
+
+commit;
+
+ insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7789, 'hong', 79, sysdate, 'bc@kt.com', 'F');        
+
+ insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7790, 'lee', 23, sysdate, 'lee@lg.com', 'C'); 
+
+ insert  into sosi(id,name,salary,birth,email,grade) 
+     values(2234, 'young', 96, sysdate, 'kim@it.org', 'A'); 
+
+insert  into sosi(id,name,salary,birth,email,grade)  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
+insert  into sosi(id,name,salary,birth,email,grade)  values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
+insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
+insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
+
+insert into sosi  values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
+insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
+insert into sosi  values(2000,'윤아',90,to_date('17/11/13'), 'bb@girl.com', 'F');
+
+insert into sosi values(3000,'제니',120,to_date('17/10/25'), 'cc@girl.com', 'C');
+insert into sosi values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
+commit;
+select * from sosi ;
+
+
+ clear screen;   
+ col name for a10 ;
+ col email for a15 ;
+ col grade for a4 ;
+ col id for 9999
+select * from sosi ;
+
+
+
+
+1번째 www.oracle.com사이트가입
+2번째 작업폴더 C:\workspace
+3번째 https://github.com/posasi2000/itedu
+
+백단 서비스 
+데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+ㄴ오라클db서비스유지
+  ㄴ제어판=>관리도구=>서비스
+    ㄴOracleServiceXE 시작
+    ㄴOracleXEListener 시작
+오라클db서버설치 XE교육용=무료
+C:\oraclexe
+ ㄴC:\oraclexe\app\oracle\product\11.2.0\server
+
+여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
+강사컴퓨터 C:\Users\Posasi
