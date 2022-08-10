@@ -1,0 +1,591 @@
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+
+윈도우시작 cmd입력 command
+C:\User\~~~> cls
+C:\User\~~~> sqlplus  system/1234
+
+08-11-목요일
+ ㄴ서브쿼리 
+ ㄴ제약조건 emp,sosi,dept,student,test,temp  사용안하고 새로운 테이블
+ ㄴ프로시저procedure
+
+ clear screen;   
+ col ename for a10 ;
+ col job for a10 ;
+ col hiredate for a10 ;
+ col empno for 9999
+ col depto for 9999
+ col mgr for 9999
+
+08-10-수요일 과제
+문제제출] student테이블 총점, 평균, 합격여부, 순위 
+	(08-10-수요일)김영임성적처리student.sql
+	(08-10-수요일)김영임성적처리student.zip = 소스 + 화면캡처
+	(08-10-수요일)김영임성적처리student.txt
+	posasi2000@gmail.com
+
+student테이블 idx, name, kor, eng, mat 총점, 평균, 결과  case ~ end
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위     rank() 
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위, 결과
+
+문제1] sosi테이블 새로 작성후  데이터는 각자 알아서 5건이상
+       ㄴid,name,salary,birth,email,grade
+       ㄴ시퀀스 sosi_seq생성해서 id값을 sosi_seq이용해서 값대입
+       ㄴ총5건데이터입력
+       ㄴbirth필드명 wdate필드명변경
+       ㄴsalary필드명 pay필드명변경
+       ㄴ맨마지막 hit필드추가 default 0으로 초기화 
+문제2] emp테이블
+       1)job직업 매니저아닌사람 조회  <>  !=  ^=  연산 사용 
+       2)job필드 그룹화 인원카운팅 group by  count()
+       3)empno,ename,job, sal, comm, 연봉 
+         ㄴ연봉 (sal*12+comm) 널값일때 nvl함수이용해서 null일때 1이나 0으로 초기화
+         ㄴempno,ename,job, sal, comm, 연봉표시할때 to_char함수  ￦115,000
+       4)deptno필드로 그룹화한후 sal필드의 합계를 처리후  
+          ㄴ출력 deptno필드 소트해서 출력, 합계에 화폐단위및 3자릿수에 , 출력
+	
+self조인에서 안내문추가 
+SQL> select  e.ename   || '님의  상사는 ' ||    ad.ename   || ' 입니다 '
+     from emp  e, emp ad
+     where e.mgr = ad.empno;
+
+
+
+
+
+
+-- emp,dept테이블 조인 
+ SQL> select * from emp ;
+ SQL> 11~20 행번호 출력 
+  --튜닝전
+   select rownum,empno,ename,job,mgr,hiredate,sal,comm,deptno
+   from emp
+   where  rownum  between 11  and  20 ; 
+  
+  --튜닝후
+   select * from ( 
+     select rownum rn , e.*  from emp e
+   ) where rn between 11  and  20 ; 
+
+
+ select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+  from  emp e , dept d 
+  where e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+  from  emp e  inner join dept d 
+  on e.deptno = d.deptno ;
+
+#-----------------------------------------------------------------------------------------------
+
+emp테이블에서 작업
+문제1] 행번호 출력
+문제2] sal급여데이터에서 3000이상 조회 sal많은순으로 출력
+문제3] job직책데이터에서 매니저manager 조회
+문제4] 행번호 1~5번호 조회
+문제5] 행번호 6~10번호 조회
+ clear screen;   
+ col name for a10 ;
+ col email for a15 ;
+ col grade for a4 ;
+ col id for 9999
+ set pagesize 2000
+ set linesize  2000
+
+SQL> select rownum, e.*  from  emp e
+     where rownum between 1 and 5  ;
+
+SQL> select rownum, e.*  from  emp e
+     where rownum between 6 and 10  ;
+
+SQL> 정답 중첩쿼리문 emp테이블역할 (select rownum rn, e.* from  emp  e =인라인뷰=inlineView)
+   select  * from  (
+      select rownum rn, e.* from  emp  e
+    ) where rn between  6  and  10 ;
+
+SQL> show user 
+SQL> conn  scott/tiger
+
+데이터 317건  [1]~~[10][다음]  [이전][11]~~[20][다음]  [이전][21]~~[30][다음] [이전][31][32]
+한페이지당 10개행 출력  [1클릭] 1행~10행   [2클릭] 11행~20행
+
+SQL> select  * from  (
+     select rownum  rn, e.* from  emp  e
+    ) where rn  between  1  and  5 ;
+
+
+문제제출] student테이블 총점, 평균, 합격여부, 순위 
+	(08-10-수요일)김영임성적처리student.sql
+	(08-10-수요일)김영임성적처리student.zip = 소스 + 화면캡처
+	(08-10-수요일)김영임성적처리student.txt
+	posasi2000@gmail.com
+
+student테이블 idx, name, kor, eng, mat 총점, 평균, 결과  case ~ end
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위     rank() 
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위, 결괴
+
+
+
+
+floor(),to_char(), rank()함수, dense_rank(), over( ) 
+
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+    where hiredate between to_date('81/01/01')  and  to_date('81/09/30')   ;
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+     where hiredate between to_char('81/01/01')  and  to_char('81/09/30')   ;
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+     where hiredate between  '81/01/01'  and  '81/09/30'   ;
+
+
+
+ SQL> show user 
+ SQL> conn  scott/tiger
+ SQL> conn  system/1234 ===> 계정유저 실습진행하겠습니다
+      민규님한테 보낸소스 복붙 
+
+ 새로운 유저확인명령
+ SQL> select  username from  dba_users ; 
+       HR,SCOTT,SYSTEM 자동생성된유저
+       새로운유저 snow/1234
+
+      select  username from  dba_users ; 
+      create user snow  identified  by 1234 ;
+      grant connect, resource  to  snow ;
+      commit ;
+      select  username from  dba_users ; 
+      conn  snow/1234
+      select * from  sosi ;
+
+      conn  snow/1234
+      show user
+      select  username from  dba_users ; 
+      create user mytest  identified  by 1234 ;
+      --ERROR at line 1:
+      --ORA-01031: insufficient privileges
+
+
+08-10-수요일 데이터베이스
+ㄴjoin
+  dept테이블 deptno필드 /emp테이블의 맨마지막 컬럼열 deptno필드
+  dept테이블 
+     ㄴdeptno필드 primary key=pk
+  emp테이블 
+     ㄴ맨마지막 컬럼열 deptno필드는 참조=foreign key = fk
+
+  출력결과  empno, ename,  job,   sal,   dname부서명, loc부서근무지
+           emp    emp     emp    emp    dept테이블   dept테이블
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, self조인, full조인
+
+SQL>  select ~~ from 테이블a, 테이블b  where  a.필드=b.필드 
+ select empno, ename, job, sal,  dname, loc
+ from  emp , dept 
+ where emp.deptno = dept.deptno ;
+
+ col dname for  a12
+ col loc for  a12
+
+ 
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+
+
+SQL> 1번째 select ~~ from 테이블a, 테이블b  where  a.필드=b.필드 
+ select empno, ename, job, sal,  dname, loc
+ from  emp , dept 
+ where emp.deptno = dept.deptno ;
+
+SQL>  2번째  select ~~ from  inner join키워드 접근  where절대신 on 키워드접근
+ select empno, ename, job, sal,  dname, loc
+ from  emp  inner join  dept 
+ on emp.deptno = dept.deptno ;
+
+SQL> 3번째  inner키워드생략
+ select empno, ename, job, sal,  dname, loc
+ from  emp  join  dept 
+ on emp.deptno = dept.deptno ;
+
+
+Non-Equ조인실습
+emp테이블 empno, ename, job, sal ~~
+salgrade테이블 grade, losal, hisal
+SQL>
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e , salgrade s
+ where e.sal between s.losal  and s.hisal   ;
+
+SQL> inner join기술
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e  inner join  salgrade s
+ on e.sal between s.losal  and s.hisal   ;
+
+join조인
+ ㄴinner조인, 
+ ㄴNon-Equ조인, 
+ ㄴouter조인
+   ㄴright outer join, left outer join
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  2  from emp e  inner생략가능 join dept d
+  3  on e.deptno = d.deptno ;
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  right outer join dept d
+     on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  2  from emp e  right outer join dept d
+  3  on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  left outer join dept d
+    on e.deptno = d.deptno ;
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  inner join dept d
+    on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e  right outer join dept d
+     on e.deptno = d.deptno ;
+
+조인기술 다르게 기술 
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e , dept d
+     where  e.deptno(+) = d.deptno ;
+
+
+--기본 inner조인형식입니다  ~~(+)생략가능합니다 
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e , dept d
+     where  e.deptno = d.deptno(+) ;
+
+
+join조인
+ ㄴinner조인, 
+ ㄴNon-Equ조인, 
+ ㄴouter조인
+   ㄴright outer join, left outer join, full outer join
+     ㄴ~~ where  e.deptno(+) = d.deptno ;
+     ㄴ~~ where  e.deptno = d.deptno(+) ;
+
+
+SQL> full 아웃터조인 
+    select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e  full outer join dept d
+     on  e.deptno = d.deptno ;
+
+
+2개테이블 emp,dept
+  ㄴinner join, right outer join, left outer join 
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, self조인, full outer조인
+
+SQL> select * from dept ;  7건 --첫번째필드 deptno컬럼 pk
+SQL> select * from emp  ; 16건 --마지막필드 deptno컬럼 참조 = fk
+
+
+	유저생성 create user~~
+	권한부여 grant ~~~
+	conn  snow/1234
+	
+	행번호 select  ~ from  ( table역할쿼리) where ~~
+	join 
+
+
+SQL> select empno, ename, job, sal,  dname , loc
+     from emp, dept ;   --총데이터 112건 나왔습니다 
+
+
+SQL> select empno, ename, job, sal, deptno,  dname , loc
+     from emp, dept ;  --문법의에러
+
+==========================================================================================
+==========================================================================================
+SQL> 08-10-목요일 점심식사이후 2시 15분부터 다시 조인시작
+
+  select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e  inner join dept d 
+ on e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal,  d.dname, d.loc
+ from  emp e  inner join dept d 
+ using ( deptno );
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e  left outer join dept d 
+ on e.deptno = d.deptno ;
+
+ select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+ from emp e , dept d
+ where  e.deptno = d.deptno(+) ;
+
+
+emp테이블 empno, ename, job, sal + salgrade테이블 grade, losal, hisal
+SQL>
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e , salgrade s
+ where e.sal between s.losal  and s.hisal   ;
+
+영임쌤권장 조인 
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+
+emp테이블  +  salgrade테이블  + dept테이블
+ e.empno, e.ename, e.sal , s.grade 등급, d.dname, d.loc 
+
+ #ANSI는 미국국가표준원 American National Standards Institute
+
+ select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, cross조인, self조인, full outer조인
+ 
+--cross조인=방임조인,위험한조건
+   select  e.empno, e.ename, e.sal ,  d.dname, d.loc
+   from emp e  cross join  dept d;
+
+--full아웃터조인 결과는 right outer join 동일합니다
+ select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  from emp e  full outer join dept d
+  on  e.deptno = d.deptno ;
+
+--self조인 emp테이블 empno필드 ,mgr필드  || ' ' ||
+SQL> select * from emp ;
+  
+   select  e.ename || '님의 상사는 ' || ad.ename 상사 
+   from  emp e, emp ad
+   where  e.mgr = ad.empno ;
+
+
+SQL> select name || '님 ' || ' 등급은 '   || grade  || ' 입니다' from sosi ;
+
+
+
+
+==========================================================================================
+==========================================================================================
+ㄴsubquery서브쿼리설명은 아직 안했어요. 
+  사원테이블(사원명,사원명,부서~~), 상품테이블(제품코드,제품명, 단가, 입고날짜, 출고날짜)
+  거래처업체(업체코드, 업체이름, 연락, 지역)
+  실적테이블(사원명,사원명, 제품코드, 제품명,  단가, 수량 , 매출, 지역)
+  
+  고길동직원 판매액있어요
+  사장/회장/대표가 와서 길동보다 판매실적 높은 뽑아오세요
+  사장/회장/대표가 와서 길동씨랑 같은부서 뽑아오세요
+
+   select 필드  from (select~~인라인뷰) where rn between 6 and 10 ;
+ 
+
+
+
+
+
+
+
+
+#--------------------------------------------------------------------------
+사용자유저생성후,  행번호, 성적처리 합격여부 case ~ end
+ select  username from  dba_users ;
+ select  constraint_name from  user_constraints ;
+ select  sequence_name from  user_sequences ;
+
+
+
+
+
+
+
+
+
+SQL> update sosi set salary=salary*2.78  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+SQL> update sosi set salary=salary*3.1415  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+
+
+SQL> select  avg(salary) from sosi; 
+      AVG(SALARY)
+      -----------
+      603.946125
+
+SQL> select  trunc(avg(salary),2) from sosi;    --3째자릿수 반올림X
+	 TRUNC(AVG(SALARY),2)
+	 --------------------
+              603.94
+
+SQL> select  round(avg(salary),2) from sosi;    --3째자릿수 반올림O
+	 ROUND(AVG(SALARY),2)
+	 --------------------
+              603.95
+
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+      	 FLOOR(AVG(SALARY))
+	 ------------------
+               603
+
+SQL> select name,salary 급여, trunc(salary,2) from sosi;   --3째자릿수 반올림X
+SQL> select name,salary 급여, round(salary,2) from sosi;   --3째자릿수 반올림O
+SQL> select name,salary 급여, floor(salary) from sosi;     --소숫점버리기 
+SQL> clear screen;
+
+SQL> select  34.678,  floor( 34.678)  	from  dual ; 
+    	34.678 		FLOOR(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> select  34.678,  round( 34.678,2)  from  dual ;
+   	 34.678 	ROUND(34.678,2)
+	---------- ---------------
+ 	   34.678           34.68
+ 
+SQL> select  34.678,  ceil( 34.678)  	from  dual ; 
+ 	   34.678      CEIL(34.678)
+	---------- ------------
+   	 34.678           35
+
+SQL> select  34.678,  trunc( 34.678)  	from  dual ; 
+   	 34.678 	TRUNC(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> show user ;
+ 
+ create table  sosi (
+     id number(4) primary key ,
+    name varchar2(10) ,
+     salary number ,
+    birth date ,
+    email varchar2(20)  ,
+    grade varchar2(4)
+  ) ;
+
+commit;
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7789, 'hong', 79, sysdate, 'bc@kt.com', 'F');        
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7790, 'lee', 23, sysdate, 'lee@lg.com', 'C'); 
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(2234, 'young', 96, sysdate, 'kim@it.org', 'A'); 
+
+insert  into sosi(id,name,salary,birth,email,grade)  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
+insert  into sosi(id,name,salary,birth,email,grade)  values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
+insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
+insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
+
+insert into sosi  values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
+insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
+insert into sosi  values(2000,'윤아',90,to_date('17/11/13'), 'bb@girl.com', 'F');
+
+insert into sosi values(3000,'제니',120,to_date('17/10/25'), 'cc@girl.com', 'C');
+insert into sosi values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
+commit;
+select * from sosi ;
+
+1번째 www.oracle.com사이트가입
+2번째 작업폴더 C:\workspace
+3번째 https://github.com/posasi2000/itedu
+
+백단 서비스 
+데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+ㄴ오라클db서비스유지
+  ㄴ제어판=>관리도구=>서비스
+    ㄴOracleServiceXE 시작
+    ㄴOracleXEListener 시작
+오라클db서버설치 XE교육용=무료
+C:\oraclexe
+ ㄴC:\oraclexe\app\oracle\product\11.2.0\server
+
+여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
+강사컴퓨터 C:\Users\Posasi
+
+강사컴퓨터 오라클 삭제중입니다.
+여러분 따라 하지 마세요
+3시에 다시 수업합니다
+강사키보드가 청축이라서  음소거해제 한 상태입니다.
+
+
+
+뷰view보여주는 화면
+ ㄴ웹브라우저출력을 위해서 html,css,javascript
+
+*------------------------------------------------------------------------------
+웹서비스 백엔드 개발
+(4시간+(3일*8시간)=28시간)
+백엔드backend 데이터베이스 서버
+ ㄴ오라클,IBM,MS,Tmax 
+ ㄴMySQL,마리아db, 노SQL적용 몽고디비
+
+
+8/8
+오후교육 14:00~18:00(4시간)
+8/9 ~ 8/11
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-DBMS시스템 이해
+-SQL언어(DDL,DML,DCL)
+-insert처리,select, 집합함수
+-sequence,sub쿼리,조인이해
+-내장함수
+
+웹프로그래밍 응용 
+(6일*8시간=48시간)
+8/12 ~ 8/22
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Java프로그램, 이클립스설치
+-db연결 및 내장객체 이해
+-게시판글등록,출력
+-페이징,검색처리
+-로그인처리,session
+-MVC2모델 Servlet활용
+-Weekly 미니플젝
+
+
+웹서비스 아키텍처 
+(4일*8시간=32시간)
+8/23 ~ 8/26
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Node.js설치,웹서버 만들기
+-Web server launching
+-Node 동기/비동기처리,파일처리
+-db처리, 데이터입력, 출력

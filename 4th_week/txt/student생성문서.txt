@@ -1,0 +1,36 @@
+
+drop table  student;
+create table student(
+  idx number(4) primary key,
+  name varchar2(10) not null,
+  kor number(3) default 0,
+  eng number(3) default 0,
+  mat number(3) default 0
+);
+
+drop sequence student_seq ;
+create sequence student_seq ;
+  
+    --어제 student테이블 만든분들은 새로 생성안해도 됩니다
+    --11시 5분에 시작  
+    --student테이블 kor, eng, mat, 총점, 평균, 결과
+    --총점,평균,결과 연산해야 합니다 
+    --평균점수 floor함수이용해서 소숫점 제거 
+    --평균점수가 100~70점 축합격, 0~69점 재시험 출력  
+
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '둘리짱', 80,80,95);
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '또치군', 75,90,65);
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '고길동', 100,95,90);
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '마이콜', 60,60,60);
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '도우넛', 75,80,75);
+insert into student(idx,name,kor,eng,mat) values(student_seq.nextval, '희동이', 80,78,90);
+commit;
+
+ select * from student ;
+ col name for a10
+ col kor for 99
+ col eng for 99
+ col mat for 99
+ select * from  student;
+ commit ;
+
