@@ -1,0 +1,4 @@
+조인
+서브쿼리
+cmd창에서 오라클해봄
+sqldeveloper 써봄

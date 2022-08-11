@@ -1,13 +1,414 @@
 https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
 
+java사이트 
+https://www.oracle.com/java/technologies/downloads/#java17 권장
+https://www.oracle.com/java/technologies/downloads/#java11 권장
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
+
+
 윈도우시작 cmd입력 command
 C:\User\~~~> cls
 C:\User\~~~> sqlplus  system/1234
+SQL> show user ;
 
 08-11-목요일
+ ㄴ제약조건 guest/guestreply
  ㄴ서브쿼리 
+ ㄴ프로시저procedure  create or replace 이름 ~~
+
+SQL> select procedure_name from user_procedures;
+SQL> select object_name from user_procedures;
+
+상용DB=네트워크DB=RDB(Relation Database)
+ ㄴIBM사 db2 
+    https://www.ibm.com/docs/ko/db2/11.1?topic=plsql-example-returning-ref-cursor-from-procedure
+ ㄴMS사 MySQL서버
+ ㄴ오라클사 oracle
+ ㄴTmax사 티베로
+
+set linesize 2000
+set pagesize 2000
+
+
+set serveroutput on 
+
+ declare
+   dan  number := 3 ;
+   cnt  number := 1 ;
+ begin 
+   while cnt <= 9 
+   loop
+      dbms_output.put_line(dan || '*' || cnt || '=' || (dan*cnt) );
+      cnt := cnt + 1 ;
+   end loop ; 
+ end;  
+ /
+
+
+ drop table lotto ;
+ create table lotto(
+   title varchar2(10), 
+   content varchar2(10),
+   writer varchar2(10), 
+   wdate date, 
+   hit number(3) 
+ );
+ commit ;
+ desc  lotto;
+
+
+
+ declare
+   cnt  number := 1 ;
+ begin 
+   while cnt <= 3 
+   loop
+      insert into lotto(title, content,writer, wdate, hit) 
+      values( concat('rain',cnt), concat('목요',cnt), 'admin', sysdate, 0) ; 
+      cnt := cnt + 1 ;
+   end loop ; 
+ end;  
+ /
+
+ commit ;
+ select * from lotto ;
+ commit ;
+
+
+create  or replace  procedure  CK_lotto
+  is
+  begin
+     dbms_output.put_line('lotto테이블 데이터입력 test ') ;   
+      insert into lotto(title, content,writer, wdate, hit) 
+      values( 'yellow', 'color', 'user', sysdate, 3) ; 
+  end;  
+  /
+
+SQL> select object_name from user_procedures;
+SQL> exec CK_lotto();
+SQL> select * from lotto ;
+SQL> commit  ;
+
+4시부터 6시까지 
+문제1]  sosi테이블 신규저장 프로시저 CK_sosi 생성하세요
+     ID NAME  SALARY BIRTH  EMAIL  GRADE hit필드
+
+문제2] emp테이블 select * from  ~~~
+      부하직원없는 출력 SMITH, ALLEN참조하지 않음  ==>내일아침에 꼭 출력 요청하세요 
+
+ (08-11-목요일)김영임sosi프로시저.zip
+ (08-11-목요일)김영임sosi프로시저2번째.zip
+ (08-11-목요일)김영임sosi프로시저3번째.zip
+
+
+
+
+#create table~~, create sequence~~, create user~~, create view ~~
+#create synonym~~, create procedure~~
+--port변경
+SQL> select dbms_xdb.getHttpPort() from dual ;
+SQL> exec dbms_xdb.setHttpPort(9000) ;
+SQL> commit ;
+SQL> select dbms_xdb.getHttpPort() from dual ;
+
+
+08-11-목요일
  ㄴ제약조건 emp,sosi,dept,student,test,temp  사용안하고 새로운 테이블
+    guest테이블	  guestreply테이블
+     code필드pk	   num필드시퀀스적용 ~~sabun필드fk
+
+ ㄴ서브쿼리 
  ㄴ프로시저procedure
+
+
+제약조건 emp,sosi,dept,student,test,temp  사용안하고 새로운 테이블
+guest테이블	  guestreply테이블
+code필드pk	   num필드시퀀스적용~~sabun필드fk
+
+SQL> 시퀀스생성, guestreply댓글 테이블생성
+  
+delete from guestreply ;
+delete from guest ;
+commit ;
+
+drop  table guest  ;
+create  table  guest (   
+   code   number(4)  primary key ,
+   name    varchar2(10) not null  ,
+   title   varchar2(16) not null , 
+   wdate   date  not null ,
+   pay     number(3)   not null ,
+   hit     number(3) default  0 ,  
+   email varchar2(16) default 'no@it.com' 
+ ); 
+
+commit ;
+select  *  from  guest ;
+commit ;
+
+insert into guest values(2234, 'aa', 'ace', sysdate, 51, 0 ,  'aa@kt.com') ;
+insert into guest values(7789, 'bb', 'blue', sysdate,  41, 0 ,  'bb@sk.com') ;
+insert into guest values(9900, 'cc', 'cake', sysdate, 71, 0, 'cc@lg.com') ;
+commit ;
+select * from guest ;
+commit ;
+
+ drop sequence  guestreply_seq ;
+ drop table guestreply;  
+ commit ; 
+
+ create sequence guestreply_seq ;
+ create table  guestreply (    
+  num number(4) not null,     
+  writer varchar2(10) not null,
+  content varchar2(20)not null,  
+  sabun number(4) not null        --guest테이블의  code필드와 연결
+ );
+ commit ; 
+
+
+col title for a12
+col email for a12
+col writer  for a12
+col content for a12
+col pay for 9999
+col hit for 999
+
+SQL> alter table guestreply drop  constraint  guest_code_fk ;
+ 
+SQL> alter table guestreply add  constraint  guest_code_fk
+     foreign key(sabun)  references guest(code)  on delete cascade ;
+
+SQL> select constraint_name from user_constraints ;
+
+문제] guestreply테이블 데이터 한건만 입력하세요
+     num필드는 시퀀스사용, writer,content,sabun필드는 code필드참조
+    
+insert into guestreply  values(guestreply_seq.nextval,'apple', 'blue', 2234 ) ;
+insert into guestreply  values(guestreply_seq.nextval,'kim', 'java', 3300 ) ; --에러
+insert into guestreply values(guestreply_seq.nextval, 'php','php', 9900 );
+insert into guestreply values(guestreply_seq.nextval, 'rain','rain', 2234 );
+insert into guestreply values(guestreply_seq.nextval, 'snow','snow', 2234 );
+insert into guestreply values(guestreply_seq.nextval, 'last','last',7789 );
+insert into guestreply values(guestreply_seq.nextval, 'goo','coffee', 2234 );
+
+문제] guestreply테이블 데이터 한건만 입력하세요
+insert into guestreply values(guestreply_seq.nextval, 'LA','LB', 2234 );
+
+
+SQL> select writer, content, sabun from guestreply order by sabun;
+SQL> select * from guest ;
+
+SQL> delete from  guestreply ;  --댓글내용전체 삭제
+SQL> commit ;
+
+ insert into guest values(7711, 'aa', 'bb', sysdate, 26 , 0 , 'b@it.net') ;
+ insert into guest values(7722, 'bc', 'ck', sysdate, 37 , 0 , 'c@it.net') ;
+ commit ;
+ select * from guest ;
+
+
+SQL> insert into guestreply
+     values(guestreply_seq.nextval, 'young', 'rain',9900) ;
+
+SQL> insert into guestreply
+     values(guestreply_seq.nextval, 'red', 'color',9900) ;
+
+
+문제] guest_code_fk 제약조건 삭제
+SQL> alter table guestreply drop constraint guest_code_fk;
+     삭제성공여부 
+
+SQL> select * from guestreply ;
+SQL> delete  from guestreply ;
+SQL> commit ;
+SQL> alter table guestreply drop constraint guest_code_fk;
+SQL> clear screen ;
+SQL> select * from guest ;
+
+SQL> show user 
+SQL> conn  system/1234
+SQL> show user 
+SQL> select * from emp ;
+문제1]  emp테이블에서 sal필드 2850보다 큰데이터  조회
+       SQL> select * from emp where sal > 2850 ;
+문제2]  emp테이블에서 ename필드 'BLAKE' 조회
+       SQL> select * from emp where ename='BLAKE' ;
+
+문제3]  emp테이블 BLAKE사람보다 실적=급여 높은사람, 동등한 실적=급여
+SQL> select * from emp 
+     where sal > (select * from emp where ename='BLAKE');
+
+SQL> select * from emp 
+     where sal > (select sal from emp where ename='BLAKE');
+
+문제4] rownum행번호표시, 그리고 행번호 6~10출력 
+     윤경님, 준호님, 진성님 
+  select * from (
+    select rownum rn, e.* from emp e 
+ ) where rn between 6 and 10;
+
+
+select ~~~ where  group  by   having절은 그룹조건  order by 
+emp테이블 sal필드  sum,avg,max,min,count 집계함수
+emp테이블 deptno필드 있습니다 deptno그룹화  sal필드 최소값 min()
+
+SQL> select deptno, min(sal) from emp group by deptno;
+SQL> select deptno, min(sal) 최소급여 from emp group by deptno;
+SQL> select deptno, min(sal) min from emp group by deptno;     
+      ㄴdeptno 소트 
+
+SQL> select deptno, min(sal) 최소급여 from emp group by deptno order by 1 ;
+      ㄴ최소값 데이터에서 900이상만 출력 having절
+       select deptno, min(sal) 최소급여 from emp 
+       group by deptno  having min(sal)>900  order by 1 ;
+
+에러    select deptno, min(sal) my from emp 
+       group by deptno  having my>900  order by 1 ;
+
+
+select ~~~ where절~~~ 그룹  having  order by 
+select ~~ (다시 select문기술) ~~~
+
+문제4] join쿼리문 여러분 기술하고 싶은대로 기술
+      emp테이블, dept테이블
+      empno, ename, job, sal, dname, loc 6개필드 출력
+
+ select e.empno, e.ename, e.job , e.sal, d.dname, d.loc
+ from emp e, dept d 
+ where  e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job , e.sal, d.dname, d.loc
+ from emp e inner join dept d 
+ on  e.deptno = d.deptno ;
+
+ 뷰view   
+ procedure프로시저 처리 
+ 오라클버젼 
+ 9i에서는 자동으로 생성
+ 10g에서부터 권한을부여  
+  ㄴsystem계정에서 지정
+  ㄴgrant connect, resource to scott ;
+  ㄴgrant create view to scott ;
+  ㄴgrant create procedure to scott ;
+
+  --sosiCOPY테이블생성 create table sosiCOPY as select * from sosi ;
+  
+  conn  system/1234
+  show user
+
+ SQL> select view_name from user_views;
+
+  select * from sosi;
+  drop table sosiCOPY ;
+  commit ;
+  select * from sosiCOPY; --에러
+
+  create table sosiCOPY 
+   as 
+  select * from sosi ;
+  
+  commit ;
+  select * from sosiCOPY; 
+
+  --show user 즉 conn  system/1234
+  --view생성
+   create view  emp_myview
+   as
+    select  empno, ename, sal, sal+17 as bonus
+    from emp
+    where deptno = 30 ;
+
+ SQL> select view_name from user_views;
+
+
+ 10g에서부터 권한을부여  
+  ㄴsystem계정에서 지정
+  ㄴgrant connect, resource to scott ;
+  ㄴgrant create view to scott ;
+  ㄴgrant create procedure to scott ;
+
+
+SQL
+ DDL-제약조건alter/필드변경alter, create, drop 
+ DML-insert/delete/update/select
+ TCL-commit/rollback
+ DCL-grant/revoke
+
+ synonym시노님=동의어 
+ create  synonym  mysal
+ for  salgrade ;
+ 
+ commit;
+ select * from salgrade ;
+ select * from mysal ;
+
+SQL> select view_name from user_views;
+SQL> select synonym_name from user_synonyms;
+SQL> select sequence_name from user_sequences;
+SQL> select constraint_name from user_constraints;
+
+SQL> select procedure_name from user_procedures;
+SQL> select object_name from user_procedures;
+
+상용DB=네트워크DB=RDB(Relation Database)
+ ㄴIBM사 db2 
+    https://www.ibm.com/docs/ko/db2/11.1?topic=plsql-example-returning-ref-cursor-from-procedure
+ ㄴMS사 MySQL서버
+ ㄴ오라클사 oracle
+ ㄴTmax사 티베로
+
+
+오전에 자바환경세팅 JAVA_HOME
+오전에 제약조건삭제, 제약조건 이름명명
+오전에 subquery 
+
+
+---------------------------------------------------------------------------------------
+ㄴsqldeveloper-22.2.0.173.2018-x64 폴더생성
+  ㄴsqldeveloper폴더
+  ㄴsqldeveloper.exe실행
+=====================================================================================
+jdk-11.0.16_windows-x64_bin.exe 
+ ㄴ설치할때 입력할 내용이나 옵션없이 그냥 다음 다음 눌려서 설치 
+ ㄴC:\Program Files\Java\java-11
+ ㄴ윈도우시작누르면 환경변수 입력
+    ㄴ시스템환경변수
+    ㄴ3번째 고급탭
+       ㄴ환경변수...클릭
+ ㄴ시스템변수(S)중간영역에 있습니다
+   새로만들기
+     변수이름   JAVA_HOME
+     변수값(V)  C:\Program Files\Java\java-11
+               디렉터리 찾아보기(D)...클릭
+   path선택후  편집...
+     새로만들기(N)
+        %JAVA_HOME%\bin
+
+ ㄴcmd입력후
+   C:~~~~> path
+   C:~~~~> java -version
+   C:~~~~> javac.exe 
+   C:~~~~> exit
+ 
+
+환경변수 들어가는 방법
+첫번째 윈도우 시작 
+  ㄴ환경변수 입력
+두번째 제어판 -> 시스템 
+  ㄴ고급 시스템 설정
+
+숙제권장
+(08-10-수요일)김영임성적처리student.zip
+(08-10-수요일)김영임성적처리student2번째진짜.zip
+
+sqldeveloper-22.2.0.173.2018-x64.zip압축풀기
+ ㄴsqldeveloper-22.2.0.173.2018-x64 폴더생성
+   ㄴsqldeveloper폴더
+     ㄴsqldeveloper.exe설치
+
+
+
 
  clear screen;   
  col ename for a10 ;

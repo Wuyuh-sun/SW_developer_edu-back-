@@ -6,27 +6,44 @@ C:\User\~~~> cls
 C:\User\~~~> path
 C:\User\~~~> cls
 C:\User\~~~> sqlplus  system/1234
-SQL> clear screen;   
-SQL> col name for a10 ;
-SQL> col email for a15 ;
-SQL> col grade for a2 ;
-SQL> col id for 9999
+ clear screen;   
+ col name for a10 ;
+ col email for a15 ;
+ col grade for a4 ;
+ col id for 9999
 
 
 SQL> update sosi set salary=salary*2.78  ;
 SQL> commit ;
 SQL> select  *  from sosi  ;
-SQL> select name,salary, trunc(salary,1) from sosi;   
-SQL> select name,salary, round(salary,1) from sosi;   
-SQL> select name,salary, floor(salary) from sosi;     
+SQL> update sosi set salary=salary*3.1415  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
 
-SQL> select  trunc(avg(salary),2) from sosi;   --소숫점2자릿수
-SQL> select  round(avg(salary),2) from sosi;   --소숫점2자릿수
+
+SQL> select  avg(salary) from sosi; 
+      AVG(SALARY)
+      -----------
+      603.946125
+
+SQL> select  trunc(avg(salary),2) from sosi;    --3째자릿수 반올림X
+	 TRUNC(AVG(SALARY),2)
+	 --------------------
+              603.94
+
+SQL> select  round(avg(salary),2) from sosi;    --3째자릿수 반올림O
+	 ROUND(AVG(SALARY),2)
+	 --------------------
+              603.95
+
 SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
-SQL> select *  from  sosi ;
-SQL> desc sosi ;
-SQL> set pagesize 1200 ;
-SQL> set linesize 1200 ;
+      	 FLOOR(AVG(SALARY))
+	 ------------------
+               603
+
+SQL> select name,salary 급여, trunc(salary,2) from sosi;   --3째자릿수 반올림X
+SQL> select name,salary 급여, round(salary,2) from sosi;   --3째자릿수 반올림O
+SQL> select name,salary 급여, floor(salary) from sosi;     --소숫점버리기 
 SQL> clear screen;
 
 

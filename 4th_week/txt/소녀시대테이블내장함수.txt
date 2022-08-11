@@ -1,3 +1,12 @@
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
+
+https://jenny-daru.tistory.com/4   ==>sqldeveloper설치
+https://e-you.tistory.com/187?category=1030438
+C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
+
+
 ★ SQL문
 1. 데이타 정의어(DDL : Data Definition Language)
     : create, alter, drop, rename, truncate 
@@ -31,7 +40,8 @@ C:\Users\~~>  sqlplus   system/1234
 
         
 SQL> clear screen ; --화면clear
-      
+     
+SQL>  show user ; 
 SQL>  select * from  sosi ;   --sosi객체가 없어 에러
 SQL>  clear screen ;
 SQL>  drop  table  sosi ;    --sosi객체가 없어 에러
@@ -49,7 +59,7 @@ SQL> desc sosi ;
 
 
 ★---------------------------------------------------------------------------
-SQL> spool  C:/workspace/testdbsosi0808.txt 
+SQL> spool  C:/workspace/testdbsosi0808.txt  --->기술안해도 됩니다
 
 SQL> select id,name,salary,birth,email, grade from sosi ;
 SQL> select * from  sosi ;   
@@ -225,7 +235,7 @@ SQL> select * from  sosi ;
 SQL> rollback ;
 SQL> select * from  sosi ;
 
---table구조에 필드추가, 필드타입수정, 필드명변경 ~~~~ alter명령실습
+
 SQL> select  count(*)  from  sosi;   
 SQL> select  count(id)  from  sosi;   
 SQL> select  count(id) as "cnt" from  sosi;  
@@ -427,7 +437,16 @@ SQL> select 7%4 from dual ;
 	--결과 : 화요일
 
   SQL> select to_char(sysdate, 'dy') from dual;
-	--결과 : 월
+	--결과 : 화
+
+
+
+  SQL> select to_char(sysdate, 'd') from dual;
+	--결과 : 숫자  1일  2월  3화  4수  5목  6금  7토
+
+   SQL> 에러 select   timestamp  from  dual ;  
+
+
 
 SQL> select * from sosi ;
 SQL> select name, grade ,
@@ -718,7 +737,8 @@ SQL> create table  temp(
     comm  number(5,2),
     constraint  temp_chk_sal  check(sal>comm)  
 );       --만약에  보너스가 더 크면 check제약  
- 
+
+ SQL> select  constraint_name from user_ constraints;
 SQL> insert into temp values( 2234, 'aaa', 4500, 91) ;
 SQL> insert into temp values( 2237, 'bbb', 4500, 91) ;
 SQL> commit ;
@@ -731,9 +751,9 @@ SQL> insert into temp values( 2239, 'ccc', 3400, 7600) ; --제약조건에러
 #--------------------------------------------------------------------------
 Table구조변경
 1) 새로운컬럼 추가       alter   table  테이블명 add ( 필드명   타입) ;
-2) 기존컬럼의 타입변경    alter   table  테이블명 Modify(필드  타입) ;
+2) 기존컬럼의 타입변경    alter   table  테이블명  modify(필드  타입) ;
 3) 기존컬럼필드명 변경    alter   table  테이블명  rename  column 구필드명 to  신새로운필드명
-4) 컬럼 삭제            alter   table  테이블명 drop column  필드이름;
+4) 컬럼 삭제            alter   table  테이블명  drop column   필드이름;
 5) 테이블 삭제          drop   table   테이블명;  
 
 
@@ -765,10 +785,22 @@ Table구조변경
  alter table tblMember drop column  mobilephone;
  desc tblMember ;
 
+
+--tblMember 테이블에 phone 필드 추가
+ alter table tblMember add phone varchar(10);
+ desc tblMember ;
+
+
 --tblMember 테이블 제거
  drop table tblMember;
  commit ;
  desc tblMember ; 에러발생
+
+ desc sosi ;
+ 문제] sosi테이블 마지막 hit조회수필드컬럼추가  number(3) 추가 default 0 지정
+ SQL> alter table sosi add hit number(3) default 0; 
+
+
 #--------------------------------------------------------------------------
 --port번호 변경  웹서버포트 8080/ 오라클포트를 9000변경하면 좋아요
 시작 =>  cmd창 ->  sqlplus   system/1234
@@ -782,7 +814,7 @@ SQL> exit
 
 C:\Users\~ > exit
 
-----------------------------------------------------------------------------------
+
 
 
 

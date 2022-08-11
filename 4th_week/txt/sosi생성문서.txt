@@ -1,4 +1,5 @@
 https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
 
 윈도우시작 cmd입력 command
 C:\User\~~~> cls
@@ -31,7 +32,9 @@ commit;
 insert  into sosi(id,name,salary,birth,email,grade)  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
 insert  into sosi(id,name,salary,birth,email,grade)  values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
 insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
-insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
+insert into sosi values(3357, 'red', 92, sysdate, 'rd@mo.it', 'B');
+insert into sosi values(7712, 'cake', 57, sysdate, 'ck@ks.it', 'F'); 
+insert into sosi values(3312, 'pizza', 92, sysdate, 'za@mo.it', 'C');
 
 insert into sosi  values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
 insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
@@ -48,17 +51,12 @@ select * from sosi ;
  col email for a15 ;
  col grade for a4 ;
  col id for 9999
-select * from sosi ;
+ select * from sosi ;
+ commit ;
 
 
 
-
-1번째 www.oracle.com사이트가입
-2번째 작업폴더 C:\workspace
-3번째 https://github.com/posasi2000/itedu
-
-백단 서비스 
-데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+#-------------------------------------------------------------------------------------------------
 ㄴ오라클db서비스유지
   ㄴ제어판=>관리도구=>서비스
     ㄴOracleServiceXE 시작
@@ -67,5 +65,3 @@ select * from sosi ;
 C:\oraclexe
  ㄴC:\oraclexe\app\oracle\product\11.2.0\server
 
-여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
-강사컴퓨터 C:\Users\Posasi

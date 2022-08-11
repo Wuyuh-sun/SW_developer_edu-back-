@@ -1,0 +1,5 @@
+-- sqldeveloper 설치(자바포함)
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
+
+-- 자바 11버전
+https://www.oracle.com/java/technologies/downloads/#java11
