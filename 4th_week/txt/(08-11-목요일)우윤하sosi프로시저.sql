@@ -12,3 +12,5 @@ end;
 -- 부하직원없는 출력 SMITH, ALLEN참조하지 않음
 
 select empno, ename, job ,hiredate, sal, comm, deptno from emp where empno > 7500;
+
+select  * from emp where empno not in (select nvl(mgr, 0) from emp);
