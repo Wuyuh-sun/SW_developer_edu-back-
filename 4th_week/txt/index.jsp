@@ -10,7 +10,12 @@
     a:hover{ font-size:24pt; text-decoration:underline ; color:blue ;}
     body{margin-left:10px;}
  </style>
-</head>
+ 
+ <script type="text/javascript">
+    //웹브라우저에서 제공되는 객체 DOM돔 window,document,location문서이동,history,image,screen
+    setTimeout("location.href='testList.jsp'" , 3000) ;
+ </script>
+</head> 
 <body>
   <p/>
   

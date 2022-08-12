@@ -15,7 +15,7 @@
   <p/>
   <h2>testWrite.jsp</h2>
   
-  <form name="myform" method="get" action="testWriteSave.jsp">
+  <form name="myform" method="post"  action="testWriteSave.jsp">
     제목: <input type="text" name="title" id="title"><br>
     급여: <input type="text" name="pay" id="pay"><br>
          <input type="submit" value="데이터저장"> &nbsp;
