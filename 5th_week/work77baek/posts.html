@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>posts</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script>
+        function aaa(){
+            var num =1 ;
+            console.log("🚀 ~ file: posts.html ~ line 19 ~ aaa ~ num", num)
+            var name = 'kim' ;
+            console.log("🚀 ~ file: posts.html ~ line 21 ~ aaa ~ name", name)
+        }
+    </script>
+    
+</head>
+<body>
+ <div class="jumbotron my-0">    
+  <h1 class="text-primary text-center">Hello  개인프로젝트</h1>
+ </div>
+
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="join.html">Join</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="posts.html">Post List</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="post_form.html">Post Form</a>
+        </li>
+      </ul>
+  </nav> 
+
+
+<div class="container py-4 text-center">
+        <h1>Posts List</h1>
+        
+        <table class="table table-striped">
+            <tr class="bg-secondary text-white">
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+            </tr>
+            <tr>
+                <td>2234</td>
+                <td>
+                    <a href="post_detail.html">장마철</a>
+                    <span class="badge badge-danger">
+                    </span>
+                  
+                </td>
+                <td>
+                   날짜
+                </td>
+            </tr>
+            
+        </table>
+<div>
+<ul class="pagination justify-content-center">
+    <!-- Prev--------------------- -->
+    <li class="page-item">
+        <a href="" class="page-link">Prev</a>
+    </li>
+
+    <li class="page-item disabled">
+        <a href="#" aria-disabled="true" tabindex="-1" class="page-link">Prev</a>
+    </li>
+ 
+    <li class="page-item active" aria-current="page">
+        <a href="" class="page-link"></a>
+    </li>
+
+    <li class="page-item">
+        <a href="" class="page-link"></a>
+    </li>
+
+    <li class="page-item ">
+        <a href="" class="page-link">Next</a>
+    </li>
+  
+    <li class="page-item disabled">
+        <a href="#" aria-disabled="true" tabindex="-1" class="page-link">Next</a>
+    </li>
+
+</ul> 
+    </div>
+    <div>총 게시물수: 78 개</div>
+</div>
+</body>
+</html>

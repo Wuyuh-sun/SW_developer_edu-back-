@@ -1,0 +1,131 @@
+입력문서 testWrite.jsp
+	ㄴ<form태그 method=get action=testWriteSave.jsp> + javascript
+저장문서 testWriteSave.jsp
+	ㄴmsg="insert into test values('"+Gtitle+"',"+Gpay+",sysdate,"+Gcode+")" ;
+         ST=CN.createStatement(); ST.executeUpdate(msg);
+전체출력 testList.jsp
+	ㄴmsg="select * from 테이블";  자바문법에서 select쿼리문은 반드시 executeQuery()실행
+         ST=CN.createStatement(); RS=ST.executeQuery(msg);
+         while(RS.next()==true){  
+           Gtitle=RS.getString("title필드");
+   	   출력 <% out.println(Gtitle); %>
+           출력 <%= Gtitle %>
+         }
+	
+
+testWrite.jsp문서는 화면입력화면 <form acton="guestWriteSave.jsp"> </form>
+testWriteSave.jsp문서는 insert into ~ 저장처리문서
+testList.jsp문서 =>File메뉴 Save as...
+ ㄴtestDetail.jsp문서는 msg="select * from test where code=2234";
+
+SQL> insert into test values( 'sunday', 71, sysdate, 2234 );
+SQL> commit ;
+SQL> select * from  test ;
+SQL> commit ;
+
+testWriteSave.jsp문서는 
+ ㄴinsert into ~ 저장처리문서후
+ ㄴresponse.sendRedirect("testList.jsp") ;
+
+
+8-16-화요일오후 문서 내장개체=web서버에서 제공되는 객체
+ request개체는 값전달
+ response개체는 문서이동을 testWriteSave.jsp문서에서 기술
+  ㄴ문서이동태그 <a href="">안내문</a>  <form action="~~">
+  ㄴindex.jsp문서에서 자바스크립트 location.href='testList.jsp'
+  testWriteSave.jsp문서
+   <% response.sendRedirect("testList.jsp") ; %>
+
+
+ page정보 <%@ page import="java.sql.*" %>
+ out    웹브라우저화면출력
+ session내장객체  login.jsp문서 userid값을  order.jsp문서에 넘길때
+ application 공용폴더사용할때 특히 파일업로드/다운로드
+
+
+
+
+
+==========================================================================
+한건상세 testDetail.jsp
+	ㄴselect * from 테이블 where pk필드 = 
+한건삭제 testDeleteSave.jsp
+	ㄴdelete from 테이블 where pk필드 = 
+한건수정문서 testEdit.jsp
+	ㄴselect * from 테이블 where pk필드 = 데이터
+	ㄴ한건수정데이터를 form태그출력
+한건수정처리 testEditSave.jsp
+	ㄴupdate set where ~~ 
+
+ㄴ부트스트랩,summernote
+ㄴ자바스크립트및 css
+ㄴ중복코드 최대한 제거
+ㄴ웹jsp문서+오라클데이터베이스
+ㄴjava문서+오라클데이터베이스
+ㄴ웹jsp문서+java문서+오라클데이터베이스
+ㄴxml+java문서+오라클데이터베이스
+
+drop table test ;
+create table test (
+   title varchar2(10) not null ,
+   pay number(3) not null ,
+   wdate date not null ,
+   code number(4) primary key 
+);
+commit ;
+delete from test ;
+commit ;
+select * from test ;
+
+
+첫번째 test테이블생성
+두번째 WEB-INF\lib폴더\ojdbc6.jar파일복붙
+세번째 testWrite.jsp문서먼저 실행
+4번째 testWriteSave.jsp문서  
+ msg="insert into test values('"+Gtitle+"',"+Gpay+",sysdate,"+Gcode+")" ; 
+
+
+
+
+문제] wdate필드 date타입추가하셔요 
+SQL> alter table test add( wdate  date) ;
+
+문제] code필드 number(4) primary key
+SQL> alter table test add( code number(4) primary key) ;
+SQL> commit ;
+SQL> desc test ;
+
+
+
+ ssi.jsp문서
+<%@ page import="java.util.Date" %> 
+<%@ page import="java.sql.Connection" %> 
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.*"  %> 
+
+<%! 
+  Connection CN=null ; //DB서버연결,명령어생성참조
+  Statement ST=null ; //명령어생성 ST=CN.createStatement();
+  PreparedStatement PST=null; //명령어생성 PST=CN.prepareStatement(내용);
+  ResultSet RS=null; //조회한결과기억 RS=ST.executeQuery("select~~")
+
+  int Grn, Gcode, Gsabun, Gpay, Ghit ; //정수숫자 자동으로 0으로 초기화
+  String  Gname, Gtitle, Gconent, Gwriter, Gemail; //문자열타입
+  java.util.Date  wdate, hiredate, birth ; //날짜타입
+  boolean Ggender, Gflag ;
+  int Gtotal=0, total=0, Stotal=0 ;  
+  String Gdata, data, Gmsg, msg ;
+%>
+
+
+
+
+
+
+
+
+
+
+
+
+
