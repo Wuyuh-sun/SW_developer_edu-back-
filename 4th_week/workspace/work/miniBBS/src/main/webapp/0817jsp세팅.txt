@@ -1,0 +1,28 @@
+miniBBS플젝 임포트후 
+ WebContent
+  |-bbs폴더
+    |-index.jsp문서 실행
+  |-database폴더
+    |-참고bbs.txt 
+
+
+포트충돌시 
+Servers탭
+ |-Tomcat V9.0 Server at localhost[started, Synchronized]선택후 더블클릭
+     |- Ports클릭
+         Tomcat admin port     8005변경   8015   
+         HTTP/1.1              8080변경   8081   
+
+
+C:~~~> sqlplus  system/1234 
+SQL> show user
+SQL> select dbms_xdb.getHttpport()  from  dual ;
+       혹시 8080나오면 오라클웹서버포트 8080인데 톰캣웹서버 포트 8080 같으면 충돌
+SQL> exec dbms_xdb.seHttpport(9000) ;
+SQL> commit ;
+SQL> select dbms_xdb.getHttpport()  from  dual ;
+SQL> commit ; 
+SQL> exit
+
+
+

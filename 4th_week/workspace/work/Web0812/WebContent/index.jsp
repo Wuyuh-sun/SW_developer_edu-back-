@@ -37,6 +37,7 @@
     <a href="testWrite.jsp">[게시판입력화면]</a>
     <a href="testList.jsp">[게시판전체출력]</a>
     <a href="index.jsp">[index]</a>
+    <a href="login.jsp">[로그인]</a>
   </div>
  
 </body>

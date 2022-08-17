@@ -132,13 +132,13 @@
 
   <form name="myform">
    	  사번:<input type=text name="sabun" value="9700" size=10>
-   	  <input type=button value="아이디중복" onclick="info();"><br>
-          이름:<input type=text name="name"  value="gildong"> <br>
+   	      <input type=button value="아이디중복" onclick="info();"><br>
+      이름:<input type=text name="name"  value="gildong"> <br>
           
    	  제목:<input type=text name="title"> <br>
    	     <span id="title_ch"></span> <br>
    	     
-          메일:<input type=text name="email" id="email" onblur="emailcheck();"> <br>
+      메일:<input type=text name="email" id="email" onblur="emailcheck();"> <br>
          <span id="email_ch"></span> <br>
          
    	  우편:<input type=text name="jusocode" id="jusocode" size=10>

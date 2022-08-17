@@ -12,6 +12,8 @@
  </style>
  
  <script type="text/javascript">
+   Gflag = false; //자바스크립트 전역변수 
+ 
    function nullCheck(){
 	  dcode = document.myform.code.value;
 	  dtitle = document.myform.title.value;
@@ -35,7 +37,11 @@
 	  }
 	  
 	  //code,title,pay데이터가 정상적으로 입력이 되면
-	  document.myform.submit(); 
+	  //document.myform.submit();
+	  //전역변수 Gflag체크해야죠
+	  if(Gflag==false){
+       alert("아이디=코드 중복체크를 하셔야 합니다");
+      }else if(Gflag==true){ document.myform.submit();}
    }//end
    
    function codeCheck(){
@@ -45,19 +51,39 @@
 		  myform.code.focus();
 		  return false;
 	  }
-	  window.open("openID.jsp", "bb", "width=500,height=150,left=550,top=200");
+	  Gflag=true;
+	  window.open("openID.jsp?idx="+dcode, "bb", "width=500,height=150,left=550,top=200");
    }//end
+   
+   function payNumber(){
+	  //onkeyup="payNumber();"
+ 	   var dpay=myform.pay.value;   //72a입력
+ 	   var size=myform.pay.value.length;
+ 	    for(var i=0; i<size; i++){
+	 	   if(dpay.charAt(i)<'0' || dpay.charAt(i)>'9'){
+	 	      alert("정확한 숫자를 입력하세요");
+	 	      myform.pay.value=dpay.substring(0,i); //권장
+	 	      //myform.pay.value=dpay.substr(0,i);
+	 	      myform.pay.focus();
+	 	    }
+ 	    }//for end
+ 	}//end
+ 	
+ 	function firstFocus(){
+ 		document.myform.code.focus();
+ 	}//end
  </script>
 </head>
-<body>
+<body onLoad="firstFocus()">
   <h2>testWrite.jsp</h2>
   
   <form name="myform" method="get"  action="testWriteSave.jsp">
     코드: <input type="text" name="code" id="code" size="6">
          <input type="button"  onClick="codeCheck();"  value="code중복체크"> <br>
     제목: <input type="text" name="title" id="title"> <br>
-    급여: <input type="text" name="pay" id="pay"> <br>
+    급여: <input type="text"  onkeyup="payNumber();"  name="pay" id="pay" > <br>
          <input type="button" onClick="nullCheck();" value="버튼데이터저장"> &nbsp;
+         <input type="submit" value="서브밋저장"> 
          <input type="reset" value="입력취소"> 
   </form>
   

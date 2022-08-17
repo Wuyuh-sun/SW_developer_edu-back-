@@ -1,0 +1,42 @@
+
+C:\~~~~~>  sqlplus  system/1234
+SQL>  show user
+  
+ drop sequence test_seq ;
+ create sequence test_seq ;
+ 
+ drop table test ;
+ create table test (
+      title varchar2(10) not null ,
+      pay  number(3) not null ,
+      gender varchar2(10) not null ,
+      wdate date not null ,
+      code  number(4) primary key ,
+      img_file_name varchar2(30) not null 
+ );
+
+
+ commit ; 
+ select * from test ;
+ col title for a10 ;
+ col img_file_name title for a12 ;
+ select * from test ;
+
+
+ 
+ drop table login;
+ create table login( 
+   userid varchar2(10) primary key ,
+   pwd varchar2(10) not null 
+ );
+
+ commit;
+ insert into login values( 'sky' , '1234' );
+ insert into login values( 'blue' , '1234' );
+ insert into login values( 'tis' , '1234' );
+
+ commit ;
+ select * from  login ;
+
+ 
+ 

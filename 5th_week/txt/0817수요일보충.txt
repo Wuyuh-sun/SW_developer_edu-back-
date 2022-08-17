@@ -1,0 +1,370 @@
+
+ --login시리즈는 꼭 복사붙여넣기하세요
+drop table login ;
+  create table login(
+     userid varchar2(10) primary key ,
+     pwd varchar2(10) not null
+  );
+
+ commit ;
+ insert into login values('sky', '1234') ;
+ insert into login values('blue', '1234') ;
+ commit ;
+
+ 
+
+ --bbs시리즈는 꼭 복사붙여넣기하세요
+ drop   sequence  bbs_seq ;  
+ create sequence bbs_seq ;
+
+ drop  table bbs;  
+
+ create  table  bbs (   
+   b_no number(3) not null,  --bbs_seq.nextVal  
+   b_sabun  number(4) not null ,  
+   b_name varchar2(15) not null,
+   b_title  varchar2(30) not null, 
+   b_cnt number(5) default 0 ,
+   b_content  varchar2(50) not null,
+   b_phone  varchar2(20) not null,
+   b_pwd  varchar2(10)  not null,
+   b_wdate  date   not null,
+   b_juso1  varchar2(100) not null, 
+   b_juso2  varchar2(50) not null, 
+   b_email varchar2(30) not null, 
+   b_url  varchar2(20)  null, 
+   b_file1  varchar2(30) null, 
+   b_size1  number(7) default 0 ,
+   primary key(b_sabun)  
+ );
+
+  commit ;
+  drop sequence  bbsreply_seq ;
+  create sequence  bbsreply_seq  ; 
+
+  drop table bbsreply;  
+  create table  bbsreply (      
+    br_num number(4) not null,     
+    br_writer varchar2(10) not null,
+    br_content varchar2(20)not null,
+    br_date  date   not null,
+    br_sabun number(4) not null
+  );
+ commit ;
+
+ 
+alter table  bbsreply  drop  constraint  bbs_sabun_fk ;  
+alter table  bbsreply  add   constraint  bbs_sabun_fk 
+  foreign key(br_sabun) references bbs(b_sabun) on delete cascade;
+commit ;  
+
+  select  * from  bbs  ;
+  col  b_name  for  a10 ;
+  col  b_title  for  a10 ;
+  col  b_file1  for a15 ;
+  select b_no,b_name,b_title, b_file1  from  bbs  ;
+  set linesize 2000
+  set pagesize 2000
+  select  * from  bbs  ;
+  commit ;
+
+================================================================================================
+================================================================================================
+순서11] testList.jsp전체문서제목클릭=>testDetail.jsp한건상세
+      testDetail.jsp한건상세문서 맨마지막문단에서 a태그 참고
+       <a href="testDeleteSave.jsp?idx=<%=Gcode%>">[삭제]</a>
+
+      testDeleteSave.jsp문서
+       Gdata = request.getParameter("idx");
+
+      testDeleteSave.jsp문서에 세션적용하는데 이미 loginSave.jsp문서에서 세션지정함 
+ 
+
+순서10] 로그인문서 생성
+ drop table login ;
+  create table login(
+     userid varchar2(10) primary key ,
+     pwd varchar2(10) not null
+  );
+
+ commit ;
+ insert into login values('sky', '1234') ;
+ insert into login values('blue', '1234') ;
+ commit ;
+
+
+
+순서9] index.jsp=>testList.jsp전체문서제목클릭=>testDetail.jsp한건상세
+      testDetail.jsp한건상세문서 맨마지막문단에서 a태그 참고
+      <a href="testDeleteSave.jsp">[삭제]</a>
+      
+     testDeleteSave.jsp문서
+      Gdata = request.~~
+      msg="delete from test where code = " + Gdata ;
+      ST = CN.createStatement() ;
+      ST.executeUpdate(msg);
+     
+     글쓰기및 전체출력, index.jsp문서는 누구나 실행
+     전체출력에서 제목및그림이미지클릭 상세문서 누구나 실행
+     수정은 관리자및 글쓴이=글올린사람만 수정 session내장객체
+     삭제도 관리자및 글쓴이=글올린사람만 삭제 session내장객체
+
+login.jsp문서에서 userid/pwd입력후 로그인버튼을 누르면
+loginSave.jsp문서  
+ msg = "select count(*) as cnt where userid=값 and pwd=값"
+ ST=CN.createStatement(); PST실습은 저장다시설명 RS=PST.executeQuery(); 
+ if(RS.next()==true){ Gtotal = RS.getInt("cnt"); } 
+ if(Gtotal>0){ 로그인성공 session.setAttribute("가짜이름naver", 유저id); }
+
+testDeleteSave.jsp문서에서 naver이름사용가능함
+String my = (String)session.getAttribute("naver");
+if(my==null || my==""){ 로그인화면으로보내고 }else{ 삭제가능 }
+
+
+명령어생성  Statement ST명령어
+  msg = "insert into test values('"+Gtitle+"',"+Gpay+",sysdate,"+Gcode+")";
+  ST=CN.createStatement();
+  ST.exceuteUpdate(msg);
+
+
+ ssi.jsp문서에 PreparedStatement PST 전역변수 선언할거에요 아직은 안함 
+명령어생성 PreparedStatement PST
+  msg = "insert into test values( ?, ? , sysdate, ?)";
+  PST=CN.prepareStatement(msg);
+       PST.setString(1, Gtitle);
+       PST.setInt(2, Gpay);
+       PST.setInt(3, Gcode);
+  PST.exceuteUpdate();
+
+
+
+
+
+
+
+
+잠시 웹서버에서 제공되는 내장객체
+ ㄴpage,out출력,request값전달,response문서이동,session세션, application자원접근
+ ㄴlogin.jsp문서에서 userid/pwd입력후 loginSave.jsp문서에서 세션권한처리 
+
+
+순서8] index.jsp=>testList.jsp전체문서제목클릭=>testDetail.jsp한건상세
+      testDetail.jsp한건상세문서 맨마지막문단에서 a태그 참고
+       <a href="testEdit.jsp?idx전역변수=code데이터값">[수정]</a>
+       <a href="testEdit.jsp?idx=<%=code%>">[수정]</a>
+       10분쉬고 12시 15분까지 testEdit.jsp문서에 수정할 데이터 출력
+  
+
+     잠시보류 <a href="testDeleteSave.jsp">[삭제]</a>
+     단독실행이 안되는 문서
+      ㄴtestWriteSave.jsp문서
+      ㄴtestDetail.jsp문서
+      ㄴtestEdit.jsp문서
+      ㄴtestEditSave.jsp문서
+      ㄴtestDeleteSave.jsp문서
+ 
+순서7] testEditSave.jsp문서 다른이름저장 testDeleteSave.jsp
+        ㄴtestDeleteSave.jsp  msg="delete from test where code="+Gcode ;
+순서6] testWriteSave.jsp문서 다른이름저장 testEditSave.jsp
+    	ㄴtestEditSave.jsp  
+         msg="update test set title='변경값',pay=6,wdate=sysdate where code="+Gcode ;
+순서5] testWrite.jsp문서 다른이름저장 testEdit.jsp 수정화면form
+	ㄴtestEdit.jsp
+
+
+순서4] index.jsp문서실행 3초후 testList.jsp문서이동
+ testList.jsp문서 전체목록표시 ------> 페이징,검색
+ testList.jsp문서 전체목록표시 문서 제목클릭 상세문서 testDetail.jsp문서로 이동
+   <%= Gtitle %> 제목데이터출력
+   <a href="testDetail.jsp"> <%= Gtitle %> </a>  넘기는값이 없이 상세문서이동
+   <a href="testDetail.jsp?idx=7700"> <%= Gtitle %> </a>
+   <a href="testDetail.jsp?idx=Gcode"> <%= Gtitle %> </a>
+   <a href="testDetail.jsp?idx=<%=Gcode%>"> <%= Gtitle %> </a>
+
+  testDetail.jsp문서
+  Gdata = request.getParameter("idx");
+  System.out.println(Gdata) ;
+  msg = "select * from test where code = " + Gdata ;
+  ST = CN.createStatement();
+  RS = ST.executeQuery(msg);
+  if(RS.next()==true){ G전역변수에 데이터넣고 출력<%= Gpay%> }
+
+
+
+
+순서3] testList.jsp문서 전체레코드갯수
+<%
+ msg ="select count(*) as cnt from  test " ;
+ ST = CN.createStatement();
+ RS = ST.executeQuery(msg);
+ if(RS.next()==true){ total = RS.getInt("cnt"); }
+%>
+ <td colspan=4> 레코드갯수: <%= total %> </td>
+
+
+
+순서2] test테이블
+drop table test ;
+create table test (
+   title varchar2(10) not null ,
+   pay number(3) not null ,
+   wdate date not null ,
+   code number(4) primary key 
+);
+commit ;
+delete from test ;
+commit ;
+select * from test ;
+insert into test values('snow', 21, sysdate, 7700);
+insert into test values('cake', 91, sysdate, 5500);
+commit ;
+select * from test ;
+
+
+
+
+순서1] 3개테이블생성 
+ login테이블(userid,pwd)  sky/1234, blue/1234
+ test테이블(title,pay,wdate,code)
+ board테이블 + 시퀀스board_seq
+   ㄴboardreply테이블 + 시퀀스boardreply_seq
+ bbs테이블 + 시퀀스bbs_seq
+   ㄴbbsreply테이블 + 시퀀스bbsreply_seq
+
+
+ 윈도우시작 cmd 콘솔창
+ C:\~~> sqlplus  system/1234
+SQL> 아래코드 복사붙여넣기
+ drop table login ;
+  create table login(
+     userid varchar2(10) primary key ,
+     pwd varchar2(10) not null
+  );
+
+ commit ;
+ insert into login values('sky', '1234') ;
+ insert into login values('blue', '1234') ;
+ commit ;
+
+  
+
+  --각자구성
+  drop sequence  board_seq;
+  create sequence  board_seq;
+  
+  drop table board ;
+
+  --에러발생해요
+  create table board ( 
+      bnum number(4) primary key ,
+      code number(4) primary key
+   ) ;  
+  
+
+ --해결방법
+  create table board ( 
+      bnum number(4) primary key ,  --꼭입력 유일+notnull
+      code number(4) unique         --유일한데 null허용
+  ) ;  
+
+ --해결방법
+  drop table board ;
+  create table board ( 
+     bnum number(4) ,
+     code number(4) ,
+     constraint board_pk primary key(bnum, code) 
+  ) ;
+ 
+commit ; 
+insert into board values( 1100, 75);
+insert into board values( 1100, 95);
+insert into board values( 2200, 75);
+insert into board values( 2200, 95);
+insert into board values( 1100, 95); --에러발생
+insert into board values( 3300, 95); 
+
+select constraint_name from  user_constraints;
+alter table  board  drop constraint  board_pk; 
+commit ;
+select constraint_name from  user_constraints;
+commit ;
+
+
+ drop table board ;
+ create table board ( 
+    bnum number(4) primary key ,  --꼭입력 유일+notnull
+    code number(4) unique ,        --유일한데 null허용
+    name이름,
+    title제목,wdate날짜,content내용,email메일,hit조회,
+    picture이미지 
+);
+
+--실습중인 테이블 내용
+drop table test ;
+create table test (
+   title varchar2(10) not null ,
+   pay number(3) not null ,
+   wdate date not null ,
+   code number(4) primary key 
+);
+commit ;
+delete from test ;
+commit ;
+select * from test ;
+
+
+ --bbs시리즈는 꼭 복사붙여넣기하세요
+ drop   sequence  bbs_seq ;  
+ create sequence bbs_seq ;
+
+ drop  table bbs;  
+
+ create  table  bbs (   
+   b_no number(3) not null,  --bbs_seq.nextVal  
+   b_sabun  number(4) not null ,  
+   b_name varchar2(15) not null,
+   b_title  varchar2(30) not null, 
+   b_cnt number(5) default 0 ,
+   b_content  varchar2(50) not null,
+   b_phone  varchar2(20) not null,
+   b_pwd  varchar2(10)  not null,
+   b_wdate  date   not null,
+   b_juso1  varchar2(100) not null, 
+   b_juso2  varchar2(50) not null, 
+   b_email varchar2(30) not null, 
+   b_url  varchar2(20)  null, 
+   b_file1  varchar2(30) null, 
+   b_size1  number(7) default 0 ,
+   primary key(b_sabun)  
+ );
+
+  commit ;
+  drop sequence  bbsreply_seq ;
+  create sequence  bbsreply_seq  ; 
+
+  drop table bbsreply;  
+  create table  bbsreply (      
+    br_num number(4) not null,     
+    br_writer varchar2(10) not null,
+    br_content varchar2(20)not null,
+    br_date  date   not null,
+    br_sabun number(4) not null
+  );
+ commit ;
+
+--제약조건 create키워드 대신 alter table  대상테이블이름  
+alter table  bbsreply  drop  constraint  bbs_sabun_fk ;  
+alter table  bbsreply  add   constraint  bbs_sabun_fk 
+  foreign key(br_sabun) references bbs(b_sabun) on delete cascade;
+commit ;  
+
+SQL>  select  * from  bbs  ;
+SQL>  col  b_name  for  a10 ;
+SQL>  col  b_title  for  a10 ;
+SQL>  col  b_file1  for a15 ;
+SQL>  select b_no,b_name,b_title, b_file1  from  bbs  ;
+SQ>  set linesize 200
+SQ>  set pagesize 200
+SQL> commit ;
+
+

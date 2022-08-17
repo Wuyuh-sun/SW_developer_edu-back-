@@ -6,12 +6,34 @@
 <head>
 <meta charset="UTF-8">
 <title> [testList.jsp]</title>
+ <style type="text/css">
+    * {font-size:20pt;  }
+    a {font-size:20pt;  text-decoration:none; color:black;}
+    a:hover{font-size:24pt;  text-decoration:underline ; color:blue ;}
+    body{margin-left:20px;}
+ </style>
 </head>
 <body>
 
+<%
+ msg ="select count(*) as cnt from  test " ;
+ ST = CN.createStatement();
+ RS = ST.executeQuery(msg);
+ if(RS.next()==true){ total = RS.getInt("cnt"); }
+%>
  <p>
  <h1>testList.jsp</h1>
- <table border="1" width="1200" cellspacing="0">
+ <table border="1" width="1000" cellspacing="0">
+   <tr align="right">
+      <td colspan="4"> 
+    	    <a href="testWrite.jsp">[입력화면]</a>
+    	    <a href="testList.jsp">[출력]</a>
+    	    <a href="index.jsp">[index]</a>
+    	    <a href="login.jsp">[로그인]</a>
+    	    데이터갯수 : <%= total %> &nbsp;&nbsp;
+      </td>
+   </tr>
+ 
    <tr bgcolor="pink">
      <td>코 드</td> <td>제 목</td>  <td>날 짜</td> <td>급 여</td>
    </tr>
@@ -25,11 +47,10 @@
 	 Gpay = RS.getInt("pay");
 	 Gwdate = RS.getDate("wdate");
 	 Gcode = RS.getInt("code");
-	 System.out.println(Gcode + " " + Gtitle + " " + Gwdate + " " + Gpay); //콘솔창=관리자만보여요
 %>
   <tr>
      <td> <%= Gcode %> </td>
-     <td> <%= Gtitle %> </td>
+     <td> <a href="testDetail.jsp?idx=<%=Gcode%>"> <%= Gtitle %> </a> </td>
      <td> <%= Gwdate %> </td>
      <td> <%= Gpay %> </td> 
   </tr>
@@ -40,6 +61,8 @@
   <a href="testWrite.jsp">[게시판입력화면]</a>
   <a href="testList.jsp">[게시판전체출력]</a>
   <a href="index.jsp">[index]</a>
+  <a href="login.jsp">[로그인]</a>
+  
 </body>
 </html>
 
