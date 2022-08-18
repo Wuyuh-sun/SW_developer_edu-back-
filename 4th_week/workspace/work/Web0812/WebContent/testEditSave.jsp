@@ -10,27 +10,28 @@
 <body>
 <p>  
 <%
-   //웹문서는 데이터 받을때 무조건 문자열로 받습니다
-   //자바에서 String타입을 int형으로 변환 Integer.parseInt(문자열)
-   //testEdit.jsp문서의 form태그에서 수정된 데이터 
-   Gtitle = request.getParameter("title");
-   Gpay = Integer.parseInt(request.getParameter("pay"));
-   Gcode = Integer.parseInt(request.getParameter("code"));
-   System.out.println("수정제목데이터 = "+ Gtitle );
-   System.out.println("수정급여데이터 = "+ Gpay );
-   System.out.println("수정코드데이터 = "+ Gcode );
-   //msg = "update  test set title='LA', pay=6, wdate=sysdate where code = 7700 ";
-   msg = "update test set title='"+Gtitle+"', pay="+Gpay+", wdate=sysdate  where  code="+Gcode;
-   System.out.println(msg); //insert ~~ /update ~~ Statement명령어대신 PreparedStatement권장
-   
+   //현재문서는 testEditSave.jsp문서 진짜 수정처리 update ~ set  ~ where ~
+   String  eGtitle = request.getParameter("title");
+   int  eGpay = Integer.parseInt(request.getParameter("pay"));
+   int  eGcode = Integer.parseInt(request.getParameter("code"));
+   System.out.println("수정제목데이터 = "+ eGtitle );
+   System.out.println("수정급여데이터 = "+ eGpay );
+   System.out.println("수정코드데이터 = "+ eGcode );
+   msg = "update test set title=?, pay=?, wdate=sysdate where code = ? ";
+   //msg = "update test set title='"+eGtitle+"', pay="+eGpay+", wdate=sysdate  where  code="+eGcode;   
 try{   
-   ST = CN.createStatement(); //명령어생성
-   ST.executeUpdate(msg); //진짜 db서버수정처리
-   System.out.println(Gcode +"코드 데이터 수정성공 ");
-   response.sendRedirect("testList.jsp"); //response내장객체문서 이동
+   //ST = CN.createStatement(); 
+   //ST.executeUpdate(msg); 
+   PST = CN.prepareStatement(msg);
+   	  PST.setString(1, eGtitle);
+   	  PST.setInt(2, eGpay);
+   	  PST.setInt(3, eGcode);
+   PST.executeUpdate(); //진짜수정처리함수 
+   System.out.println(eGcode +"코드 데이터 수정성공  08-18-목요일 PreparedStatement성공");
+   response.sendRedirect("testList.jsp"); 
 }catch(Exception ex){
 	System.out.println("test테이블 수정실패 에러 " + ex);
-   response.sendRedirect("testList.jsp"); //저장실패시에도 문서이동
+    response.sendRedirect("testList.jsp"); 
 }  
 %>
 </body>
