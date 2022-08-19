@@ -8,9 +8,172 @@ C:\workspace
 C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\miniBBS\storage
 C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\miniBBS\storage
 
+08-22-월요일
+ ㄴAjax
+ ㄴ모델2=mvc2=서블릿
+ ㄴ프로젝트 제출은 다음주 23일 화요일 저녁 6시이후 gmail로 보내면 됩니다 (08-23)김영임플젝.zip / (08-23)김영임플젝.war
+ ㄴ유저login필수 구현, 관리자admin구현안해도 됩니다.  페이징+검색+댓글수는 적용해보세요 
+
+Java Resources클릭
+src/main/java=>오.버=>new=>package선택  
+  net.hb.common팩키지=>오.버=>new=>class선택 ===> 
+    ㄴTestDAO.java   ==>test테이블대상
+    ㄴTestBean.java{ title,pay,wdate,code }  ==>test테이블대상
+    ㄴGlobal.java
+ 
+  public class Two{ 
+   전역변수   private int doorkey=1234;
+   생성자    public Two(){ }
+   일반함수   public void book(){ String title="몽블랑"; System.out.println(title);}
+   static함수=버스기사=웹서버역할
+   생성안함public static void main(String[] args){ Two mr=new Two(); mr.book();} 
+ }
+
+
+
 08-19-금요일
- ㄴtestList.jsp문서 페이징
+ ㄴtestList.jsp문서(title,pay,wdate,code)필드순서 4개열
+   ㄴguestList.jsp문서(sabun,name,title,wdate,pay,hit,email) 316개 32페이지
+   ㄴ61행~70행데이터출력 [1] [2] ~ [7클릭] [9] [10][다음]
  ㄴ자바문서분리/mvc2모델서블릿
+   ㄴ저장,삭제 ===>모델1mvc
+   ㄴ모델2
+
+황진성님 쿼리문참고하세요
+ select * from (
+   select rownum rn, g.* from guest g ) 
+ where rn between 61 and 70;
+
+문제1] [1] ~ [10] 성공
+문제2] [1] ~ [10] [다음클릭하면 자동으로11선택되도록]
+
+      [11]선택되도록 하려면 [1]+10=11 or  [10]+1=11
+      다음클릭하면 start=101 end=110 [11선택]~[20]
+      [11]  rowstart = (11-1)*10+1 ;
+      [11]  rowend = (11*10) ;
+
+총갯수 total=316레코드데이터
+총페이지수 pagecount=32
+
+[이전] [11] ~ [20] [다음클릭하면]
+[이전] [21] ~ [30] [다음]
+
+문제3] [이전][다음] 이동까지 기술함 
+      [이전][31][32]
+
+
+문제4] guest테이블 검색+페이지 
+ guest테이블 이름검색 like b ===> 62건 ==>검색한결과 총 7페이지 
+ guest테이블 제목검색 like p ===> 13건 ==>검색한결과 총 2페이지 
+
+http://localhost:8181/Web0812/guestList.jsp?pageNum=3&keyfield=name&keyword=b
+SQL> select count(*) as scnt from guest where name like '%b%' ;  //62숫자출력
+SQL> select * from guest where name like '%b%' ; //데이터 62개출력
+
+SQL> select rownum, g.* from guest g where name like '%b%' ; //데이터 62개출력
+   	51       2206 tbs        good       22/08/19        561          0 bc@it.com
+        52       2207 pbs        host       22/08/19        901          0 bc@it.com
+        53       2008 bbs        ik         22/08/19        581          0 bc@it.com
+        54       2209 jtbc       joo        22/08/19        251          0 bc@it.com
+        55       1108 abc        aa         22/08/19        205          0 bc@it.com
+        56       1002 bc         book       22/08/19        529          0 bc@it.com
+        57       1008 book       ik         22/08/19        581          0 bc@it.com
+        58       1501 bb         bb         22/08/19        517          0 bc@it.com
+        59       1502 book       book       22/08/19        529          0 bc@it.com
+        60       3108 black      black      22/08/19        205          0 bc@it.com
+
+62건데이터중에서 51행~60행까지출력  40분까지 해결 ...
+--영임쌤
+select * from (
+ select rownum rn, g.* from 
+  (select * from guest  where name like '%b%' ) g
+) where rn between 51 and 60;
+
+
+--영주님
+select * from (
+  select rownum rn, g.* from guest g  where name like '%b%'
+) where rn between 51 and 60;
+
+--진성님
+select * from (
+ select rownum rn, g.* from guest g where name like '%b%'
+) where rn between 51 and 60;
+
+--성준님
+select * from(
+  select rownum rn,g.* from guest g where name like '%b%'
+)where rn between 51 and 60;
+
+--성환님
+select  * from  (
+   select rownum rn, g.* from  guest  g where name like '%b%'
+) where rn between  51  and  60 ;
+
+
+guestList.jsp문서에 댓글수 표현
+
+ drop sequence  guestreply_seq ;
+ create sequence  guestreply_seq ;
+ commit ;
+ 
+ drop table guestreply;  
+ create table  guestreply (      --댓글관련 테이블 guestreply
+  num number(4) not null,     --시퀀스 guestreply_seq.nextVal
+  writer varchar2(10) not null,
+  content varchar2(20)not null,  
+  sabun number(4) not null       --guest테이블의  sabun필드와 연결
+);
+commit ; 
+
+
+alter table guestreply  drop  constraint  guest_sabun_fk; 
+alter table guestreply  add   constraint  guest_sabun_fk 
+      foreign key(sabun) references guest(sabun) on delete cascade;
+commit ;
+
+insert into guestreply values(guestreply_seq.nextval, 'aaa','bbb',4466 );
+insert into guestreply values(guestreply_seq.nextval, 'kim','kim',4466);
+insert into guestreply values(guestreply_seq.nextval, 'lee','lee',4466);
+commit ;
+
+ <td> <%= Gtitle %><%if(Rcnt>0){%><span style="color:red";>[<%=Rcnt %>]</span><%}%></td>
+  
+insert into guestreply values(guestreply_seq.nextval, 'a','a',4422);
+insert into guestreply values(guestreply_seq.nextval, 'lb','lb',4422);
+commit ;
+
+
+//전역변수 
+<%!
+ int start, end ; 
+ int pagecount;  
+ int pageNUM ;   
+ int startpage, endpage; 
+ String pnum;  
+ int temp2, temp; 
+ int num; 
+
+ String sqry; 
+ String skey컬럼필드, sval검색어; 
+ String returnpage; 
+ 
+ java.text.SimpleDateFormat sdf;
+ java.util.Date dt;
+%>
+
+https://docs.oracle.com/javase/7/docs/api/index.html
+왼쪽상단 java.util팩키지=폴더
+왼쪽하단 Date,ArrayList,List인터페이스
+
+왼쪽상단 java.text팩키지=폴더
+왼쪽하단 SimpleDateFormat클래스클릭
+
+왼쪽상단 java.sql팩키지=폴더
+왼쪽하단 Connection, Statement, PreparedStatement, ResultSet
+
+
+
 
 Java Resources클릭
 src/main/java=>오.버=>new=>package선택  
@@ -23,12 +186,17 @@ src/main/java=>오.버=>new=>package선택
    생성안함public static void main(String[] args){ Two mr=new Two(); mr.book();} 
  }
 
+플젝구성안은 강제성 없습니다. ... 편하게 보내시면 됩니다
 (08-18-목요일)본인이름조장.zip
  ㄴ프로젝트주제구성 내용 최소 5~10줄
  ㄴdb설계 테이블
  ㄴ화면구성 
  ㄴ팀구성원
 
+질문 답변해주세요 
+ 1. miniBBS추가수정 플젝   2.새로구상  3. 고민중
+ 팀플, 개인플
+ 주제 ... 
 
 
 miniBBS플젝=>오른쪽버튼

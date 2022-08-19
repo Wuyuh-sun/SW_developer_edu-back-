@@ -29,7 +29,8 @@
   java.util.Date  Gwdate, hiredate, Gbirth ; //날짜타입
   boolean Ggender, Gflag ;
   int Gtotal=7, total=7, Stotal=0 ; 
-  String Gdata, data, Gmsg, msg ;
+  String Gdata, data, Gmsg, msg , Smsg;
+  int Rcnt; //댓글수
 %>
 
 <%

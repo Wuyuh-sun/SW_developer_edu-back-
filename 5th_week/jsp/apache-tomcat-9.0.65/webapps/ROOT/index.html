@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunha's BBS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aquamarine;
+        }
+
+        .circle{
+            width:500px;
+            height:500px;
+            border: 2px solid gray;
+            background-color:springgreen;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .page-header {
+            position: relative;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+        }
+        .sheep {
+            width: 154px;
+            height: 117px;
+            background-image: url(./IMG/sheep-ani.png);
+            background-repeat: no-repeat;
+            position: relative;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: sheep 0.5s infinite steps(8);
+            z-index: 1;
+        }
+        @keyframes sheep {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -1310px 0;
+            }
+        }
+        .loadingBar{
+            width:520px;
+            height:520px;
+            border: 2px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 0;
+            animation: loadingBar 3s infinite;
+            /* transition: 3s; */
+        }
+        @keyframes loadingBar{
+            from{
+                background: conic-gradient(tomato 30deg, transparent 30deg);
+                background-color: whitesmoke;
+                /* background-color:cornflowerblue */
+                transform: translate(-50%, -50%) rotate(-15deg);
+            }
+            to{
+                background: conic-gradient(cornflowerblue 30deg, transparent 30deg);
+                background-color: whitesmoke;
+                transform: translate(-50%, -50%) rotate(345deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        <h1 class="page-header">Yunha's BBS</h1>
+        <div class="sheep"></div>
+    </div>
+    <div class="loadingBar"></div>
+
+    <script>
+        window.addEventListener("load",()=>{
+            setTimeout(()=>{
+                location.href = "./BBS/bbs_main.jsp"
+            },6000)
+        })
+    </script>
+</body>
+
+</html>
