@@ -2,6 +2,15 @@
     contentType="text/html; charset=UTF-8" 
     pageEncoding="UTF-8"%>
 <%@ include file="./ssi.jsp" %>
+<%
+    String loginUserEmail = (String)session.getAttribute("loginEmail");
+    String sqlQuery;
+
+    String email;
+    String pw;
+    String name;
+    String profileimg ;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +19,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Yunha's BBS</title>
 </head>
 
@@ -20,7 +31,70 @@
             <div class="sheep"></div>
         </div>
         <div class="loginArea">
-            <form action="../BBS/bbs_main.jsp" class="loginForm" method="post">
+            <%
+            sqlQuery = "select * from yunBbsUser where email =?";
+            PST=CN.prepareStatement(sqlQuery);
+            PST.setString(1, loginUserEmail);
+            RS=PST.executeQuery();
+            %>
+            
+            <%if(session.getAttribute("loginEmail") != null){%>
+            <%while(RS.next()){%>
+            <%-- <div class="profileBorder2"></div>
+            <div class="profileImgView2">
+                <img src="./storage/<%=RS.getString("profileimg")%>" id="Img2">
+            </div>
+            <div class="loginUserInfo">
+                <div class="userEmail"><%=RS.getString("email")%></div>
+                <div class="userName"><%=RS.getString("name")%></div>
+            </div> --%>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="./storage/<%=RS.getString("profileimg")%>">
+                    </div>
+                    <div class="flip-card-back">
+                        <div>Email</div>
+                        <div><%=RS.getString("email")%></div> 
+                        <div>Name</div>
+                        <div><%=RS.getString("name")%></div> 
+                    </div>
+                </div>
+            </div>
+            <div class="navBox">
+                <a class="userBox">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <br>
+                    <small>내 정보</small>
+                </a>
+                <div class="logoutBox" onclick="logout(event)">
+                    <span class="material-icons">power_settings_new</span>
+                    <br>
+                    <small>로그아웃</small>
+                </div>
+                <a href="./BBS/bbs_main.jsp" class="bbsBox">
+                    <span class="material-symbols-outlined">edit_square</span>
+                    <br>
+                    <small>게시판</small>
+                </a>
+            </div>
+            
+            <%}%>
+            <script>
+                window.addEventListener("load",()=>{
+                    document.querySelector(".loginForm").style.display = "none";
+                    document.querySelector(".signUpGrp").style.display = "none";
+                })
+                function logout(e){
+                    fetch('./logout.jsp', {
+                    }).then((res)=>{
+                        location.reload();
+                    });
+                }
+            </script>
+            <%}%>
+
+            <form action=".login.jsp" class="loginForm" method="post">
                 <label for="email">E-MAIL</label>
                 <br>
                 <input type="email" name="email" id="email" placeholder="e-mail을 입력하세요" autocomplete="off" required>
@@ -29,14 +103,14 @@
                 <br>
                 <input type="password" name="password" id="password" placeholder="password을 입력하세요" required>
                 <br>
-                <input type="submit" value="LOG-IN">
+                <input type="submit" value="LOG-IN" onclick="login(event)">
                 <hr>
             </form>
             <div class="signUpGrp">
                 <small>회원가입이 안되어있나요?</small>
                 <br>
                 <button class="signUpBtn">SIGN-UP</button>
-                <a href=""><small>로그인하지 않고 게시판 보기</small></a>
+                <a href="./BBS/bbs_main.jsp"><small>로그인하지 않고 게시판 보기</small></a>
             </div>
         </div>
     </div>
@@ -113,10 +187,10 @@
         loadingArea.style.left = "0%";
         loginArea.style.left = "100%";
 
-        // signUpPath.style.display = "none";
-        // signUpForm.style.top = "150%";
-        signUpPath.style.display = "block";
-        signUpForm.style.top = "50%";
+        signUpPath.style.display = "none";
+        signUpForm.style.top = "150%";
+        // signUpPath.style.display = "block";
+        // signUpForm.style.top = "50%";
 
         window.addEventListener("load", () => {
             setTimeout(() => {
@@ -125,10 +199,10 @@
                 loadingBar.style.animation = "none";
                 loadingBar.style.background = "skyblue";
                 loadingBar.style.transform = "translate(-50%, -50%)";
-            }, 1000)
+            }, 6000)
             setTimeout(() => {
                 loginArea.style.borderRadius = "50%";
-            }, 2000)
+            }, 7000)
         })
         signUpBtn.addEventListener("click", () => {
             signUpPath.style.display = "block";
@@ -224,17 +298,6 @@
         function signUpCheck(e){
             if(result == 'false' && passwordValue.value != "" && nameValue.value != ""){
                 e.preventDefault();
-                // alert("조건 충족");
-                // fetch('./signUp.jsp', {
-                //     method: 'POST',
-                //     cache: 'no-cache',
-                //     headers: {
-                //         'Content-Type': 'application/x-www-form-urlencoded',
-                //     },
-                //     body: "email="+emailValue.value+"&pw="+passwordValue.value+"&name="+nameValue.value
-                // }).then((res)=>{
-                //     console.dir(res);
-                // });
 
                 const fileInput = document.querySelector('.signUpProfileFile');
                 const formData = new FormData();
@@ -261,6 +324,40 @@
             }
         }
         
+        function login(e){
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            if(email.value != "" && password.value != ""){
+                e.preventDefault();
+
+                const loginData = new FormData();
+
+                loginData.append('loginEmail', email.value);
+                loginData.append('loginPassword', password.value);
+
+                fetch('./login.jsp', {
+                    method: 'POST',
+                    headers:{},
+                    body:loginData
+                }).then((res)=>{
+                    res.text().then((data)=>{
+                        result = data.replace(/(\s*)/g, "");
+                        console.log(result);
+                        if(result == 'true'){
+                            alert("로그인 성공");
+                            location.href="./middleLogin2.jsp";
+                        } else{
+                            alert("로그인 실패");
+                        }
+                    })
+                });
+            } else{
+                e.preventDefault();
+                alert("로그인에 실패하였습니다.");
+                return false;
+            }
+        }
+
     </script>
 </body>
 

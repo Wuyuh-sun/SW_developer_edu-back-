@@ -13,7 +13,10 @@
     String signUpEmail = mr.getParameter("signUpEmail");
     String signUpPassword = mr.getParameter("signUpPassword");
     String signUpName = mr.getParameter("signUpName");
-    String signUpProfileFile = mr.getFilesystemName("signUpProfileFile");
+    String signUpProfileFile = "profile.png";
+    if(mr.getFilesystemName("signUpProfileFile") != null){
+        signUpProfileFile = mr.getFilesystemName("signUpProfileFile");
+    }
 
     String sqlQuery;
     

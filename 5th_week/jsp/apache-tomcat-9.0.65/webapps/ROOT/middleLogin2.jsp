@@ -23,7 +23,7 @@
     <div class="circle">
         <div class="logginArea">
             <div class="successMsgGrp">
-                <div class="successMsg1">가입 완료되었습니다.</div>
+                <div class="successMsg1">로그인 완료되었습니다.</div>
                 <div class="successMsg2">게시판으로 이동 중입니다.</div>
                 <hr>
                 <div class="successMsg3">현재 로그인 계정 Email</div>

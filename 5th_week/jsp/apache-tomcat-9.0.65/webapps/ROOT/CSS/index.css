@@ -29,7 +29,8 @@ body {
     transition: 1s ease-in-out;
     box-sizing: border-box;
 }
-.loadingArea{
+
+.loadingArea {
     width: 500px;
     height: 500px;
     background-color: springgreen;
@@ -37,7 +38,8 @@ body {
     z-index: 1;
     transition: 1s ease-in-out;
 }
-.loginArea{
+
+.loginArea {
     width: 500px;
     height: 500px;
     background-color: rgba(100, 148, 237, 0.7);
@@ -45,15 +47,17 @@ body {
     z-index: 1;
     transition: 1s ease-in-out;
 }
-.logginArea{
+
+.logginArea {
     width: 500px;
     height: 500px;
-    background-color:dodgerblue;
+    background-color: dodgerblue;
     position: absolute;
     z-index: 1;
     transition: 1s ease-in-out;
 }
-.successMsgGrp{
+
+.successMsgGrp {
     font-size: 1.5em;
     font-weight: bold;
     position: absolute;
@@ -128,7 +132,7 @@ body {
 }
 
 .area {
-    background: #36a890;
+    background: #125f6d;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
     height: 100vh;
@@ -245,26 +249,30 @@ body {
     }
 }
 
-.loginForm{
+.loginForm {
     position: absolute;
-    top:40%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.loginForm label{
+
+.loginForm label {
     font-size: 1.5em;
     font-weight: bold;
-    color:whitesmoke;
+    color: whitesmoke;
 }
-.loginForm input{
+
+.loginForm input {
     padding: 10px;
     font-size: 1.2em;
     border-radius: 10px;
 }
-.loginForm input:focus{
+
+.loginForm input:focus {
     outline: none;
 }
-.loginForm input[type="submit"]{
+
+.loginForm input[type="submit"] {
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
@@ -273,25 +281,30 @@ body {
     transform: translateX(-50%);
     cursor: pointer;
 }
-.loginForm input[type="submit"]:hover{
+
+.loginForm input[type="submit"]:hover {
     filter: brightness(90%);
 }
-hr{
+
+hr {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.signUpGrp{
+
+.signUpGrp {
     position: absolute;
-    top:68%;
+    top: 68%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.signUpGrp small{
+
+.signUpGrp small {
     font-weight: bold;
-    color:powderblue;
+    color: powderblue;
     text-align: center;
 }
-.signUpGrp button{
+
+.signUpGrp button {
     width: 150px;
     padding: 10px;
     font-size: 1.2em;
@@ -299,46 +312,51 @@ hr{
     position: absolute;
     top: 50px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-weight: bold;
     cursor: pointer;
 }
-.signUpGrp button:hover{
+
+.signUpGrp button:hover {
     filter: brightness(90%);
 }
-.signUpGrp a{
+
+.signUpGrp a {
     text-align: center;
     width: 200px;
     position: absolute;
     top: 100px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     text-decoration: none;
 }
-.signUpGrp a:hover small{
-    color:aliceblue;
+
+.signUpGrp a:hover small {
+    color: aliceblue;
 }
-.signUpPath{
+
+.signUpPath {
     width: 600px;
     height: 800px;
     /* background-color: red; */
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     /* z-index: 4; */
     z-index: 3;
     overflow: hidden;
     /* display: none; */
 }
-.signUpForm{
+
+.signUpForm {
     width: 600px;
     height: 800px;
     background-color: rgba(220, 240, 255, 0.9);
     position: absolute;
-    top:150%;
+    top: 150%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     /* z-index: 3; */
     border-radius: 50px;
     border: 5px solid cornflowerblue;
@@ -348,12 +366,13 @@ hr{
     transition: 1s;
     /* display: none; */
 }
-.signUpCloseBtn{
+
+.signUpCloseBtn {
     position: absolute;
-    top:20px;
+    top: 20px;
     right: 20px;
     text-align: center;
-    color:gray;
+    color: gray;
     font-size: 2em;
     font-weight: bold;
     width: 40px;
@@ -364,45 +383,53 @@ hr{
     line-height: 40px;
     cursor: pointer;
 }
-.signUpCloseBtn:hover{
-    color:crimson;
+
+.signUpCloseBtn:hover {
+    color: crimson;
     border: 3px solid crimson;
 }
-.elementCenter{
+
+.elementCenter {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     padding-top: 18px;
 }
-.signTitle{
+
+.signTitle {
     font-size: 2.5em;
     font-weight: bold;
     width: 300px;
     text-align: center;
 }
-.elementCenter form{
+
+.elementCenter form {
     margin-top: 30px;
 }
 
-.elementCenter form label{
+.elementCenter form label {
     font-size: 2em;
     font-weight: bold;
-    color:black
+    color: black
 }
-.elementCenter form input{
+
+.elementCenter form input {
     padding: 10px;
     width: 300px;
 }
-.elementCenter form input[type="email"]{
+
+.elementCenter form input[type="email"] {
     background-color: whitesmoke;
 }
+
 /* .elementCenter form input[type="email"]:invalid{
     background-color: red;
 } */
-.elementCenter form input:focus{
+.elementCenter form input:focus {
     outline: none;
 }
-.profileBorder{
+
+.profileBorder {
     width: 210px;
     height: 210px;
     background-color: cornflowerblue;
@@ -412,7 +439,8 @@ hr{
     transform: translate(-50%, 2.5%);
     z-index: 3;
 }
-.profileImgView{
+
+.profileImgView {
     width: 200px;
     height: 200px;
     background-color: white;
@@ -423,57 +451,214 @@ hr{
     clip-path: circle(50%);
     z-index: 5;
 }
-.profileImgView img{
+
+.profileImgView img {
     width: 200px;
     z-index: 4;
 }
-.elementCenter form input[type="button"]{
+
+.loginUserInfo {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    z-index: 1;
+}
+
+.profileBorder2 {
+    width: 310px;
+    height: 310px;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 2.5%);
+    z-index: 98;
+}
+
+.profileImgView2 {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    clip-path: circle(50%);
+    z-index: 99;
+}
+
+.profileImgView2 img {
+    width: 300px;
+    z-index: 4;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    
+}
+.flip-card-inner {
+    position: relative;
+    top:5%;
+    left: 34%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 50%;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    clip-path: circle(50%);
+}
+.flip-card-front img {
+    width: 100%;
+}
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flip-card-back div{
+    
+}
+.flip-card-back div:nth-child(odd){
+    font-size: 1.3em;
+    color: gainsboro;
+    font-weight: bold;
+}
+.flip-card-back div:nth-child(even){
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.navBox{
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    bottom:10%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+.loginUserInfo {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+.userBox, .logoutBox, .bbsBox{
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.logoutBox{
+    margin-top: 50px;
+}
+.userBox span, .logoutBox span, .bbsBox span{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    background-color: #8f94fb;
+    font-size: 3em;
+    color:black;
+}
+.bbsBox, .userBox{
+    color: black;
+    text-decoration: none;
+}
+.bbsBox span{
+    line-height: 60px;
+}
+.userBox:hover span{
+    color: whitesmoke;
+}
+.logoutBox:hover span{
+    color: red;
+}
+.bbsBox:hover span{
+    color: whitesmoke;
+}
+.elementCenter form input[type="button"] {
     padding: 5px;
     position: relative;
-    top:-5px;
+    top: -5px;
     width: 90px;
 }
-.elementCenter form input[type="file"]{
+
+.elementCenter form input[type="file"] {
     padding: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
     margin-top: 200px;
 }
-.elementCenter form input[type="submit"]{
+
+.elementCenter form input[type="submit"] {
     padding: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
 }
-.errMsg1{
+
+.errMsg1 {
     position: relative;
-    color:red;
+    color: red;
     display: none;
 }
-.errMsg2{
+
+.errMsg2 {
     position: relative;
-    color:red;
+    color: red;
     display: none;
 }
-.errMsg3{
+
+.errMsg3 {
     position: relative;
-    color:blue;
+    color: blue;
     display: none;
 }
-.errMsg4{
+
+.errMsg4 {
     position: relative;
-    color:red;
+    color: red;
     display: none;
 }
-.emailCheck{
+
+.emailCheck {
     font-size: 0.8em;
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.signUpSubmit{
+.signUpSubmit {
     font-size: 1.5em;
     border-radius: 10px;
     font-weight: bold;
