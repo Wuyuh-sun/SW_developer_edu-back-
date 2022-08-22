@@ -199,10 +199,10 @@
                 loadingBar.style.animation = "none";
                 loadingBar.style.background = "skyblue";
                 loadingBar.style.transform = "translate(-50%, -50%)";
-            }, 6000)
+            }, 3000)
             setTimeout(() => {
                 loginArea.style.borderRadius = "50%";
-            }, 7000)
+            }, 4000)
         })
         signUpBtn.addEventListener("click", () => {
             signUpPath.style.display = "block";

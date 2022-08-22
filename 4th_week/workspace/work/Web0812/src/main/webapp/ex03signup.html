@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script>
+            function check(){
+                if(!isUserid(f.userId)){
+                      alert('아이디는 영문으로 시작하고 영문,숫자,_,!로 4~8자리만 가능해요');
+                      f.userId.select();
+					  f.userId.value="";
+                      return;
+                }//if
+            }//check()------------------
+            /*정규식 메타문자
+            ^ : 시작의 의미
+            $ : 끝을 의미
+            a-z: 알파벳 소문자를 의미
+            A-Z: 알파벳 대문자를 의미
+            0-9: 숫자를 의미
+            + : 패턴이 한번 이상 반복된다는 의미
+
+            [a-zA-Z]{1} : 알파벳이 1개 와야함을 의미
+            */
+            function isUserid(obj){
+                var val=obj.value;
+                //var pattern=new RegExp(/^[a-zA-Z0-9]+$/);
+                var pattern=new RegExp(/^[a-zA-Z]{1}[a-zA-Z0-9]{4,8}$/);
+                //test()함수. 패턴에 해당한는 문자열이라면 true반환하고 아니면false
+                var b=pattern.test(val);
+                console.log('b='+b);
+                return b;
+            }//isUserid()------------------
+        </script>
+
+    </head>
+    <body>
+    <div id="wrap">
+        <h1>가입화면 Web문서</h1>
+    <form name="f" id="f" method="GET">
+
+    <font color="darkblue">
+        <table border="1" cellspacing="0" cellpadding="0" width="680px" height="750%">
+            <tr>
+                <td colspan="2" bgcolor="#A9E2F3" >☞아이디(ID) 정보</td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*아이디</td>
+                <td>
+                    <input type="text" name="userId" >
+                    <input type="submit" value="중복검사"><br>
+                    (4~6자 영자/숫자 가능, 한글, 특수문자 ID는 사용할 수 없습니다.)
+                </td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*비밀번호</td>
+                <td>
+                    <input type="password" name="userpwd" >
+                    (4~6자 이내로 만들어 주세요)
+                </td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*비밀번호 확인</td>
+                <td>
+                    <input type="password" name="userpwd_check" >
+                    (위 번호와 같이 입력해주세요)
+                </td>
+            </tr>            
+            <tr>
+                <td colspan="2" bgcolor="#A9E2F3">☞개인정보</td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*이름(한글)</td>
+                <td>
+                    <input type="text" name="username">
+                    (예:고길동)
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">생년월일</td>
+                <td>
+                    <input type="text" name="birth">                    
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*전화번호</td>
+                <td>
+                    핸드폰<select name="phone1">
+                        <option value="010" checked>010</option>
+                        <option value="02" checked>02</option>
+                        <option value="031" checked>031</option>
+                        </select>
+                        -<input type="text" name="phone2" style="width:50px">
+                        -<input type="text" name="phone3" style="width:50px">
+                        <input type="radio" name="phone_com" vlaue="skt">SKT
+                        <input type="radio" name="phone_com" vlaue="ktf">KTF
+                        <input type="radio" name="phone_com" vlaue="lgt">LGT
+                    <br>
+                    집/회사<input type="text" name="phone_ect1" style="width:50px">
+                    -<input type="text" name="phone_ect1" style="width:50px">
+                    -<input type="text" name="phone_ect1" style="width:50px">
+                    최소 한개는 입력하세요
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">이메일</td>
+                <td>
+                    <input type="text" name="email" style="width:300px"> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="check()">회원가입</button>
+                    <button type="reset">다시쓰기</button>
+                </td>
+            </tr>            
+        </table>
+    </font>
+    </form>
+    </div>    
+    </body>
+</html>
