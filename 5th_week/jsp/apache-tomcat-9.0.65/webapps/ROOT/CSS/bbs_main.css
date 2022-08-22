@@ -4,11 +4,32 @@
 }
 body{
     width: 100%;
-    height: 100%;
+    height: 3500px;
+    position: absolute;
 }
 a{
     position: absolute;
 }
+
+.bbsTitle{
+    position: absolute;
+    width: 1000px;
+    height: 100px;
+    background-color: rgba(240, 248, 255, 0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
+    z-index: 99;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 100px;
+    font-size: 2em;
+    font-weight: bold;
+    box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+    margin-top: 70px;
+}
+
 .area {
     background: #006c9e;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
@@ -129,14 +150,14 @@ a{
 }
 .board{
     width: 1000px;
-    height: 700px;
+    height:2950px;
     position: absolute;
-    top:50%;
+    top:1515px;
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 99;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -148,6 +169,7 @@ a{
     margin-right: 50px;
     backdrop-filter: blur(2px);
     position: relative;
+    box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 .bbsBoard{
     width: 700px;
@@ -156,7 +178,84 @@ a{
     border-radius: 30px;
     backdrop-filter: blur(5px);
     position: relative;
+    box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
+.bbsState{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0 0 20px;
+}
+.bbsBoard ul{
+    width: 600px;
+    height: 400px;
+    /* background-color: aliceblue; */
+    position: absolute;
+    top:55%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    list-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.bbsBoard ul::-webkit-scrollbar{
+    width: 10px;
+}
+.bbsBoard ul::-webkit-scrollbar-thumb{
+    background-color:darkslateblue;
+    border-radius: 0 20px 20px 0;
+}
+.bbsBoard ul::-webkit-scrollbar-track{
+    background-color:royalblue;
+    border-radius: 0 20px 20px 0;
+}
+.bbsBoard ul li{
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 50px;
+}
+.bbsBoard ul li:hover div{
+    background-color: rgb(197, 205, 211);
+}
+.bbsBoard ul li div{
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    line-height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: aliceblue;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+.bbsBoard ul li div:nth-child(1){
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.bbsBoard ul li div:nth-child(2){
+    width: 350px;
+    padding: 0 10px 0 10px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+.bbsBoard ul li div:nth-child(3){
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.bbsBoard ul li div:nth-child(4){
+    width: 120px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
 .userBoard00{
     display: flex;
     flex-direction: column;
@@ -164,11 +263,12 @@ a{
     justify-content: center;
     list-style: none;
     padding: 20px;
+    
 }
 .userBoard01{
     width: 210px;
     height: 210px;
-    background-color: #8f94fbce;
+    background-color:#bbb;
     border-radius: 50%;
     position: relative;
     left: 50%;
@@ -192,8 +292,8 @@ a{
 .userBoard01 span{
     width: 30px;
     height: 30px;
-    border: 2px solid rgb(50, 50, 50);
-    color: rgb(50, 50, 50);
+    border: 2px solid rgb(120, 120, 120);
+    color: rgb(120, 120, 120);
     border-radius: 50%;
     background-color: aliceblue;
     text-align: center;
@@ -258,4 +358,136 @@ hr{
 }
 .logoutBox small{
     font-weight: bold !important;
+}
+
+.navbar{
+    position: fixed;
+    width: 100px;
+    height: 500px;
+    z-index: 999;
+    background-color: rgba(240, 248, 255);
+    border-radius: 30px;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+    top:29%;
+    left: 50%;
+    transform: translate(530%,-50%);
+}
+
+.navbar ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar ul li{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.topBoard{
+    width: 1000px;
+    height: 500px;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.search{
+    width: 1000px;
+    height: 100px;
+    z-index: 99;
+    background-color: rgba(240, 248, 255, 0.6);
+    border-radius: 30px;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.search label{
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.search select{
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.search select:focus{
+    outline: none;
+}
+.search input{
+    margin-left: 20px;
+    padding: 5px;
+    width: 650px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.search input:focus{
+    outline: none;
+}
+.search input[type="submit"]{
+    margin-left: 20px;
+    padding: 5px;
+    width: 50px;
+    font-weight: bold;
+    background-color: royalblue;
+    color: aliceblue;
+}
+.bbsView{
+    width: 1000px;
+    height: 1000px;
+    z-index: 99;
+    background-color: rgba(240, 248, 255, 0.6);
+    border-radius: 30px;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+    margin-top: 50px;
+}
+.write{
+    width: 1000px;
+    height: 1000px;
+    z-index: 99;
+    background-color: rgba(240, 248, 255, 0.6);
+    border-radius: 30px;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+    margin-top: 50px;
+}
+@media (max-width: 1449px){
+    .navbar{
+        position: fixed;
+        width: 1000px;
+        height: 100px;
+        z-index: 999;
+        background-color: rgba(240, 248, 255);
+        border-radius: 30px;
+        backdrop-filter: blur(2px);
+        box-shadow: inset 0 0 5px 5px rgb(0 0 0 / 20%);
+        top: 103%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-color: cornflowerblue;
+    z-index: 1000;
 }
