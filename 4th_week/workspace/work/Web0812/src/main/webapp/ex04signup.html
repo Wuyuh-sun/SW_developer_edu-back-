@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> </title>
+        <script>
+            //regexr.com
+            function check(){
+                if(!isUserid(f.userId)){
+				alert('아이디는 영문으로 시작하고 영문,숫자,_,!로 4~12자리만 가능해요');
+                    f.userId.select();
+                    return;
+                }//if
+                if(!isPasswd(f.userpwd)){
+                    alert('비밀번호는 영문, 숫자, .!_ 문자로 5~10자 이내여야 해요');
+                    f.userpwd.select();
+                    return;
+                }
+                if(f.userpwd.value != f.userpwd_check.value){
+                    alert('비밀번호와 비밀번호 확인이 달라요');
+                    f.userpwd_check.select();
+                    return;
+                }
+                if(!isKor(f.username)){
+                    alert('이름은 한글만 가능해요');
+                    f.username.select();
+                    return;
+                }
+                if(!isDate(f.birth)){
+                    alert('생년월일은 날짜형식[yyyy-mm-dd or yyyy/mm/dd]이어야 해요');
+                    f.birth.select();
+                    return;
+                }
+                if(!isPhone(f.phone1, f.phone2, f.phone3)){
+                    alert('연락처 형식에 맞지 않아요');
+                    f.phone2.focus();
+                    return;
+                }
+                console.log('통신사 '+f.phone_com.value);    
+                if(!f.phone_com.value){
+                    alert('통신사를 선택해야 해요');
+                    return;
+                }
+                /*
+                asDF-12@naver.com
+                asdf.my@google.com
+                asdf_12@daum.net
+                asdf12@google.co.kr
+                식의 이메일 형식을 체크하는 함수를 작성하여 적용하세요
+                */
+                if(!isEmail(f.email)){
+                    alert('이메일 형식에 맞지 않아요');
+                    f.email.select();
+                    return;
+                }
+                f.action='signup.jsp';
+                f.method='post';
+                f.submit();//서버에 전송
+            }//check()------------------
+            /*정규식 메타문자
+            ^ : 시작의 의미
+            $ : 끝을 의미
+            a-z: 알파벳 소문자를 의미
+            A-Z: 알파벳 대문자를 의미
+            0-9: 숫자를 의미
+            + : 패턴이 한번 이상 반복된다는 의미
+
+            [a-zA-Z]{1} : 알파벳이 1개 와야함을 의미
+            */
+            function isUserid(obj){
+                var val=obj.value;
+                //var pattern=new RegExp(/^[a-zA-Z0-9_!]+$/);
+                var pattern=new RegExp(/^[a-zA-Z]{1}[a-zA-Z0-9_!]{3,11}$/);
+                //test()함수. 패턴에 해당한는 문자열이라면 true반환하고 아니면false
+                //를 반환한다.
+                var b=pattern.test(val);
+                console.log('b='+b);
+                return b;
+            }//isUserid()------------------
+            /*^[A-Za-z]{1} : 최소 한자는 알파벳대소문자로 시작해야 함을 의미
+                \w : 알파벳대소문자와 숫자를 의미
+                ! : 느낌표가 들어가도 됨을 의미
+                \. : 마침표가   "
+                _  : 밑줄       "
+                {4,9} : 4자 이상 9자 이내
+            */
+            function isPasswd(obj){
+                var val=obj.value;
+                var pattern=new RegExp(/^[A-Za-z]{1}[\w!_\.]{4,9}$/);
+                var b=pattern.test(val);
+                console.log("pwd b="+b);
+                return b;
+            }
+            function isKor(obj){
+                var val=obj.value;
+                var pattern=/^[가-힣\s]+$/;
+                return pattern.test(val);
+            }
+            /*날짜 유형 체크
+            \b : 단어의 경계를 나타냄. 정확히 패턴이 일치해야 함을 의미
+            \d{4} : 숫자 4개가 와야 함을 의미
+            [-\/] : - 이거나 / 기호를 허용함을 의미
+            \d{1,2} : 숫자 1개 또는 2개 올 수 있단 의미
+            */
+            function isDate(obj){
+                var val=obj.value;
+                var pattern=/\b\d{4}[-\/]\d{1,2}[-\/]\d{1,2}\b/;
+                return pattern.test(val);
+            }
+
+            function isPhone(obj1, obj2, obj3){
+                var val=obj1.value+'-'+obj2.value+'-'+obj3.value;
+                console.log(val);
+                var pattern=/\b(010|011|016|019)[-]\d{3,4}[-]\d{4}\b/;
+                var b=pattern.test(val);
+                console.log('phone b='+b);
+                return b;                
+            }
+            /*
+                asDF-12@naver.com
+                asdf.my@google.com
+                asdf_12@daum.net
+                asdf12@google.co.kr
+                식의 이메일 형식을 체크하는 함수를 작성하여 적용하세요
+                */
+            function isEmail(obj){
+                var val=obj.value;
+                var pattern=/^[\w-_]+(\.[\w]+)*@([a-zA-Z]+\.)+[a-z]{2,3}$/;
+                var b=pattern.test(val);
+                console.log("email b="+b);
+                return b;
+            }
+        </script>
+
+    </head>
+    <body>
+    <div id="wrap">
+        <h1>정규식(RegExp객체)을 이용한 유효성 체크</h1>
+    <form name="f" id="f" method="GET">
+
+    <font color="darkblue">
+        <table border="1" cellspacing="0" cellpadding="0" width="680px" height="750%">
+            <tr>
+                <td colspan="2" bgcolor="#A9E2F3" >☞아이디(ID) 정보</td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*아이디</td>
+                <td>
+                    <input type="text" name="userId" style="25%">
+                    <input type="submit" value="중복검사"><br>
+                    (4~12자 영자/숫자 가능, 한글, 특수문자 ID는 사용할 수 없습니다.)
+                </td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*비밀번호</td>
+                <td>
+                    <input type="password" name="userpwd" style="25%">
+                    (영문으로 시작, 숫자, !,.,_ 문자로 5~10자 이내로 만들어 주세요)
+                </td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*비밀번호 확인</td>
+                <td>
+                    <input type="password" name="userpwd_check" style="25%">
+                    (위 번호와 같이 입력해주세요)
+                </td>
+            </tr>            
+            <tr>
+                <td colspan="2" bgcolor="#A9E2F3">☞개인정보</td>
+            </tr>
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*이름(한글)</td>
+                <td>
+                    <input type="text" name="username">
+                    (예:고길동,고 길동)
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">생년월일</td>
+                <td>
+                    <input type="text" name="birth">  
+                    날짜 [yyyy-mm-dd 또는 yyyy/mm/dd] 형식이어야 해요                  
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">*전화번호</td>
+                <td>
+                    핸드폰<select name="phone1">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="019">019</option>
+                        </select>
+                        -<input type="text" name="phone2" style="width:50px">
+                        -<input type="text" name="phone3" style="width:50px">
+                        <input type="radio" name="phone_com" vlaue="skt">SKT
+                        <input type="radio" name="phone_com" vlaue="ktf">KTF
+                        <input type="radio" name="phone_com" vlaue="lgt">LGT
+                    <br>
+                    집/회사<input type="text" name="phone_ect1" style="width:50px">
+                    -<input type="text" name="phone_ect1" style="width:50px">
+                    -<input type="text" name="phone_ect1" style="width:50px">
+                    최소 한개는 입력하세요
+                </td>
+            </tr>            
+            <tr>
+                <td align="right" bgcolor="#F5F6CE">이메일</td>
+                <td>
+                    <input type="text" name="email" style="width:300px"> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="check()">회원가입</button>
+                    <button type="reset">다시쓰기</button>
+                </td>
+
+            </tr>            
+            
+        </table>
+    </font>
+    </form>
+    </div>    
+    </body>
+</html>
