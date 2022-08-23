@@ -1,0 +1,183 @@
+
+새로운폴더 mytest생성
+C:~~> 새로운작업플젝이름 mytest생성
+C:~~\mytest> npm install express --save
+C:~~\mytest> express --view=pug
+C:~~\mytest> npm install  모듈추가및 팩키지json추가
+C:~~\mytest> npm start    실행명령어
+ > node ./bin/www 성공입니다
+
+웹브라우저
+ localhost:3000
+
+npm install nodemon --save-dev
+
+npm명령어 npm install  
+     C:~\mytest>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mytest> npm install 
+     C:~\mytest> npm install nodemon --save-dev
+
+VScode로 mytest플젝열기
+ package.json문서 열어서 
+  ㄴ16번,17번라인확인
+  ㄴ6번라인 "start" : "nodemon추가 node기존껏 ~~"
+
+routes
+ ㄴguest.js추가 res.render('guest', { msg: '방명록데이터확인' });  
+views             
+ ㄴguest.pug추가  p #{msg}  img(src="images/a1.png", alt="풍선")
+
+app.js문서에서 다시한번 매핑
+  ㄴvar guestRouter = require('./routes/guest');
+  ㄴapp.use('/guest', guestRouter);
+   웹브라우저 http://localhost:3000/guest
+
+
+
+
+
+
+C:\~> node --version
+
+새로운폴더 mybook생성
+C:~~> 새로운작업플젝이름 mybook생성
+C:~~\mybook> npm install express --save
+C:~~\mybook> express --view=pug
+C:~~\mybook> npm install  모듈추가및 팩키지json추가
+C:~~\mybook> npm start    실행명령어
+ > node ./bin/www 성공입니다
+
+웹브라우저
+ localhost:3000
+
+npm install nodemon --save-dev
+npm install nodemon --save -g
+package.json문서확인
+
+
+리액트 + nodejs설치
+vue뷰 + nodejs설치
+angular + nodejs설치
+자바스크립트 +  nodejs설치
+
+1번째 vscode,nodejs설치
+2번째 작업폴더 myapp, mybook
+
+3번째 npm명령어 npm install  
+     C:~\mybook>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mybook> npm install 
+     C:~\mybook> npm install nodemon --save-dev
+
+VScode로 mybook플젝열기
+ package.json문서 열어서 
+  ㄴ16번,17번라인확인
+  ㄴ6번라인 "start" : "nodemon추가 node기존껏 ~~"
+
+routes
+ ㄴtest.js추가 7번라인 res.render('test', { });  
+ ㄴsnow.js추가 res.render('snow', { msg: ' ' });  
+views
+ ㄴtest.pug추가 7번라인 img(src="images/a3.png", alt="풍선")
+ ㄴsnow.pug추가 img(src="images/bc.png", alt="기린")
+
+app.js문서에서 다시한번 매핑
+  ㄴvar testRouter = require('./routes/test');
+  ㄴapp.use('/cake', testRouter);
+  ㄴvar snowRouter = require('./routes/snow');
+  ㄴapp.use('/snow', snowRouter);
+   웹브라우저 http://localhost:3000/snow
+
+
+searchImag = 폼이름.입력란데이터 
+$.ajx({
+  url: `https://dapi.kakao.com/v2/search/image?query={searchImage}&size=60',
+  header: {"Authorization: KakaoAK  3b여러분꺼RESTAPI키값gsfg" }
+ }).done(funtion(data){ } )
+
+8-24-화요일
+ ㄴ카카오개발자  이미지검색
+ ㄴ공공데이터data.go.kr  코로나 
+
+
+
+4번째 공유폴더public/images,javascripts,stylesheets
+  PS파워셀 아닌 command prompt에서 
+점심식사전 npm start
+점심식사후 http://localhost:3000/
+         index.js문서 실행
+
+mybook플젝구조 + rest api작업환경구축성공
+ ㄴbin
+ ㄴnode_modules
+ ㄴpublic
+   ㄴimages
+   ㄴjavascripts 
+   ㄴstylesheets 
+ ㄴroutes
+   ㄴindex.js 웹으로 나가기위해서 설정 req=request,res=response
+   ㄴtest.js  res.render('test', { })
+ ㄴview
+   ㄴindex.pug 화면출력단
+   ㄴtest.pug 화면출력 이미지출력
+ ㄴapp.js
+ ㄴpackage.json문서 
+
+
+mean풀스택 서버+view
+m 몽고디비
+e express서버구축 + js명령어 구현 + html
+a angular
+n nodejs
+
+뷰화면을 html+css+js
+ 리액트
+ vue뷰
+ angular앵귤러
+
+REST는 Representational State Transfer의 줄임말입니다
+API=Application Programming Interface)는 애플리케이션 소프트웨어를 구축하고 통합하는 정의 및 프로토콜 세트입니다
+
+resp api 접근해서 데이터제어 경험
+ㄴ공공데이터 코로나 & 차트
+ㄴ카카오개발자사트 이미지검색+동영상검색
+
+
+
+새로운폴더 mytest생성
+C:~~> 새로운작업플젝이름 mytest생성
+C:~~\mytest> npm install express --save
+C:~~\mytest> express --view=pug
+C:~~\mytest> npm install  모듈추가및 팩키지json추가
+C:~~\mytest> npm start    실행명령어
+ > node ./bin/www 성공입니다
+
+웹브라우저
+ localhost:3000
+
+npm install nodemon --save-dev
+
+npm명령어 npm install  
+     C:~\mytest>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mytest> npm install 
+     C:~\mytest> npm install nodemon --save-dev
+
+VScode로 mytest플젝열기
+ package.json문서 열어서 
+  ㄴ16번,17번라인확인
+  ㄴ6번라인 "start" : "nodemon추가 node기존껏 ~~"
+
+routes
+ ㄴguest.js추가 res.render('guest', { msg: '방명록데이터확인' });  
+views             
+ ㄴguest.pug추가  p #{msg}  img(src="images/a1.png", alt="풍선")
+
+app.js문서에서 다시한번 매핑
+  ㄴvar guestRouter = require('./routes/guest');
+  ㄴapp.use('/guest', guestRouter);
+   웹브라우저 http://localhost:3000/guest
+
+
+
