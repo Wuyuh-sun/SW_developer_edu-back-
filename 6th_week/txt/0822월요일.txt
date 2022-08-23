@@ -22,11 +22,18 @@ Java Resources클릭
 src/main/java=>오.버=>new=>package선택  
   net.hb.common팩키지=>오.버=>new=>class선택 ===> 
     ㄴTestssi.java   ==> ssi.jsp문서내용 public static Connection getConnectio(){~~return CN; }
-    ㄴTestDAO.java   ==>test테이블대상
-    ㄴTestBean.java{ title,pay,wdate,code }  ==>test테이블대상
+    ㄴTestDAO.java   ==>test테이블대상  public void testInsert(){ 간단한코드기술 }
+    ㄴTestBean.java  ==>한강다리역할 { title,pay,wdate,code필드/게터 값리턴,세터setter(변경) } 
     ㄴGlobal.java == Testssi.java문서와 동일 
 
- jsp웹문서.jsp + 자바문서.java
+WebContent가상폴더
+ ㄴssi.jsp문서  임포트 <%@ page import="net.hb.common.TestDAO" %>
+ ㄴtestWriteSave.jsp문서 
+
+
+jsp웹문서.jsp + 자바문서.java
+TestDAO.java문서의  48라인 삭제처리만 구현기술해보세요
+TestBean.java문서작성후 다시 전체출력, 한건상세, 한건수정화면
 
 
  ㄴ모델2=mvc2=서블릿

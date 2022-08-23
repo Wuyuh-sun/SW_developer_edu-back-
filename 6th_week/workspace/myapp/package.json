@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "simple mytest",
+  "main": "index.js",
+  "scripts": {
+    "test": "aws",
+    "server": "node server.js"
+  },
+  "author": "kim",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
