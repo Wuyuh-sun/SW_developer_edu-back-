@@ -1,0 +1,346 @@
+카카오 이미지검색
+공공데이터 코로나
+mvc2=서블릿 30분설명
+
+프로젝트제출은 25일 목요일 점심시간전후로 제출합니다
+(08-25)본인이름.zip
+
+학교대표  발표 4시부터 ~ 6시
+안동대    1인 발표지원자 15분
+경일대    1인 발표지원자 15분
+금오공    1인 발표지원자 15분
+가톨릭    1인 발표지원자 15분
+
+발표자 인원 1명/2명
+발표시간 15분 ~ 20분 
+
+
+
+
+내장함수, 사용자정의함수 , call콜백함수구분
+
+
+8월24일 수요일
+ㄴ노드특징
+  모든언어에서 말하는 콜백함수 
+  mybook플젝 
+   ㄴtodo.js ~.post(), todo.pug화면입력 <form  action="" method=post>
+   ㄴapp.js
+  Nodejs에서 배열활용 시리즈, 배열의 반복문 배열.forEach(항목,index),$.each(index,항목) 
+  카카오이미지검색 
+   인증키: 05d25d1a
+
+
+
+
+점심식사이후 공공데이터 코로나데이터를 nodejs연결
+views
+  ㄴimagesearch.pug화면
+  ㄴcoronapicker.pug화면
+     인증키값 인코딩 여러분껄루
+routes
+  ㄴimagesearch.js
+  ㄴcoronapicker.js
+
+app.js문서
+var coronapickerRouter = require('./routes/coronapicker');
+app.use('/coronapicker', coronapickerRouter);
+
+
+
+
+#----------------------------------------------------------------------------------
+ Node는 기본적으로 싱글스레드, 논블로킹 모델을 사용
+  ㄴjavascript는 웹페이지를 움직이게 만들 때 사용하는 언어이다
+  ㄴ뛰어난 성능을 가진 구글사의 자바스크립트 V8 해석 엔진을 떼어낸 것이 Nodejs이다.
+  ㄴNode사용시 작성된 코드는 모두 스레드하나에서 처리되기때문에 연산이 많은 처리는 비권장
+  ㄴrestAPI HTTP요청 : 클라이언트가 서버에 요청하는 4가지 방법을 참조
+	get 읽기 - 웹페이지 읽을때 
+	post 쓰기 or 등록 - 글 쓸때, 로그인 할때
+	put 수정 - 글이나 댓글 수정	
+	delete 삭제 - 글이나 댓글 삭제
+
+  ㄴ작은데이터를 실시간으로 주고 받는데 적합
+  ㄴ문자열 표현을 `` 벡틱으로 많이 사용  
+  ㄴ화살표함수 많이 사용
+   일반함수   function myhap1(x, y) { hap=x+y; return hap; }
+   화살표함수  myhap2 = (x,y) => { hap=x+y; return x+y;}
+   화살표함수  myhap3 = (x,y) => x+y ;  //return 생략가능
+
+
+자바스크립트에서 배열
+ <script>
+    d2=new Array( 30, 50, 70 );
+      for(var i=0; i<3; i++){
+        console.log(d2[i]);
+     }
+     
+    
+    d3=["겨울", 1200, 'B'];
+     for(j in d3){
+        console.log(d3[j]);
+     }
+ </script>
+
+
+ var links = [
+        {name: 'naver', url: 'http://www.naver.com'},
+        {name: 'kakao', url: 'http://www.daum.net'},
+        {name: 'python', url: 'http://www.python.org'}
+       ];   
+
+메모장에서 links배열출력  name값클릭하면 url사이트 이동
+첫번째 links.forEach(function(item,idx){console.log( idx + ' '+item.name+'' +item.url ); });
+두번째 $.each(links, function(idx,item){});
+ 참고 $.ajax();
+
+ajax는 비동기적 웹 서비스를 개발할때 사용하는 기법
+ ㄴ페이지 이동 없이 서버에 요청을 보내고 응답을 받는 기술
+ ㄴajax요청은 제이쿼리나 엑시오스axio 같은 라이브러리를 이용
+
+
+뷰pug어려운데 왜? 쓸까
+
+     npm명령어 npm install  
+     C:~\mybook>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mybook> npm install 
+     C:~\mybook> npm install nodemon --save-dev
+     C:~\mybook> npm install nodemon -D  ===> --save-dev같은의미
+     C:~\mybook> npm install body-parser --save  설치
+
+app.js
+ 17번~18번라인내용추가
+var bodyParser = require('body-parser');   //추가
+app.use(bodyParser.urlencoded({ extended: true }));  //추가
+#----------------------------------------------------------------------------------
+ Node는 기본적으로 싱글스레드, 논블로킹 모델을 사용
+  ㄴjavascript는 웹페이지를 움직이게 만들 때 사용하는 언어이다
+  ㄴ뛰어난 성능을 가진 구글사의 자바스크립트 V8 해석 엔진을 떼어낸 것이 Node.js이다.
+  ㄴNode사용시 작성된 코드는 모두 스레드하나에서 처리되기때문에 연산이 많은 처리는 비권장
+  ㄴHTTP요청 : 클라이언트가 서버에 요청하는 4가지 방법을 참조
+	get 읽기 - 웹페이지 읽을때 
+	post 쓰기 or 등록 - 글 쓸때, 로그인 할때
+	put 수정 - 글이나 댓글 수정	
+	delete 삭제 - 글이나 댓글 삭제
+
+  ㄴ작은데이터를 실시간으로 주고 받는데 적합
+  ㄴ문자열 표현을 `` 벡틱으로 많이 사용
+  ㄴ화살표함수 많이 사용
+   function myhap1(x, y) { hap=x+y; return hap; }
+   const myhap2 = (x,y) => { hap=x+y; return x+y;}
+   const myhap3 = (x,y) => x+y ;  //return 생략가능
+ 
+자바스크립트에서 배열
+ <script>
+    d2=new Array( 30, 50, 70);
+      for(var i=0; i<3; i++){
+        console.log(d2[i]);
+     }
+     
+    
+    d3=["겨울", 1200, 'B'];
+     for(j in d3){
+        console.log(d3[j]);
+     }
+ </script>
+-----------------------------------
+ajax는 비동기적 웹 서비스를 개발할때 사용하는 기법
+ ㄴ페이지 이동 없이 서버에 요청을 보내고 응답을 받는 기술
+ ㄴajax요청은 제이쿼리나 엑시오스axio 같은 라이브러리를 이용
+
+
+#----------------------------------------------------------------------------------
+npm install body-parser --save  설치
+var bodyParser = require('body-parser');   //추가
+app.use(bodyParser.urlencoded({ extended: true }));  //추가
+#----------------------------------------------------------------------------------
+C:\~> node --version
+
+새로운폴더 mybook생성
+C:~~> 새로운작업플젝이름 mybook생성
+C:~~\mybook> npm install express --save
+C:~~\mybook> express --view=pug
+C:~~\mybook> npm install body-parser --save 
+C:~~\mybook> npm install nodemon -D
+C:~~\mybook> npm start    실행명령어
+> node ./bin/www 성공입니다
+ localhost:3000
+
+8월24일 수요일
+ㄴ노드특징
+  모든언어에서 말하는 콜백함수 
+  Nodejs에서 todo시리즈 입력해서 출력
+  Nodejs에서 배열활용 시리즈, 배열의 반복문 배열.forEach(),$.each() 
+  카카오이미지검색 
+
+#----------------------------------------------------------------------------------
+ Node는 기본적으로 싱글스레드, 논블로킹 모델을 사용
+  ㄴjavascript는 웹페이지를 움직이게 만들 때 사용하는 언어이다
+  ㄴ뛰어난 성능을 가진 구글사의 자바스크립트 V8 해석 엔진을 떼어낸 것이 Node.js이다.
+  ㄴNode사용시 작성된 코드는 모두 스레드하나에서 처리되기때문에 연산이 많은 처리는 비권장
+  ㄴHTTP요청 : 클라이언트가 서버에 요청하는 4가지 방법을 참조
+	get 읽기 - 웹페이지 읽을때 
+	post 쓰기 or 등록 - 글 쓸때, 로그인 할때
+	put 수정 - 글이나 댓글 수정	
+	delete 삭제 - 글이나 댓글 삭제
+
+  ㄴ작은데이터를 실시간으로 주고 받는데 적합
+  ㄴ문자열 표현을 `` 벡틱으로 많이 사용
+  ㄴ화살표함수 많이 사용
+   function myhap1(x, y) { hap=x+y; return hap; }
+   const myhap2 = (x,y) => { hap=x+y; return x+y;}
+   const myhap3 = (x,y) => x+y ;  //return 생략가능
+
+
+자바스크립트에서 배열
+ <script>
+    d2=new Array( 30, 50, 70);
+      for(var i=0; i<3; i++){
+        console.log(d2[i]);
+     }
+     
+    
+    d3=["겨울", 1200, 'B'];
+     for(j in d3){
+        console.log(d3[j]);
+     }
+ </script>
+
+
+ajax는 비동기적 웹 서비스를 개발할때 사용하는 기법
+ ㄴ페이지 이동 없이 서버에 요청을 보내고 응답을 받는 기술
+ ㄴajax요청은 제이쿼리나 엑시오스axio 같은 라이브러리를 이용
+
+
+npm install nodemon --save-dev
+npm install nodemon --save -g
+package.json문서확인
+꼭추가 npm install body-parser --save 
+
+
+리액트 + nodejs설치
+vue뷰 + nodejs설치
+angular + nodejs설치
+자바스크립트 +  nodejs설치
+
+1번째 vscode,nodejs설치
+2번째 작업폴더 myapp, mybook
+
+3번째 npm명령어 npm install  
+     C:~\mybook>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mybook> npm install 
+     C:~\mybook> npm install nodemon --save-dev
+
+VScode로 mybook플젝열기
+ package.json문서 열어서 
+  ㄴ16번,17번라인확인
+  ㄴ6번라인 "start" : "nodemon추가 node기존껏 ~~"
+
+routes
+ ㄴtest.js추가 7번라인 res.render('test', { });  
+ ㄴsnow.js추가 res.render('snow', { msg: ' ' });  
+views
+ ㄴtest.pug추가 7번라인 img(src="images/a3.png", alt="풍선")
+ ㄴsnow.pug추가 img(src="images/bc.png", alt="기린")
+
+app.js문서에서 다시한번 매핑
+  ㄴvar testRouter = require('./routes/test');
+  ㄴapp.use('/cake', testRouter);
+  ㄴvar snowRouter = require('./routes/snow');
+  ㄴapp.use('/snow', snowRouter);
+   웹브라우저 http://localhost:3000/snow
+
+
+searchImag = 폼이름.입력란데이터 
+$.ajx({
+  url: `https://dapi.kakao.com/v2/search/image?query={searchImage}&size=60',
+  header: {"Authorization: KakaoAK  3b여러분꺼RESTAPI키값gsfg" }
+ }).done(funtion(data){ } )
+
+8-24-화요일
+ ㄴ카카오개발자  이미지검색
+ ㄴ공공데이터data.go.kr  코로나 
+
+
+
+4번째 공유폴더public/images,javascripts,stylesheets
+  PS파워셀 아닌 command prompt에서 
+점심식사전 npm start
+점심식사후 http://localhost:3000/
+         index.js문서 실행
+
+mybook플젝구조 + rest api작업환경구축성공
+ ㄴbin
+ ㄴnode_modules
+ ㄴpublic
+   ㄴimages
+   ㄴjavascripts 
+   ㄴstylesheets 
+ ㄴroutes
+   ㄴindex.js 웹으로 나가기위해서 설정 req=request,res=response
+   ㄴtest.js  res.render('test', { })
+ ㄴview
+   ㄴindex.pug 화면출력단
+   ㄴtest.pug 화면출력 이미지출력
+ ㄴapp.js
+ ㄴpackage.json문서 
+
+
+mean풀스택 서버+view
+m 몽고디비
+e express서버구축 + js명령어 구현 + html
+a angular
+n nodejs
+
+뷰화면을 html+css+js
+ 리액트
+ vue뷰
+ angular앵귤러
+
+REST는 Representational State Transfer의 줄임말입니다
+API=Application Programming Interface)는 애플리케이션 소프트웨어를 구축하고 통합하는 정의 및 프로토콜 세트입니다
+
+resp api 접근해서 데이터제어 경험
+ㄴ공공데이터 코로나 & 차트
+ㄴ카카오개발자사트 이미지검색+동영상검색
+
+
+
+새로운폴더 mytest생성
+C:~~> 새로운작업플젝이름 mytest생성
+C:~~\mytest> npm install express --save
+C:~~\mytest> express --view=pug
+C:~~\mytest> npm install  모듈추가및 팩키지json추가
+C:~~\mytest> npm start    실행명령어
+ > node ./bin/www 성공입니다
+
+웹브라우저
+ localhost:3000
+
+npm install nodemon --save-dev
+
+npm명령어 npm install  
+     C:~\mytest>  express --view=pug
+     C:~> express --view=pug mybook 
+     C:~\mytest> npm install 
+     C:~\mytest> npm install nodemon --save-dev
+
+VScode로 mytest플젝열기
+ package.json문서 열어서 
+  ㄴ16번,17번라인확인
+  ㄴ6번라인 "start" : "nodemon추가 node기존껏 ~~"
+
+routes
+ ㄴguest.js추가 res.render('guest', { msg: '방명록데이터확인' });  
+views             
+ ㄴguest.pug추가  p #{msg}  img(src="images/a1.png", alt="풍선")
+
+app.js문서에서 다시한번 매핑
+  ㄴvar guestRouter = require('./routes/guest');
+  ㄴapp.use('/guest', guestRouter);
+   웹브라우저 http://localhost:3000/guest
+
+
+

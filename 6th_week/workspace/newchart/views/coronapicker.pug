@@ -1,0 +1,100 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title corona
+  // prettier-ignore
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='stylesheets/fancybox.css')
+  link(rel='stylesheet' href='stylesheets/air.css')
+  link(rel='stylesheet' href='stylesheets/lightpick.css')
+  
+  script(src='javascripts/jquery-3.6.0.min.js')
+  script(src='javascripts/axios.min.js')
+  script(src='javascripts/chart.min.js')
+  script(src='javascripts/moment.js')
+  script(src='javascripts/lightpick.js')
+  style.
+    #coronaChart {
+    width: 1200px;
+    height: 600px;
+    margin: 100px auto;
+    }
+| .
+
+div
+  input#datePicker(type='text')
+canvas#coronaChart
+
+script.
+    const picker = new Lightpick({
+        field: document.getElementById("datePicker"),
+        onSelect: function (date) {
+        document.getElementById("datePicker").value = date.format("YYYYMMDD");
+        loadCorona(date.format("YYYYMMDD"));
+        },
+    });
+
+    let myChart = null;  
+    //loadCorona(moment().format("YYYYNNNDD"));
+    function loadCorona(date) {
+        console.log(date);
+        $.ajax({   //?ServiceKey=Wn여러분꺼3D%3D&startCreateDt=${date}&endCreateDt=${date}&_type=json`, 뒤쪽
+        url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?ServiceKey=Wn여러분꺼%3D%3D&startCreateDt=${date}&endCreateDt=${date}&_type=json`,
+        }).done(function (res) {
+        const coronaData = res.response.body.items.item;
+        let tempHtml = "";
+        if (myChart !== null) {
+            myChart.destroy();
+        }
+        const labels = [];
+        const data = {
+            labels: labels,
+            datasets: [
+            {
+                type: "line",
+                label: "corona",
+                backgroundColor: 'rgb(0,0,255)',
+                borderColor: "rgb(0,0,0)",
+                data: [],
+            },
+            {
+                type: "bar",
+                label: "corona",
+                backgroundColor: [], 
+                borderColor: "rgb(0,0,0)",
+                data: [],
+            },
+            ],
+        };
+        const config = {
+            data: data,
+            options: {},
+        };
+
+        $.each(coronaData, function (idx, item) {
+            console.log(item);
+            if (item.gubun !== "합계") {
+                labels.push(item.gubun);
+                if (item.gubun !== "검역") {
+                data.datasets[0].data.push(item.localOccCnt);
+                data.datasets[1].data.push(item.localOccCnt);
+                } else {
+                data.datasets[0].data.push(item.overFlowCnt);
+                data.datasets[1].data.push(item.overFlowCnt);
+                }
+                //컬러색변경
+                data.datasets[1].backgroundColor.push(`
+                rgb(
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)}
+                )
+            `);
+            }
+        });
+
+        myChart = new Chart(document.getElementById("coronaChart"), config);
+        });
+    }

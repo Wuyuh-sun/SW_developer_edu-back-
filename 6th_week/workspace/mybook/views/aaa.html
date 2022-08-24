@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <title>Document</title>
+    <style>
+        *{font-size: 24pt;}
+    </style>
+
+ <script>
+    d2=new Array( 30, 50, 70);
+      for(var i=0; i<3; i++){
+        console.log(d2[i]);
+     }
+     
+    
+    d3=["겨울", 1200, 'B'];
+     for(j in d3){
+        console.log(d3[j]);
+     }
+ </script>
+
+
+ <script>
+    $(function() {
+      var links = [
+        {name: '네이버', url: 'http://www.naver.com'},
+        {name: '카카오', url: 'http://www.daum.net'},
+        {name: '파이썬', url: 'http://www.python.org'}
+       ];   
+       
+      var msg='';
+      console.log('links.forEach반복문');
+      links.forEach(function(item, idx){
+         console.log('idx = ' + idx);
+         console.log('item = ' + item.name +' ' + item.url);
+         msg+='<a href="'+ item.url + '">';
+         msg+=item.name+'</a><br>'  
+        $('#div1').html(msg);
+      });
+
+
+      var my ='';
+       console.log('$.each반복문');
+      $.each(links, function (idx, item) {
+          console.log('idx = ' + idx);
+          console.log('item = ' + item.name +' ' + item.url);
+         my+='<a href="'+ item.url + '">';
+         my+=item.name+'</a><br>'  
+        $('#div2').html(my);
+      });
+   });
+ </script>
+</head>
+<body>
+   links.forEach반복문
+   <div id="div1"></div>
+     <p></p>
+
+   $.each반복문  
+   <div id="div2"></div>
+</body>
+</html>

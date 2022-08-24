@@ -1,0 +1,1950 @@
+
+이클립스실행
+C:\workspace
+ ㄴeclipse폴더
+   ㄴeclipse.exe실행  C:\workspace\work선택하세요
+ ㄴwork작업폴더문서저장폴더
+
+C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\miniBBS\storage
+C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\miniBBS\storage
+
+08-22-월요일
+ ㄴAjax
+ ㄴ모델2=mvc2=서블릿
+ ㄴ프로젝트 제출은 다음주 23일 화요일 저녁 6시이후 gmail로 보내면 됩니다 (08-23)김영임플젝.zip / (08-23)김영임플젝.war
+ ㄴ유저login필수 구현, 관리자admin구현안해도 됩니다.  페이징+검색+댓글수는 적용해보세요 
+
+Java Resources클릭
+src/main/java=>오.버=>new=>package선택  
+  net.hb.common팩키지=>오.버=>new=>class선택 ===> 
+    ㄴTestDAO.java   ==>test테이블대상
+    ㄴTestBean.java{ title,pay,wdate,code }  ==>test테이블대상
+    ㄴGlobal.java
+ 
+  public class Two{ 
+   전역변수   private int doorkey=1234;
+   생성자    public Two(){ }
+   일반함수   public void book(){ String title="몽블랑"; System.out.println(title);}
+   static함수=버스기사=웹서버역할
+   생성안함public static void main(String[] args){ Two mr=new Two(); mr.book();} 
+ }
+
+
+
+08-19-금요일
+ ㄴtestList.jsp문서(title,pay,wdate,code)필드순서 4개열
+   ㄴguestList.jsp문서(sabun,name,title,wdate,pay,hit,email) 316개 32페이지
+   ㄴ61행~70행데이터출력 [1] [2] ~ [7클릭] [9] [10][다음]
+ ㄴ자바문서분리/mvc2모델서블릿
+   ㄴ저장,삭제 ===>모델1mvc
+   ㄴ모델2
+
+황진성님 쿼리문참고하세요
+ select * from (
+   select rownum rn, g.* from guest g ) 
+ where rn between 61 and 70;
+
+문제1] [1] ~ [10] 성공
+문제2] [1] ~ [10] [다음클릭하면 자동으로11선택되도록]
+
+      [11]선택되도록 하려면 [1]+10=11 or  [10]+1=11
+      다음클릭하면 start=101 end=110 [11선택]~[20]
+      [11]  rowstart = (11-1)*10+1 ;
+      [11]  rowend = (11*10) ;
+
+총갯수 total=316레코드데이터
+총페이지수 pagecount=32
+
+[이전] [11] ~ [20] [다음클릭하면]
+[이전] [21] ~ [30] [다음]
+
+문제3] [이전][다음] 이동까지 기술함 
+      [이전][31][32]
+
+
+문제4] guest테이블 검색+페이지 
+ guest테이블 이름검색 like b ===> 62건 ==>검색한결과 총 7페이지 
+ guest테이블 제목검색 like p ===> 13건 ==>검색한결과 총 2페이지 
+
+http://localhost:8181/Web0812/guestList.jsp?pageNum=3&keyfield=name&keyword=b
+SQL> select count(*) as scnt from guest where name like '%b%' ;  //62숫자출력
+SQL> select * from guest where name like '%b%' ; //데이터 62개출력
+
+SQL> select rownum, g.* from guest g where name like '%b%' ; //데이터 62개출력
+   	51       2206 tbs        good       22/08/19        561          0 bc@it.com
+        52       2207 pbs        host       22/08/19        901          0 bc@it.com
+        53       2008 bbs        ik         22/08/19        581          0 bc@it.com
+        54       2209 jtbc       joo        22/08/19        251          0 bc@it.com
+        55       1108 abc        aa         22/08/19        205          0 bc@it.com
+        56       1002 bc         book       22/08/19        529          0 bc@it.com
+        57       1008 book       ik         22/08/19        581          0 bc@it.com
+        58       1501 bb         bb         22/08/19        517          0 bc@it.com
+        59       1502 book       book       22/08/19        529          0 bc@it.com
+        60       3108 black      black      22/08/19        205          0 bc@it.com
+
+62건데이터중에서 51행~60행까지출력  40분까지 해결 ...
+--영임쌤
+select * from (
+ select rownum rn, g.* from 
+  (select * from guest  where name like '%b%' ) g
+) where rn between 51 and 60;
+
+
+--영주님
+select * from (
+  select rownum rn, g.* from guest g  where name like '%b%'
+) where rn between 51 and 60;
+
+--진성님
+select * from (
+ select rownum rn, g.* from guest g where name like '%b%'
+) where rn between 51 and 60;
+
+--성준님
+select * from(
+  select rownum rn,g.* from guest g where name like '%b%'
+)where rn between 51 and 60;
+
+--성환님
+select  * from  (
+   select rownum rn, g.* from  guest  g where name like '%b%'
+) where rn between  51  and  60 ;
+
+
+guestList.jsp문서에 댓글수 표현
+
+ drop sequence  guestreply_seq ;
+ create sequence  guestreply_seq ;
+ commit ;
+ 
+ drop table guestreply;  
+ create table  guestreply (      --댓글관련 테이블 guestreply
+  num number(4) not null,     --시퀀스 guestreply_seq.nextVal
+  writer varchar2(10) not null,
+  content varchar2(20)not null,  
+  sabun number(4) not null       --guest테이블의  sabun필드와 연결
+);
+commit ; 
+
+
+alter table guestreply  drop  constraint  guest_sabun_fk; 
+alter table guestreply  add   constraint  guest_sabun_fk 
+      foreign key(sabun) references guest(sabun) on delete cascade;
+commit ;
+
+insert into guestreply values(guestreply_seq.nextval, 'aaa','bbb',4466 );
+insert into guestreply values(guestreply_seq.nextval, 'kim','kim',4466);
+insert into guestreply values(guestreply_seq.nextval, 'lee','lee',4466);
+commit ;
+
+ <td> <%= Gtitle %><%if(Rcnt>0){%><span style="color:red";>[<%=Rcnt %>]</span><%}%></td>
+  
+insert into guestreply values(guestreply_seq.nextval, 'a','a',4422);
+insert into guestreply values(guestreply_seq.nextval, 'lb','lb',4422);
+commit ;
+
+
+//전역변수 
+<%!
+ int start, end ; 
+ int pagecount;  
+ int pageNUM ;   
+ int startpage, endpage; 
+ String pnum;  
+ int temp2, temp; 
+ int num; 
+
+ String sqry; 
+ String skey컬럼필드, sval검색어; 
+ String returnpage; 
+ 
+ java.text.SimpleDateFormat sdf;
+ java.util.Date dt;
+%>
+
+https://docs.oracle.com/javase/7/docs/api/index.html
+왼쪽상단 java.util팩키지=폴더
+왼쪽하단 Date,ArrayList,List인터페이스
+
+왼쪽상단 java.text팩키지=폴더
+왼쪽하단 SimpleDateFormat클래스클릭
+
+왼쪽상단 java.sql팩키지=폴더
+왼쪽하단 Connection, Statement, PreparedStatement, ResultSet
+
+
+
+
+Java Resources클릭
+src/main/java=>오.버=>new=>package선택  
+  net.hb.common팩키지=>오.버=>new=>class선택 ===>Two
+  public class Two{ 
+   전역변수   private int doorkey=1234;
+   생성자    public Two(){ }
+   일반함수   public void book(){ String title="몽블랑"; System.out.println(title);}
+   static함수=버스기사=웹서버역할
+   생성안함public static void main(String[] args){ Two mr=new Two(); mr.book();} 
+ }
+
+플젝구성안은 강제성 없습니다. ... 편하게 보내시면 됩니다
+(08-18-목요일)본인이름조장.zip
+ ㄴ프로젝트주제구성 내용 최소 5~10줄
+ ㄴdb설계 테이블
+ ㄴ화면구성 
+ ㄴ팀구성원
+
+질문 답변해주세요 
+ 1. miniBBS추가수정 플젝   2.새로구상  3. 고민중
+ 팀플, 개인플
+ 주제 ... 
+
+
+miniBBS플젝=>오른쪽버튼
+ㄴProperties클릭
+  왼쪽 Project Facets선택후 
+     중앙에 Java  11▼버젼선택
+     오른쪽 Runtimes탭
+          체크 Apache Tomcat v9.0선택
+
+miniBBS플젝선택후 이클립스 프로젝트메뉴에서 clean...
+miniBBS플젝선택후 F5=Refresh
+miniBBS플젝실행
+ ㄴsrc/main/webapp
+ ㄴWebContent
+    ㄴbbs폴더에서 index.jsp문서실행
+
+
+08-18-목요일
+ ㄴtestWriteSave.jsp문서에 PreparedStatement명령어적용
+    ㄴtestWriteSaveCOPY.jsp
+ ㄴtestEditSave.jsp문서에 PreparedStatement명령어적용
+    ㄴtestEditSaveCOPY.jsp
+
+
+파일업로드
+Web0812
+ ㄴWebContent=>오른쪽버튼 =>new=>folder
+    images폴더
+    META-INF
+    storage폴더를 새로 만들었습니다 ==>자원을 관리하는 공통공용폴더입니다 접근 application내장개체
+    WEB-INF
+     ㄴlib폴더
+        ㄴojdbc6.jar파일 있어야 합니다
+	ㄴcos.jar파일 아직은복붙 안함  참고사이트 http://www.servlets.com/cos/
+
+    AAA.jsp문서 폼form태그 <form> <input type=file> </form>
+        <form  method="post" enctype="multipart/form-data" action="BBB.jsp">
+            <input type=file>
+        </form>
+
+    BBB.jsp문서 파일내용받을거에요 storage사용자정의폴더 접근 application내장객체
+        import="com.oreilly.servlet.multipart폴더 DefaultFileRenamePolicy클래스"    
+        import="com.oreilly.servlet폴더 MultipartRequest클래스"
+
+    BBBdownload.jsp문서 이미지다운로드 response내장개체활용
+    CCC.jsp문서에서 세션연습테스트
+    testWrite.jsp
+    index.jsp
+    loginSave.jsp문서  세션설정
+    testDeleteSave.jsp문서  세션값 응용
+
+Web0812플젝 그림이미지저장경로
+ C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Web0812
+ C:\workspace\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Web0812\storage
+ 폴더생성C:\workspace\work~~\org.eclipse.wst.server.core\tmp0\wtpwebapps\Web0812\storage
+
+웹서버에서 제공되는 내장객체
+ ㄴpage
+ ㄴout
+ ㄴrequest
+ ㄴresponse
+ ㄴsession객체 loginSave.jsp문서  session.setAttribute("naver", userA아이디)
+              testDeleteSave.jsp문서  String my =(String)session.getAttribute("naver");
+ ㄴapplication객체 자원공용폴더 storage접근 
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+자바문서~~.java
+웹문서~~.jsp  <html> <%! 전역변수 %> <% 자바문법기술명령어기술 %> <%=출력데이터 %> </html>
+
+우리는 자바언어기본으로 , 자바스크립트 구현 
+디자이너 화면구현
+DBA 데이터베이스설계 table,user,권한,시퀀스,제약조건
+
+  Father.java자바문서
+  public class Father{ 전역변수 생성자 일반함수public void bank(){} static함수 }
+
+  Son.java
+  public class Son extends Father{ 전역변수 생성자 일반함수 static함수 bank()사용}
+
+
+Java Resources클릭
+src/main/java=>오.버=>new=>package선택  
+  net.hb.common팩키지=>오.버=>new=>class선택 ===>Two
+  public class Two{ 
+   전역변수   private int doorkey=1234;
+   생성자    public Two(){ }
+   일반함수   public void book(){ String title="몽블랑"; System.out.println(title);}
+   static함수=버스기사=웹서버역할
+   생성안함public static void main(String[] args){ Two mr=new Two(); mr.book();} 
+ }
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ㄴ참고 사이트 첫번째 http://www.servlets.com/cos/
+ ㄴ자바문서분리/mvc1모델
+
+08-19-금요일
+ ㄴtestList.jsp문서 페이징
+ ㄴ자바문서분리/mvc2모델서블릿
+
+
+
+개인플젝 
+팀플젝
+  로그인처리, 회원등록, 게시판(페이징,검색,댓글)
+  이미지게시판, 상품등록, 
+화면구성, 테이블구성, 이미지넣는폴더
+
+
+miniBBS플젝=>오른쪽버튼
+ㄴProperties클릭
+  왼쪽 Project Facets선택후 
+     중앙에 Java  11▼버젼선택
+     오른쪽 Runtimes탭
+          체크 Apache Tomcat v9.0선택
+
+miniBBS플젝선택후 이클립스 프로젝트메뉴에서 clean...
+miniBBS플젝선택후 F5=Refresh
+miniBBS플젝실행
+ ㄴsrc/main/webapp
+    ㄴbbs폴더에서 index.jsp문서실행
+
+댓글게시판
+이미지게시판
+회원가입
+관심등록 
+ 화면및 table구성
+ 목요일,금요일 오후3시부터 플젝진행 
+
+
+
+08-17-수요일
+첫번째 http://www.servlets.com/cos/
+
+2번째 login테이블작성/board테이블작성/board_seq시퀀스작성
+ 
+  drop table login ;
+  create table login(
+     userid varchar2(10) primary key ,
+     pwd varchar2(10) not null
+  );
+
+ commit ;
+ insert into login values('sky', '1234') ;
+ insert into login values('blue', '1234') ;
+ commit ;
+
+
+  drop sequence  board_seq;
+  create sequence  board_seq;
+  
+  drop table board ;
+
+  --에러발생해요
+  create table board ( 
+      bnum number(4) primary key ,
+      code number(4) primary key
+   ) ;  
+  
+
+ --해결방법
+  create table board ( 
+      bnum number(4) primary key ,  --꼭입력 유일+notnull
+      code number(4) unique         --유일한데 null허용
+  ) ;  
+
+ --해결방법
+  drop table board ;
+  create table board ( 
+     bnum number(4) ,
+     code number(4) ,
+     constraint board_pk primary key(bnum, code) 
+  ) ;
+ 
+commit ; 
+insert into board values( 1100, 75);
+insert into board values( 1100, 95);
+insert into board values( 2200, 75);
+insert into board values( 2200, 95);
+insert into board values( 1100, 95); --에러발생
+insert into board values( 3300, 95); 
+
+select constraint_name from  user_constraints;
+alter table  board  drop constraint  board_pk; 
+commit ;
+select constraint_name from  user_constraints;
+commit ;
+
+
+       name이름
+       title제목,wdate날짜,content내용,email메일,hit조회,
+       picture이미지  
+      
+  
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+drop table test ;
+create table test (
+   title varchar2(10) not null ,
+   pay number(3) not null ,
+   wdate date not null ,
+   code number(4) primary key 
+);
+commit ;
+delete from test ;
+commit ;
+select * from test ;
+
+
+
+ drop   sequence  bbs_seq ;  
+ create sequence bbs_seq ;
+
+ drop  table bbs;  
+
+ create  table  bbs (   
+   b_no number(3) not null,  --bbs_seq.nextVal  
+   b_sabun  number(4) not null ,  
+   b_name varchar2(15) not null,
+   b_title  varchar2(30) not null, 
+   b_cnt number(5) default 0 ,
+   b_content  varchar2(50) not null,
+   b_phone  varchar2(20) not null,
+   b_pwd  varchar2(10)  not null,
+   b_wdate  date   not null,
+   b_juso1  varchar2(100) not null, 
+   b_juso2  varchar2(50) not null, 
+   b_email varchar2(30) not null, 
+   b_url  varchar2(20)  null, 
+   b_file1  varchar2(30) null, 
+   b_size1  number(7) default 0 ,
+   primary key(b_sabun)  
+ );
+
+  commit ;
+  drop sequence  bbsreply_seq ;
+  create sequence  bbsreply_seq  ; 
+
+  drop table bbsreply;  
+  create table  bbsreply (      
+    br_num number(4) not null,     
+    br_writer varchar2(10) not null,
+    br_content varchar2(20)not null,
+    br_date  date   not null,
+    br_sabun number(4) not null
+  );
+ commit ;
+
+--제약조건 create키워드 대신 alter table  대상테이블이름  
+alter table  bbsreply  drop  constraint  bbs_sabun_fk ;  
+alter table  bbsreply  add   constraint  bbs_sabun_fk 
+  foreign key(br_sabun) references bbs(b_sabun) on delete cascade;
+commit ;  
+
+SQL>  select  * from  bbs  ;
+SQL>  col  b_name  for  a10 ;
+SQL>  col  b_title  for  a10 ;
+SQL>  col  b_file1  for a15 ;
+SQL>  select b_no,b_name,b_title, b_file1  from  bbs  ;
+SQ>  set linesize 200
+SQ>  set pagesize 200
+SQL> commit ;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+WebContent => 오.버 => JSP File
+ ㄴimages폴더
+ ㄴMETA-INF
+ ㄴWEB-INF
+   ㄴlib노란색폴더
+     ㄴojdbc6.jar꼭 있어야 함
+ ㄴboardWrite.jsp => 게시판입력화면
+ ㄴboardWriteSave.jsp => 게시판저장화면
+ ㄴboardList.jsp => 게시판전체출력화면
+
+    drop sequence  board_seq;
+    create sequence  board_seq;
+    drop table board ;
+    create table board ( 
+        idx  시퀀스
+        code pk
+        name
+        title,wdate,content,email,hit,picture
+    );
+ ㄴtestWrite.jsp 
+ ㄴopenID.jsp문서
+(08-16-화요일)김영임testWrite.zip
+
+
+ ㄴindex.jsp => js화면이동, <video태그>
+ ㄴtestWrite.jsp 
+    ㄴ<form action="guestWriteSave.jsp"> <input type=submit value="저장"> </form>
+
+ ㄴtestWriteSave.jsp => db서버연결 , 전역변수 , insert into test ~~~
+ ㄴtestList.jsp => db서버연결 , 전역변수 , select order by 
+   ㄴFile메뉴 Save As...  ssi.jsp저장
+ ㄴtestDetail.jsp => db서버연결 , 전역변수 , select where조건 
+
+
+
+
+
+ ㄴtest테이블 저장, 전체출력, 한건출력, 레코드갯수
+ ㄴ자바기초 - 변수,연산,제어,반복,배열
+ ㄴ자바스크립트 숙제-숫자체크
+ ㄴ(8-11-목요일)김영임sosi프로시저,부하직원~~.zip숙제 
+              다시 체크 하겠습니다
+
+testWrite.jsp문서는 화면입력화면
+testWriteSave.jsp문서는 insert into ~ 저장처리문서
+testList.jsp문서 =>File메뉴 Save as...
+ ㄴtestDetail.jsp문서는 select ~ where ~ 한건출력문서
+
+SQL> insert into test values( 'sunday', 71, sysdate, 2234 );
+SQL> commit ;
+SQL> select * from  test ;
+
+첫번째 test테이블생성
+두번째 WEB-INF\lib폴더\ojdbc6.jar파일복붙
+세번째 testWrite.jsp문서먼저 실행
+4번째 testWriteSave.jsp문서  
+  msg="insert into test values('"+Gtitle+"',"+Gpay+",sysdate,"+Gcode+")" ; 
+
+
+--index.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> [ index.jsp ] </title> 
+	<script type="text/javascript">
+		setTimeout("location.href='guestList.jsp'" , 2000); 
+	</script>
+
+	<style type="text/css">
+	 #pline{ margin-top: 70px; }
+	</style>
+</head> 
+<body>
+   <!-- index.jsp주석  -->
+   <p id="pline">	
+   <div align="center">
+      <br>
+       <video width="600" autoplay muted loop controls="controls">
+           <source  src="images/scuba.mp4"  type="video/mp4"></source>
+      </video>
+      <p></p>
+    </div>
+	
+</body>
+</html>
+
+
+
+--ssi.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8" %>         
+
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.CallableStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.util.Date" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>  </title>
+  <style type="text/css">
+	*{ font-size: 26pt; }
+	a{ font-size: 26pt; color:green; text-decoration:none; }
+	a:hover{ font-size:30pt; color:blue; text-decoration:underline; }
+  </style>
+	
+  <script type="text/javascript">
+  </script>
+</head>
+<body>
+  <%!
+    //ssi.jsp문서 
+    Connection CN ;
+    Statement ST ;
+    PreparedStatement PST;
+    CallableStatement CST;
+    ResultSet RS ;
+    
+    int Gsabun,Gpay, Ghit ;
+    int GGtotal; //전체레코드갯수
+    int Gtotal ; //조회레코드갯수
+    int GStotal=0 ; //Gtotal대신 GStotal사용도 좋습니다조회갯수
+    
+    String Gname,Gtitle, Gemail ;
+    java.util.Date Gwdate;
+    
+    String msg;
+    String submsg;
+    String Gdata;
+    int Rcnt ; //댓글갯수 카운트
+    
+    //댓글관련 전역변수
+    String Rdata ; //guest_reply.jsp문서에서 사용
+    int Rrn, Rnum, Rsabun ;
+    String Rwriter, Rcontent;
+  %>
+
+ <%
+   try{
+  	Class.forName("oracle.jdbc.driver.OracleDriver");
+    String url="jdbc:oracle:thin:@127.0.0.1:1521:XE" ;
+    CN=DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","system","1234");
+    System.out.println("ssi.jsp문서 오라클연결성공success"); 
+   }catch(Exception ex){ System.out.println(ex); }
+ %>
+
+</body>
+</html>
+
+
+
+------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
+이클립스에서 세팅
+첫번째 톰캣연결
+Window메뉴
+ ㄴPreferences클릭
+   Server항목 
+    Runtime Enviroments클릭
+     Add...클릭 
+     Apache선택 Apache Tomcat v9.0선택
+     Browse..클릭해서 
+      C:\workspace\apache-tomcat-9.0.65
+
+두번째 프로젝트생성
+File메뉴 New => Dynamic Web Project선택
+플젝이름:Web0812
+       ㄴ톰캣연결9.0정보
+       ㄴ맨마지막에서 WebContent 가상디렉트이름 기술
+
+3번째 기타세팅
+툴바 오른쪽에 Open Perspective클릭
+     ㄴJava EE(default)선택하면 오른쪽끝에 커피bean아이콘선택
+
+Window메뉴 show View=>Servers클릭
+하단에 Servers탭보임
+ No servers are available Click...create a New Server 클릭
+ 팝업창 
+ Apache클릭 
+ Apache Tomcat v9.0 Server선택
+ Web0812플젝 Add >> 오른쪽이동
+
+4번째 이클립스 왼쪽탭
+Project Explorer프로젝트탐색
+ Servers자동생성
+ Web0812플젝보임
+
+5번째 Web0812선택
+Web0812
+ ㄴWebContent=>오.버 =>new => JSP File선택
+   ㄴMETA-INF
+   ㄴWEB-INF
+     ㄴlib폴더 
+        ㄴojdbc6.jar파일 있습니다
+   ㄴtest.jsp문서  인코딩="UTF-8"변경 
+   ㄴtestWrite.jsp문서선택 File메뉴 =>Save As...testList.jsp
+   ㄴtestWriteSave.jsp문서
+   ㄴtestList.jsp문서
+   ㄴindex.jsp문서
+
+Window메뉴
+ㄴPreferences클릭
+   ㄴ이미설정함Server항목 
+   ㄴGeneral
+      Appearance선택 
+        Colors and Fonts
+        Basic선택 Text Font선택 =>편집Edit..
+
+//한글인코딩
+Window메뉴
+ㄴPreferences 맨마지막메뉴클릭
+   ㄴServer항목 
+   ㄴGeneral
+   ㄴWeb
+     HTML Files클릭/JSP Files클릭 
+      UTF-8선택
+
+
+Window메뉴 
+Web Browser => 0기본이클립스,1기본,5크롬
+Show View => Project Explorer
+Show View => Console
+
+
+6번째 Web0812선택
+Web0812
+ ㄴWebContent=>오른쪽버튼 => images폴더 붙여넣기
+   ㄴMETA-INF
+   ㄴWEB-INF
+     ㄴlib폴더=>오.버 => ojdbc6.jar파일 붙여넣기 
+   ㄴtest.jsp선택후 최상단 <%page %>
+   ㄴimages폴더  
+
+ 
+Java언어 + Server웹문서서버 + page = jsp
+웹문서 html,css,javascript
+처리 구현 java언어
+데이터관리 오라클
+ ㄴWEB-INF
+    ㄴlib폴더=>오.버 => ojdbc6.jar파일 붙여넣기 
+
+다시한번
+Window메뉴 
+Web Browser => 0기본선택
+Show View => Project Explorer
+Show View => Console
+
+Web0812
+ ㄴWebContent=>오른쪽버튼 => images폴더 붙여넣기
+   ㄴimages폴더  
+   ㄴMETA-INF
+   ㄴWEB-INF
+     ㄴlib폴더=>오.버 => ojdbc6.jar파일 붙여넣기 
+   ㄴtest.jsp선택후 최상단 <%@ page 인코딩="UTF-8" %>
+
+
+jsp=java server page
+ ㄴhtml태그안에서 자바코드기술 <html> <body>  <% 자바코드기술 %>  </body> </html>
+
+servlet서블릿 속도가빠름
+  ㄴ자바코드class파일명 메소드함수안에서 html접근
+    class Board { 순수자바문서클래스 웹접근가능 X
+
+    }
+
+    class BoardController extends HttpServlet { 서블릿문서 웹접근 가능
+
+    }
+
+
+
+-----------------------------------------------------------------------------------------------
+    MVC1/MVC2 확장발전한 개념 Framework
+
+    class Board { 순수자바문서클래스 웹접근가능 X
+       test.jsp문서직접접근X
+       Model모델데이터베이스쿼리문기술 DAO=data access object
+       insert/delete/update/select쿼리문기술권장
+       public void dbdelete() {  어쩌구저쩌구기술 } 
+       public void dbGuestDelete() {  어쩌구저쩌구기술 } 
+       public void dbguestdelete() {  어쩌구저쩌구기술 } 
+    }
+
+
+    class BoardController extends HttpServlet { 서블릿문서 웹접근 가능
+          컨트롤은  순수자바Board문서및 test.jsp문서접근 Controller
+    }
+
+    test.jsp웹문서 = View  ====>웹디자이너가 작업하면 유리
+      ㄴBoard문서접근
+      ㄴBoardController문서접근  
+      ㄴ <% 자바코드및 database기술  %>
+
+    test_gugudan.jsp웹문서 = View  ====>웹디자이너가 작업하면 유리
+    <%
+      String title = "금요일" ;
+      int dan = 7 ;  
+    %>
+
+
+ 	오전에 했던 내용정리
+	ㄴjdk,오라클설치,톰캣설치웹서버+엔질,이클립스설치
+	ㄴ이클립스에서 톰캣연결+ db연결은 아직 못했습니다 
+	ㄴ웹서버프로그램진행할때 꼭 알아야 되는 내장객체 
+          ㄴpage,out,request,response,session,application
+	ㄴ자바기초문법
+	ㄴ우리는 뷰구현+db연결 처리를 자바언어문법
+	ㄴ결과는 웹브라우저출력 
+          http://127.0.0.1:8080/플젝이름/페이지문서.jsp 	
+          http://localhost:8080/Web0812/test_gugudan.jsp
+	
+
+ㄴWebContent
+ ㄴtestWrite.jsp문서 입력화면 form태그
+ ㄴtestWriteSave.jsp문서 request개체로 데이터받기
+ ㄴtestList.jsp문서 단순하게 table태그만 기술
+ ㄴindex.jsp문서
+
+문제1] index.jsp문서에 자바스크립트기술 3초후에 testList.jsp문서
+문제2] testWrite.jsp문서  폼태그 method의 get방식/post방식 차이점
+      <form태그 method  action> </form>
+
+문제1,문제2 제출안해요. 구현하고, 확인
+
+
+
+
+주의사항)
+Web0812
+ ㄴWebContent =>오른쪽버튼 => jsp문서나 html문서 복붙
+   ㄴimages폴더  
+   ㄴMETA-INF
+   ㄴWEB-INF =>오른쪽버튼 => 문서 붙여넣기 금지
+      ㄴlib폴더
+        ㄴojdbc6.jar파일 붙여넣기 
+   ㄴtest.jsp선택후 최상단 <%@ page 인코딩="UTF-8" %>
+   ㄴtestWrite.jsp 데이터입력화면 단독실행
+   ㄴtestWriteSave.jsp 단독실행하면 에러
+   ㄴtestList.jsp 전체데이터출력 단독실행 <% msg = "select * from test" ; %>
+   ㄴtestDetail.jsp 한건상세출력 단독실행X
+   ㄴguestDeleteSave.jsp단독실행하면 에러
+
+
+C:~~> sqlplus  system/1234
+SQL> drop table test ;
+SQL> create  table test (
+       title varchar2(10) not null ,
+       pay number(3) not null 
+    );
+SQL> commit ;
+
+
+
+
+
+jsp문서에서 태그아닌 자바코드적용할때 
+<%  ~~자바문장마지막;  int/double/String/char/boolean  title="금요일";  %>
+
+ㄴ웹서버프로그램진행할때 꼭 알아야 되는 내장객체 
+ㄴpage,out,request,response,session,application
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+	JDK설치 java설치
+	 ㄴC:\Program Files\Java
+	  C:\Program Files\Java\java-11\bin
+
+	JAVA_HOME=C:\Program Files\Java\java-11
+        path선택후 편집...새로만들기
+        %JAVA_HOME%\bin 
+
+	path선택후 편집...새로만들기
+	C:\Program Files\Java\java-11\bin  ==>기술후 위로위로 
+
+
+	톰캣설치 Web서버및엔진=was
+      	  웹브라우저에서 인식되는 언어 html태그,css,javascript
+	 ㄴhttps://apache.org/
+	 ㄴhttps://tomcat.apache.org/download-90.cgi
+
+	이클립설치
+  	 ㄴhttps://www.eclipse.org/
+
+	jsp내장객체
+	 ㄴpage,out,request,response,session
+
+	자바기초문법
+	  ㄴ출력,연산,제어,반복,배열
+	  ㄴ함수메소드, new/static
+
+	
+	유저는 view화면에서 원하는작업 
+	 ㄴWeb웹문서
+	 ㄴApp앱문서
+	   처리구현 = 유저+백단db
+	   처리구현을 java언어기본 server page 
+	관리자 백단처리 데이터처리=Database
+
+웹브라우저 신한은행,기업은행
+  ㄴhttps://www.shinhan.com/index.jsp
+  ㄴhttps://mybank.ibk.co.kr/uib/jsp/index.jsp
+웹브라우저 G마켓
+  ㄴhttp://category.gmarket~/L100000020.aspx
+  ㄴhttp://item.gmarket.co.kr/detailview/Item.asp
+  ㄴhttp://item.~/Item.asp?goodscode=2111957329&pos_shop_cd=GE&pos_class_cd=100000020
+웹브라우저 facebook
+   https://ko-kr.facebook.com/login.php
+
+윈도우시작 cmd입력 command
+C:\User\~~~> cls
+C:\User\~~~> sqlplus  system/1234
+SQL> show user ;
+
+#############################################################################################################################
+
+
+--1첫번째 부하직원이 없는 사람 조회
+SQL> select  * from emp
+     where empno not in (select  nvl(mgr, 0) from emp) ;
+
+--2두번째 부하직원이 없는 사람 조회
+ SQL> select  *
+      from emp  e 
+      where e.empno not  in (
+        select   m.mgr from emp m 
+        where m.mgr  is not null 
+      ); 
+
+--3세번째 부하직원이 없는 사람 조회
+ SQL> select * from emp  e 
+      where e.empno not  in (
+        select   m.mgr from emp m 
+        where  e.empno = m.mgr
+     ); 
+
+--4네번째 부하직원이 없는 사람 조회
+ SQL> select  * from emp  e 
+      where  not  exists (
+        select  *  from emp m 
+        where  e.empno = m.mgr  
+     );
+
+--5다섯번째 부하직원이 없는 사람 조회
+SQL> select  e. *
+     from emp  e , emp m 
+     where   e.empno = m.mgr(+)
+     and m.mgr is null ; 
+
+
+	JDK설치
+	 ㄴC:\Program Files\Java
+
+	JAVA_HOME환경변수
+
+	톰캣설치
+	 ㄴhttps://apache.org/
+	 ㄴhttps://tomcat.apache.org/download-90.cgi
+
+	이클립설치
+  	 ㄴhttps://www.eclipse.org/
+
+	jsp내장객체
+	 ㄴpage,out,request,response,session
+
+	자바기초문법
+	  ㄴ출력,연산,제어,반복,배열
+	  ㄴ함수메소드, new/static
+
+	
+	유저는 view화면에서 원하는작업 
+	 ㄴWeb웹문서
+	 ㄴApp앱문서
+	   처리구현 = 유저+백단db
+	   처리구현을 java언어기본 server page 
+	관리자 백단처리 데이터처리=Database
+
+웹브라우저 신한은행,기업은행
+  ㄴhttps://www.shinhan.com/index.jsp
+  ㄴhttps://mybank.ibk.co.kr/uib/jsp/index.jsp
+웹브라우저 G마켓
+  ㄴhttp://category.gmarket~/L100000020.aspx
+  ㄴhttp://item.gmarket.co.kr/detailview/Item.asp
+웹브라우저 facebook
+   https://ko-kr.facebook.com/login.php
+
+		
+
+
+
+=============================================================================================
+08-11-목요일
+ ㄴ제약조건 guest/guestreply
+ ㄴ서브쿼리 
+ ㄴ프로시저procedure  create or replace 이름 ~~
+
+SQL> select procedure_name from user_procedures;
+SQL> select object_name from user_procedures;
+
+상용DB=네트워크DB=RDB(Relation Database)
+ ㄴIBM사 db2 
+    https://www.ibm.com/docs/ko/db2/11.1?topic=plsql-example-returning-ref-cursor-from-procedure
+ ㄴMS사 MySQL서버
+ ㄴ오라클사 oracle
+ ㄴTmax사 티베로
+
+set linesize 2000
+set pagesize 2000
+
+
+set serveroutput on 
+
+ declare
+   dan  number := 3 ;
+   cnt  number := 1 ;
+ begin 
+   while cnt <= 9 
+   loop
+      dbms_output.put_line(dan || '*' || cnt || '=' || (dan*cnt) );
+      cnt := cnt + 1 ;
+   end loop ; 
+ end;  
+ /
+
+
+ drop table lotto ;
+ create table lotto(
+   title varchar2(10), 
+   content varchar2(10),
+   writer varchar2(10), 
+   wdate date, 
+   hit number(3) 
+ );
+ commit ;
+ desc  lotto;
+
+
+
+ declare
+   cnt  number := 1 ;
+ begin 
+   while cnt <= 3 
+   loop
+      insert into lotto(title, content,writer, wdate, hit) 
+      values( concat('rain',cnt), concat('목요',cnt), 'admin', sysdate, 0) ; 
+      cnt := cnt + 1 ;
+   end loop ; 
+ end;  
+ /
+
+ commit ;
+ select * from lotto ;
+ commit ;
+
+
+create  or replace  procedure  CK_lotto
+  is
+  begin
+     dbms_output.put_line('lotto테이블 데이터입력 test ') ;   
+      insert into lotto(title, content,writer, wdate, hit) 
+      values( 'yellow', 'color', 'user', sysdate, 3) ; 
+  end;  
+  /
+
+SQL> select object_name from user_procedures;
+SQL> exec CK_lotto();
+SQL> select * from lotto ;
+SQL> commit  ;
+
+4시부터 6시까지 
+문제1]  sosi테이블 신규저장 프로시저 CK_sosi 생성하세요
+     ID NAME  SALARY BIRTH  EMAIL  GRADE hit필드
+
+문제2] emp테이블 select * from  ~~~
+      부하직원없는 출력 SMITH, ALLEN참조하지 않음  ==>내일아침에 꼭 출력 요청하세요 
+
+문제3] 선택사항 제약조건 - guest테이블/guestreply리플테이블
+       guest테이블 code, guestreply이블 마지막필드 sabun참조
+       dept테이블 deptno, emp테이블 마지막필드 deptno참조 
+       제약조건 alter table emp  drop  constraint    emp_dept_deptno 
+
+ (08-11-목요일)김영임sosi프로시저.zip
+ (08-11-목요일)김영임sosi프로시저2번째.zip
+ (08-11-목요일)김영임sosi프로시저3번째.zip
+
+
+	08월 12일 금요일
+	 view화면 html+css+javascript
+              처리하는언어 java언어
+	 back백단 database(테이블,필드속성,시퀀스,조회,조인,서브쿼리,프로시저)
+
+
+
+#create table~~, create sequence~~, create user~~, create view ~~
+#create synonym~~, create procedure~~
+--port변경
+SQL> select dbms_xdb.getHttpPort() from dual ;
+SQL> exec dbms_xdb.setHttpPort(9000) ;
+SQL> commit ;
+SQL> select dbms_xdb.getHttpPort() from dual ;
+
+
+08-11-목요일
+ ㄴ제약조건 emp,sosi,dept,student,test,temp  사용안하고 새로운 테이블
+    guest테이블	  guestreply테이블
+     code필드pk	   num필드시퀀스적용 ~~sabun필드fk
+
+ ㄴ서브쿼리 
+ ㄴ프로시저procedure
+
+
+제약조건 emp,sosi,dept,student,test,temp  사용안하고 새로운 테이블
+guest테이블	  guestreply테이블
+code필드pk	   num필드시퀀스적용~~sabun필드fk
+
+SQL> 시퀀스생성, guestreply댓글 테이블생성
+  
+delete from guestreply ;
+delete from guest ;
+commit ;
+
+drop  table guest  ;
+create  table  guest (   
+   code   number(4)  primary key ,
+   name    varchar2(10) not null  ,
+   title   varchar2(16) not null , 
+   wdate   date  not null ,
+   pay     number(3)   not null ,
+   hit     number(3) default  0 ,  
+   email varchar2(16) default 'no@it.com' 
+ ); 
+
+commit ;
+select  *  from  guest ;
+commit ;
+
+insert into guest values(2234, 'aa', 'ace', sysdate, 51, 0 ,  'aa@kt.com') ;
+insert into guest values(7789, 'bb', 'blue', sysdate,  41, 0 ,  'bb@sk.com') ;
+insert into guest values(9900, 'cc', 'cake', sysdate, 71, 0, 'cc@lg.com') ;
+commit ;
+select * from guest ;
+commit ;
+
+ drop sequence  guestreply_seq ;
+ drop table guestreply;  
+ commit ; 
+
+ create sequence guestreply_seq ;
+ create table  guestreply (    
+  num number(4) not null,     
+  writer varchar2(10) not null,
+  content varchar2(20)not null,  
+  sabun number(4) not null        --guest테이블의  code필드와 연결
+ );
+ commit ; 
+
+
+col title for a12
+col email for a12
+col writer  for a12
+col content for a12
+col pay for 9999
+col hit for 999
+
+SQL> alter table guestreply drop  constraint  guest_code_fk ;
+ 
+SQL> alter table guestreply add  constraint  guest_code_fk
+     foreign key(sabun)  references guest(code)  on delete cascade ;
+
+SQL> select constraint_name from user_constraints ;
+
+문제] guestreply테이블 데이터 한건만 입력하세요
+     num필드는 시퀀스사용, writer,content,sabun필드는 code필드참조
+    
+insert into guestreply  values(guestreply_seq.nextval,'apple', 'blue', 2234 ) ;
+insert into guestreply  values(guestreply_seq.nextval,'kim', 'java', 3300 ) ; --에러
+insert into guestreply values(guestreply_seq.nextval, 'php','php', 9900 );
+insert into guestreply values(guestreply_seq.nextval, 'rain','rain', 2234 );
+insert into guestreply values(guestreply_seq.nextval, 'snow','snow', 2234 );
+insert into guestreply values(guestreply_seq.nextval, 'last','last',7789 );
+insert into guestreply values(guestreply_seq.nextval, 'goo','coffee', 2234 );
+
+문제] guestreply테이블 데이터 한건만 입력하세요
+insert into guestreply values(guestreply_seq.nextval, 'LA','LB', 2234 );
+
+
+SQL> select writer, content, sabun from guestreply order by sabun;
+SQL> select * from guest ;
+
+SQL> delete from  guestreply ;  --댓글내용전체 삭제
+SQL> commit ;
+
+ insert into guest values(7711, 'aa', 'bb', sysdate, 26 , 0 , 'b@it.net') ;
+ insert into guest values(7722, 'bc', 'ck', sysdate, 37 , 0 , 'c@it.net') ;
+ commit ;
+ select * from guest ;
+
+
+SQL> insert into guestreply
+     values(guestreply_seq.nextval, 'young', 'rain',9900) ;
+
+SQL> insert into guestreply
+     values(guestreply_seq.nextval, 'red', 'color',9900) ;
+
+
+문제] guest_code_fk 제약조건 삭제
+SQL> alter table guestreply drop constraint guest_code_fk;
+     삭제성공여부 
+
+SQL> select * from guestreply ;
+SQL> delete  from guestreply ;
+SQL> commit ;
+SQL> alter table guestreply drop constraint guest_code_fk;
+SQL> clear screen ;
+SQL> select * from guest ;
+
+SQL> show user 
+SQL> conn  system/1234
+SQL> show user 
+SQL> select * from emp ;
+문제1]  emp테이블에서 sal필드 2850보다 큰데이터  조회
+       SQL> select * from emp where sal > 2850 ;
+문제2]  emp테이블에서 ename필드 'BLAKE' 조회
+       SQL> select * from emp where ename='BLAKE' ;
+
+문제3]  emp테이블 BLAKE사람보다 실적=급여 높은사람, 동등한 실적=급여
+SQL> select * from emp 
+     where sal > (select * from emp where ename='BLAKE');
+
+SQL> select * from emp 
+     where sal > (select sal from emp where ename='BLAKE');
+
+문제4] rownum행번호표시, 그리고 행번호 6~10출력 
+     윤경님, 준호님, 진성님 
+  select * from (
+    select rownum rn, e.* from emp e 
+ ) where rn between 6 and 10;
+
+
+select ~~~ where  group  by   having절은 그룹조건  order by 
+emp테이블 sal필드  sum,avg,max,min,count 집계함수
+emp테이블 deptno필드 있습니다 deptno그룹화  sal필드 최소값 min()
+
+SQL> select deptno, min(sal) from emp group by deptno;
+SQL> select deptno, min(sal) 최소급여 from emp group by deptno;
+SQL> select deptno, min(sal) min from emp group by deptno;     
+      ㄴdeptno 소트 
+
+SQL> select deptno, min(sal) 최소급여 from emp group by deptno order by 1 ;
+      ㄴ최소값 데이터에서 900이상만 출력 having절
+       select deptno, min(sal) 최소급여 from emp 
+       group by deptno  having min(sal)>900  order by 1 ;
+
+에러    select deptno, min(sal) my from emp 
+       group by deptno  having my>900  order by 1 ;
+
+
+select ~~~ where절~~~ 그룹  having  order by 
+select ~~ (다시 select문기술) ~~~
+
+문제4] join쿼리문 여러분 기술하고 싶은대로 기술
+      emp테이블, dept테이블
+      empno, ename, job, sal, dname, loc 6개필드 출력
+
+ select e.empno, e.ename, e.job , e.sal, d.dname, d.loc
+ from emp e, dept d 
+ where  e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job , e.sal, d.dname, d.loc
+ from emp e inner join dept d 
+ on  e.deptno = d.deptno ;
+
+ 뷰view   
+ procedure프로시저 처리 
+ 오라클버젼 
+ 9i에서는 자동으로 생성
+ 10g에서부터 권한을부여  
+  ㄴsystem계정에서 지정
+  ㄴgrant connect, resource to scott ;
+  ㄴgrant create view to scott ;
+  ㄴgrant create procedure to scott ;
+
+  --sosiCOPY테이블생성 create table sosiCOPY as select * from sosi ;
+  
+  conn  system/1234
+  show user
+
+ SQL> select view_name from user_views;
+
+  select * from sosi;
+  drop table sosiCOPY ;
+  commit ;
+  select * from sosiCOPY; --에러
+
+  create table sosiCOPY 
+   as 
+  select * from sosi ;
+  
+  commit ;
+  select * from sosiCOPY; 
+
+  --show user 즉 conn  system/1234
+  --view생성
+   create view  emp_myview
+   as
+    select  empno, ename, sal, sal+17 as bonus
+    from emp
+    where deptno = 30 ;
+
+ SQL> select view_name from user_views;
+
+
+ 10g에서부터 권한을부여  
+  ㄴsystem계정에서 지정
+  ㄴgrant connect, resource to scott ;
+  ㄴgrant create view to scott ;
+  ㄴgrant create procedure to scott ;
+
+
+SQL
+ DDL-제약조건alter/필드변경alter, create, drop 
+ DML-insert/delete/update/select
+ TCL-commit/rollback
+ DCL-grant/revoke
+
+ synonym시노님=동의어 
+ create  synonym  mysal
+ for  salgrade ;
+ 
+ commit;
+ select * from salgrade ;
+ select * from mysal ;
+
+SQL> select view_name from user_views;
+SQL> select synonym_name from user_synonyms;
+SQL> select sequence_name from user_sequences;
+SQL> select constraint_name from user_constraints;
+
+SQL> select procedure_name from user_procedures;
+SQL> select object_name from user_procedures;
+
+상용DB=네트워크DB=RDB(Relation Database)
+ ㄴIBM사 db2 
+    https://www.ibm.com/docs/ko/db2/11.1?topic=plsql-example-returning-ref-cursor-from-procedure
+ ㄴMS사 MySQL서버
+ ㄴ오라클사 oracle
+ ㄴTmax사 티베로
+
+
+오전에 자바환경세팅 JAVA_HOME
+오전에 제약조건삭제, 제약조건 이름명명
+오전에 subquery 
+
+
+---------------------------------------------------------------------------------------
+ㄴsqldeveloper-22.2.0.173.2018-x64 폴더생성
+  ㄴsqldeveloper폴더
+  ㄴsqldeveloper.exe실행
+=====================================================================================
+jdk-11.0.16_windows-x64_bin.exe 
+ ㄴ설치할때 입력할 내용이나 옵션없이 그냥 다음 다음 눌려서 설치 
+ ㄴC:\Program Files\Java\java-11
+ ㄴ윈도우시작누르면 환경변수 입력
+    ㄴ시스템환경변수
+    ㄴ3번째 고급탭
+       ㄴ환경변수...클릭
+ ㄴ시스템변수(S)중간영역에 있습니다
+   새로만들기
+     변수이름   JAVA_HOME
+     변수값(V)  C:\Program Files\Java\java-11
+               디렉터리 찾아보기(D)...클릭
+   path선택후  편집...
+     새로만들기(N)
+        %JAVA_HOME%\bin
+
+ ㄴcmd입력후
+   C:~~~~> path
+   C:~~~~> java -version
+   C:~~~~> javac.exe 
+   C:~~~~> exit
+ 
+
+환경변수 들어가는 방법
+첫번째 윈도우 시작 
+  ㄴ환경변수 입력
+두번째 제어판 -> 시스템 
+  ㄴ고급 시스템 설정
+
+숙제권장
+(08-10-수요일)김영임성적처리student.zip
+(08-10-수요일)김영임성적처리student2번째진짜.zip
+
+sqldeveloper-22.2.0.173.2018-x64.zip압축풀기
+ ㄴsqldeveloper-22.2.0.173.2018-x64 폴더생성
+   ㄴsqldeveloper폴더
+     ㄴsqldeveloper.exe설치
+
+
+
+
+ clear screen;   
+ col ename for a10 ;
+ col job for a10 ;
+ col hiredate for a10 ;
+ col empno for 9999
+ col depto for 9999
+ col mgr for 9999
+
+08-10-수요일 과제
+문제제출] student테이블 총점, 평균, 합격여부, 순위 
+	(08-10-수요일)김영임성적처리student.sql
+	(08-10-수요일)김영임성적처리student.zip = 소스 + 화면캡처
+	(08-10-수요일)김영임성적처리student.txt
+	posasi2000@gmail.com
+
+student테이블 idx, name, kor, eng, mat 총점, 평균, 결과  case ~ end
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위     rank() 
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위, 결과
+
+문제1] sosi테이블 새로 작성후  데이터는 각자 알아서 5건이상
+       ㄴid,name,salary,birth,email,grade
+       ㄴ시퀀스 sosi_seq생성해서 id값을 sosi_seq이용해서 값대입
+       ㄴ총5건데이터입력
+       ㄴbirth필드명 wdate필드명변경
+       ㄴsalary필드명 pay필드명변경
+       ㄴ맨마지막 hit필드추가 default 0으로 초기화 
+문제2] emp테이블
+       1)job직업 매니저아닌사람 조회  <>  !=  ^=  연산 사용 
+       2)job필드 그룹화 인원카운팅 group by  count()
+       3)empno,ename,job, sal, comm, 연봉 
+         ㄴ연봉 (sal*12+comm) 널값일때 nvl함수이용해서 null일때 1이나 0으로 초기화
+         ㄴempno,ename,job, sal, comm, 연봉표시할때 to_char함수  ￦115,000
+       4)deptno필드로 그룹화한후 sal필드의 합계를 처리후  
+          ㄴ출력 deptno필드 소트해서 출력, 합계에 화폐단위및 3자릿수에 , 출력
+	
+self조인에서 안내문추가 
+SQL> select  e.ename   || '님의  상사는 ' ||    ad.ename   || ' 입니다 '
+     from emp  e, emp ad
+     where e.mgr = ad.empno;
+
+
+
+
+
+
+-- emp,dept테이블 조인 
+ SQL> select * from emp ;
+ SQL> 11~20 행번호 출력 
+  --튜닝전
+   select rownum,empno,ename,job,mgr,hiredate,sal,comm,deptno
+   from emp
+   where  rownum  between 11  and  20 ; 
+  
+  --튜닝후
+   select * from ( 
+     select rownum rn , e.*  from emp e
+   ) where rn between 11  and  20 ; 
+
+
+ select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+  from  emp e , dept d 
+  where e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+  from  emp e  inner join dept d 
+  on e.deptno = d.deptno ;
+
+#-----------------------------------------------------------------------------------------------
+
+emp테이블에서 작업
+문제1] 행번호 출력
+문제2] sal급여데이터에서 3000이상 조회 sal많은순으로 출력
+문제3] job직책데이터에서 매니저manager 조회
+문제4] 행번호 1~5번호 조회
+문제5] 행번호 6~10번호 조회
+ clear screen;   
+ col name for a10 ;
+ col email for a15 ;
+ col grade for a4 ;
+ col id for 9999
+ set pagesize 2000
+ set linesize  2000
+
+SQL> select rownum, e.*  from  emp e
+     where rownum between 1 and 5  ;
+
+SQL> select rownum, e.*  from  emp e
+     where rownum between 6 and 10  ;
+
+SQL> 정답 중첩쿼리문 emp테이블역할 (select rownum rn, e.* from  emp  e =인라인뷰=inlineView)
+   select  * from  (
+      select rownum rn, e.* from  emp  e
+    ) where rn between  6  and  10 ;
+
+SQL> show user 
+SQL> conn  scott/tiger
+
+데이터 317건  [1]~~[10][다음]  [이전][11]~~[20][다음]  [이전][21]~~[30][다음] [이전][31][32]
+한페이지당 10개행 출력  [1클릭] 1행~10행   [2클릭] 11행~20행
+
+SQL> select  * from  (
+     select rownum  rn, e.* from  emp  e
+    ) where rn  between  1  and  5 ;
+
+
+문제제출] student테이블 총점, 평균, 합격여부, 순위 
+	(08-10-수요일)김영임성적처리student.sql
+	(08-10-수요일)김영임성적처리student.zip = 소스 + 화면캡처
+	(08-10-수요일)김영임성적처리student.txt
+	posasi2000@gmail.com
+
+student테이블 idx, name, kor, eng, mat 총점, 평균, 결과  case ~ end
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위     rank() 
+student테이블 idx, name, kor, eng, mat 총점, 평균, 순위, 결괴
+
+
+
+
+floor(),to_char(), rank()함수, dense_rank(), over( ) 
+
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+    where hiredate between to_date('81/01/01')  and  to_date('81/09/30')   ;
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+     where hiredate between to_char('81/01/01')  and  to_char('81/09/30')   ;
+
+SQL> select rownum,  empno, ename, job, hiredate  from emp
+     where hiredate between  '81/01/01'  and  '81/09/30'   ;
+
+
+
+ SQL> show user 
+ SQL> conn  scott/tiger
+ SQL> conn  system/1234 ===> 계정유저 실습진행하겠습니다
+      민규님한테 보낸소스 복붙 
+
+ 새로운 유저확인명령
+ SQL> select  username from  dba_users ; 
+       HR,SCOTT,SYSTEM 자동생성된유저
+       새로운유저 snow/1234
+
+      select  username from  dba_users ; 
+      create user snow  identified  by 1234 ;
+      grant connect, resource  to  snow ;
+      commit ;
+      select  username from  dba_users ; 
+      conn  snow/1234
+      select * from  sosi ;
+
+      conn  snow/1234
+      show user
+      select  username from  dba_users ; 
+      create user mytest  identified  by 1234 ;
+      --ERROR at line 1:
+      --ORA-01031: insufficient privileges
+
+
+08-10-수요일 데이터베이스
+ㄴjoin
+  dept테이블 deptno필드 /emp테이블의 맨마지막 컬럼열 deptno필드
+  dept테이블 
+     ㄴdeptno필드 primary key=pk
+  emp테이블 
+     ㄴ맨마지막 컬럼열 deptno필드는 참조=foreign key = fk
+
+  출력결과  empno, ename,  job,   sal,   dname부서명, loc부서근무지
+           emp    emp     emp    emp    dept테이블   dept테이블
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, self조인, full조인
+
+SQL>  select ~~ from 테이블a, 테이블b  where  a.필드=b.필드 
+ select empno, ename, job, sal,  dname, loc
+ from  emp , dept 
+ where emp.deptno = dept.deptno ;
+
+ col dname for  a12
+ col loc for  a12
+
+ 
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+
+
+SQL> 1번째 select ~~ from 테이블a, 테이블b  where  a.필드=b.필드 
+ select empno, ename, job, sal,  dname, loc
+ from  emp , dept 
+ where emp.deptno = dept.deptno ;
+
+SQL>  2번째  select ~~ from  inner join키워드 접근  where절대신 on 키워드접근
+ select empno, ename, job, sal,  dname, loc
+ from  emp  inner join  dept 
+ on emp.deptno = dept.deptno ;
+
+SQL> 3번째  inner키워드생략
+ select empno, ename, job, sal,  dname, loc
+ from  emp  join  dept 
+ on emp.deptno = dept.deptno ;
+
+
+Non-Equ조인실습
+emp테이블 empno, ename, job, sal ~~
+salgrade테이블 grade, losal, hisal
+SQL>
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e , salgrade s
+ where e.sal between s.losal  and s.hisal   ;
+
+SQL> inner join기술
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e  inner join  salgrade s
+ on e.sal between s.losal  and s.hisal   ;
+
+join조인
+ ㄴinner조인, 
+ ㄴNon-Equ조인, 
+ ㄴouter조인
+   ㄴright outer join, left outer join
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  2  from emp e  inner생략가능 join dept d
+  3  on e.deptno = d.deptno ;
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  right outer join dept d
+     on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  2  from emp e  right outer join dept d
+  3  on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  left outer join dept d
+    on e.deptno = d.deptno ;
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+    from emp e  inner join dept d
+    on e.deptno = d.deptno ;
+
+
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e  right outer join dept d
+     on e.deptno = d.deptno ;
+
+조인기술 다르게 기술 
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e , dept d
+     where  e.deptno(+) = d.deptno ;
+
+
+--기본 inner조인형식입니다  ~~(+)생략가능합니다 
+SQL> select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e , dept d
+     where  e.deptno = d.deptno(+) ;
+
+
+join조인
+ ㄴinner조인, 
+ ㄴNon-Equ조인, 
+ ㄴouter조인
+   ㄴright outer join, left outer join, full outer join
+     ㄴ~~ where  e.deptno(+) = d.deptno ;
+     ㄴ~~ where  e.deptno = d.deptno(+) ;
+
+
+SQL> full 아웃터조인 
+    select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+     from emp e  full outer join dept d
+     on  e.deptno = d.deptno ;
+
+
+2개테이블 emp,dept
+  ㄴinner join, right outer join, left outer join 
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, self조인, full outer조인
+
+SQL> select * from dept ;  7건 --첫번째필드 deptno컬럼 pk
+SQL> select * from emp  ; 16건 --마지막필드 deptno컬럼 참조 = fk
+
+
+	유저생성 create user~~
+	권한부여 grant ~~~
+	conn  snow/1234
+	
+	행번호 select  ~ from  ( table역할쿼리) where ~~
+	join 
+
+
+SQL> select empno, ename, job, sal,  dname , loc
+     from emp, dept ;   --총데이터 112건 나왔습니다 
+
+
+SQL> select empno, ename, job, sal, deptno,  dname , loc
+     from emp, dept ;  --문법의에러
+
+==========================================================================================
+==========================================================================================
+SQL> 08-10-목요일 점심식사이후 2시 15분부터 다시 조인시작
+
+  select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e  inner join dept d 
+ on e.deptno = d.deptno ;
+
+ select e.empno, e.ename, e.job, e.sal,  d.dname, d.loc
+ from  emp e  inner join dept d 
+ using ( deptno );
+
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e  left outer join dept d 
+ on e.deptno = d.deptno ;
+
+ select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+ from emp e , dept d
+ where  e.deptno = d.deptno(+) ;
+
+
+emp테이블 empno, ename, job, sal + salgrade테이블 grade, losal, hisal
+SQL>
+ select e.empno, e.ename, e.job, e.sal, s.grade 급여등급
+ from emp e , salgrade s
+ where e.sal between s.losal  and s.hisal   ;
+
+영임쌤권장 조인 
+ select e.empno, e.ename, e.job, e.sal, e.deptno,  d.dname, d.loc
+ from  emp e , dept d 
+ where e.deptno = d.deptno ;
+
+
+emp테이블  +  salgrade테이블  + dept테이블
+ e.empno, e.ename, e.sal , s.grade 등급, d.dname, d.loc 
+
+ #ANSI는 미국국가표준원 American National Standards Institute
+
+ select e.empno, e.ename, d.deptno,  d.dname, e.sal 급여 , s.grade  등급
+  from emp e, dept d, salgrade s
+  where e.deptno = d.deptno 
+  and e.sal between s.losal and s.hisal;
+
+
+join조인
+ ㄴinner조인, Non-Equ조인, outer조인, cross조인, self조인, full outer조인
+ 
+--cross조인=방임조인,위험한조건
+   select  e.empno, e.ename, e.sal ,  d.dname, d.loc
+   from emp e  cross join  dept d;
+
+--full아웃터조인 결과는 right outer join 동일합니다
+ select e.empno,  e.ename, e.job, e.sal, d.dname, d.loc
+  from emp e  full outer join dept d
+  on  e.deptno = d.deptno ;
+
+--self조인 emp테이블 empno필드 ,mgr필드  || ' ' ||
+SQL> select * from emp ;
+  
+   select  e.ename || '님의 상사는 ' || ad.ename 상사 
+   from  emp e, emp ad
+   where  e.mgr = ad.empno ;
+
+
+SQL> select name || '님 ' || ' 등급은 '   || grade  || ' 입니다' from sosi ;
+
+
+
+
+==========================================================================================
+==========================================================================================
+ㄴsubquery서브쿼리설명은 아직 안했어요. 
+  사원테이블(사원명,사원명,부서~~), 상품테이블(제품코드,제품명, 단가, 입고날짜, 출고날짜)
+  거래처업체(업체코드, 업체이름, 연락, 지역)
+  실적테이블(사원명,사원명, 제품코드, 제품명,  단가, 수량 , 매출, 지역)
+  
+  고길동직원 판매액있어요
+  사장/회장/대표가 와서 길동보다 판매실적 높은 뽑아오세요
+  사장/회장/대표가 와서 길동씨랑 같은부서 뽑아오세요
+
+   select 필드  from (select~~인라인뷰) where rn between 6 and 10 ;
+ 
+
+
+
+
+
+
+
+
+#--------------------------------------------------------------------------
+사용자유저생성후,  행번호, 성적처리 합격여부 case ~ end
+ select  username from  dba_users ;
+ select  constraint_name from  user_constraints ;
+ select  sequence_name from  user_sequences ;
+
+
+
+
+
+
+
+
+
+SQL> update sosi set salary=salary*2.78  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+SQL> update sosi set salary=salary*3.1415  ;
+SQL> commit ;
+SQL> select  *  from sosi  ;
+
+
+SQL> select  avg(salary) from sosi; 
+      AVG(SALARY)
+      -----------
+      603.946125
+
+SQL> select  trunc(avg(salary),2) from sosi;    --3째자릿수 반올림X
+	 TRUNC(AVG(SALARY),2)
+	 --------------------
+              603.94
+
+SQL> select  round(avg(salary),2) from sosi;    --3째자릿수 반올림O
+	 ROUND(AVG(SALARY),2)
+	 --------------------
+              603.95
+
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+      	 FLOOR(AVG(SALARY))
+	 ------------------
+               603
+
+SQL> select name,salary 급여, trunc(salary,2) from sosi;   --3째자릿수 반올림X
+SQL> select name,salary 급여, round(salary,2) from sosi;   --3째자릿수 반올림O
+SQL> select name,salary 급여, floor(salary) from sosi;     --소숫점버리기 
+SQL> clear screen;
+
+SQL> select  34.678,  floor( 34.678)  	from  dual ; 
+    	34.678 		FLOOR(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> select  34.678,  round( 34.678,2)  from  dual ;
+   	 34.678 	ROUND(34.678,2)
+	---------- ---------------
+ 	   34.678           34.68
+ 
+SQL> select  34.678,  ceil( 34.678)  	from  dual ; 
+ 	   34.678      CEIL(34.678)
+	---------- ------------
+   	 34.678           35
+
+SQL> select  34.678,  trunc( 34.678)  	from  dual ; 
+   	 34.678 	TRUNC(34.678)
+	---------- -------------
+   	 34.678            34
+
+SQL> show user ;
+ 
+ create table  sosi (
+     id number(4) primary key ,
+    name varchar2(10) ,
+     salary number ,
+    birth date ,
+    email varchar2(20)  ,
+    grade varchar2(4)
+  ) ;
+
+commit;
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7789, 'hong', 79, sysdate, 'bc@kt.com', 'F');        
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(7790, 'lee', 23, sysdate, 'lee@lg.com', 'C'); 
+
+SQL> insert  into sosi(id,name,salary,birth,email,grade) 
+     values(2234, 'young', 96, sysdate, 'kim@it.org', 'A'); 
+
+insert  into sosi(id,name,salary,birth,email,grade)  values(9900, 'gugu', 31, sysdate, 'gg@gs.com', 'C'); 
+insert  into sosi(id,name,salary,birth,email,grade)  values(7734, 'aaa', 24, sysdate, 'aa@gs.com', 'B'); 
+insert into sosi values(7754, 'bb', 57, sysdate, 'aa@ks.it', 'A'); 
+insert into sosi values(3357, 'red', 92, sysdate, 'aa@mo.it', 'B');
+
+insert into sosi  values(7000,'김고은',100,to_date('17/12/12'), 'aa@girl.com', 'A');
+insert into sosi values(6000,'태연',100,to_date('19/12/12'), 'ts@girl.com', 'A');
+insert into sosi  values(2000,'윤아',90,to_date('17/11/13'), 'bb@girl.com', 'F');
+
+insert into sosi values(3000,'제니',120,to_date('17/10/25'), 'cc@girl.com', 'C');
+insert into sosi values(4000, '수영', 90, sysdate, 'dd@girl.com', 'A');
+commit;
+select * from sosi ;
+
+1번째 www.oracle.com사이트가입
+2번째 작업폴더 C:\workspace
+3번째 https://github.com/posasi2000/itedu
+
+백단 서비스 
+데이터베이스 - 오라클db, DB2은행권, MSSQL서버에서 storedprocedure공부, MySQL/mariaDB
+ㄴ오라클db서비스유지
+  ㄴ제어판=>관리도구=>서비스
+    ㄴOracleServiceXE 시작
+    ㄴOracleXEListener 시작
+오라클db서버설치 XE교육용=무료
+C:\oraclexe
+ ㄴC:\oraclexe\app\oracle\product\11.2.0\server
+
+여러분실습컴퓨터 이름 영문권장, 한글일때는 혹시라도 오라클설치 안될수 있습니다
+강사컴퓨터 C:\Users\Posasi
+
+강사컴퓨터 오라클 삭제중입니다.
+여러분 따라 하지 마세요
+3시에 다시 수업합니다
+강사키보드가 청축이라서  음소거해제 한 상태입니다.
+
+
+
+뷰view보여주는 화면
+ ㄴ웹브라우저출력을 위해서 html,css,javascript
+
+*------------------------------------------------------------------------------
+웹서비스 백엔드 개발
+(4시간+(3일*8시간)=28시간)
+백엔드backend 데이터베이스 서버
+ ㄴ오라클,IBM,MS,Tmax 
+ ㄴMySQL,마리아db, 노SQL적용 몽고디비
+
+
+8/8
+오후교육 14:00~18:00(4시간)
+8/9 ~ 8/11
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-DBMS시스템 이해
+-SQL언어(DDL,DML,DCL)
+-insert처리,select, 집합함수
+-sequence,sub쿼리,조인이해
+-내장함수
+
+웹프로그래밍 응용 
+(6일*8시간=48시간)
+8/12 ~ 8/22
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Java프로그램, 이클립스설치
+-db연결 및 내장객체 이해
+-게시판글등록,출력
+-페이징,검색처리
+-로그인처리,session
+-MVC2모델 Servlet활용
+-Weekly 미니플젝
+
+
+웹서비스 아키텍처 
+(4일*8시간=32시간)
+8/23 ~ 8/26
+오전교육 09:00~13:00(4시간)
+점심시간 13:00~14:00(1시간)
+오후교육 14:00~18:00(4시간)
+-Node.js설치,웹서버 만들기
+-Web server launching
+-Node 동기/비동기처리,파일처리
+-db처리, 데이터입력, 출력

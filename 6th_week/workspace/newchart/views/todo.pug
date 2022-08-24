@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+
+
+    body
+        h2=toDoListTitle 
+        form(action="/todo/add_list" method='post')
+            p
+                label(for='content') 할일추가:
+                input(type='text' name='content')
+                input(type="submit" value='등록')
+            p 
+                ul 
+                    each val in toDoLists 
+                        li=val
