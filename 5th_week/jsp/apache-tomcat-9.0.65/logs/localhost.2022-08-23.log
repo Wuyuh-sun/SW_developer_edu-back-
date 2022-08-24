@@ -3,3 +3,1633 @@
 23-Aug-2022 09:13:07.991 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4613311f')
 23-Aug-2022 10:48:17.715 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 23-Aug-2022 10:48:17.715 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+23-Aug-2022 19:58:04.893 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+23-Aug-2022 19:58:04.893 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+23-Aug-2022 19:58:04.895 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@17a703f5')
+23-Aug-2022 21:38:25.743 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+Syntax error, insert "Finally" to complete TryStatement
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     <%}%>
+191:                 </div>
+192:             </div>
+193:         </div>
+
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [401] 행에서 오류가 발생했습니다.
+Syntax error on token "catch", Identifier expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+_jspx_out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [406] 행에서 오류가 발생했습니다.
+response cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [407] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [409] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [415] 행에서 오류가 발생했습니다.
+Syntax error on token "finally", { expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+Syntax error, insert "Finally" to complete TryStatement
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     <%}%>
+191:                 </div>
+192:             </div>
+193:         </div>
+
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [401] 행에서 오류가 발생했습니다.
+Syntax error on token "catch", Identifier expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+_jspx_out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [406] 행에서 오류가 발생했습니다.
+response cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [407] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [409] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [415] 행에서 오류가 발생했습니다.
+Syntax error on token "finally", { expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:29.832 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+Syntax error, insert "Finally" to complete TryStatement
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     <%}%>
+191:                 </div>
+192:             </div>
+193:         </div>
+
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [401] 행에서 오류가 발생했습니다.
+Syntax error on token "catch", Identifier expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+_jspx_out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [406] 행에서 오류가 발생했습니다.
+response cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [407] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [409] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [415] 행에서 오류가 발생했습니다.
+Syntax error on token "finally", { expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+Syntax error, insert "Finally" to complete TryStatement
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     <%}%>
+191:                 </div>
+192:             </div>
+193:         </div>
+
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [401] 행에서 오류가 발생했습니다.
+Syntax error on token "catch", Identifier expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [403] 행에서 오류가 발생했습니다.
+_jspx_out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [404] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [406] 행에서 오류가 발생했습니다.
+response cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [407] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [409] 행에서 오류가 발생했습니다.
+out cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [412] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [415] 행에서 오류가 발생했습니다.
+Syntax error on token "finally", { expected
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:49.283 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:56.511 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:57.493 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:57.846 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:58.062 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:58.291 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:58.476 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:38:58.668 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [188]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+185:             <div class="viewBorder">
+186:                 <div class="viewHeader">
+187:                     <div class="authorProfile">
+188:                         <img src="../storage/<%=RS.getString("profileimg")%>">
+189:                     </div>
+190:                     
+191:                 </div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: ResultSet.next가 호출되지 않았음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1272)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:355)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:42:11.209 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [399] 행에서 오류가 발생했습니다.
+Syntax error, insert "}" to complete Block
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+Syntax error on token "}", delete this token
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [417] 행에서 오류가 발생했습니다.
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [399] 행에서 오류가 발생했습니다.
+Syntax error, insert "}" to complete Block
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [416] 행에서 오류가 발생했습니다.
+Syntax error on token "}", delete this token
+
+코드 생성된 자바 파일 [C:\swedu\SW_developer_edu(back)\5th_week\jsp\apache-tomcat-9.0.65\work\Catalina\localhost\ROOT\org\apache\jsp\BBS\bbs_005fmain_jsp.java]의 [417] 행에서 오류가 발생했습니다.
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:45:22.125 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [18] 행에서 오류가 발생했습니다.
+Syntax error, insert ";" to complete BlockStatements
+15: PST.setString(1, loginUserEmail);
+16: RS=PST.executeQuery();
+17: while(RS.next()){
+18:     RS.getString("profileimg")
+19: }%>
+20: <!DOCTYPE html>
+21: <html lang="en">
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [18] 행에서 오류가 발생했습니다.
+Syntax error, insert ";" to complete BlockStatements
+15: PST.setString(1, loginUserEmail);
+16: RS=PST.executeQuery();
+17: while(RS.next()){
+18:     RS.getString("profileimg")
+19: }%>
+20: <!DOCTYPE html>
+21: <html lang="en">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:45:27.427 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [18] 행에서 오류가 발생했습니다.
+Syntax error, insert ";" to complete BlockStatements
+15: PST.setString(1, loginUserEmail);
+16: RS=PST.executeQuery();
+17: while(RS.next()){
+18:     RS.getString("profileimg")
+19: }%>
+20: <!DOCTYPE html>
+21: <html lang="en">
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [18] 행에서 오류가 발생했습니다.
+Syntax error, insert ";" to complete BlockStatements
+15: PST.setString(1, loginUserEmail);
+16: RS=PST.executeQuery();
+17: while(RS.next()){
+18:     RS.getString("profileimg")
+19: }%>
+20: <!DOCTYPE html>
+21: <html lang="en">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:46:00.690 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:46:05.438 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:46:25.583 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [190] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+187:                 <div class="viewHeader">
+188:                     <div class="authorProfile">
+189:                         
+190:                         <img src="../storage/<%=profileimg%>">
+191:                         
+192:                     </div>
+193:                     
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:46:59.013 SEVERE [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [20] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+17: while(RS.next()){
+18:     profileimg = RS.getString("profileimg");
+19: }
+20: System.out.println(profileimg);
+21: %>
+22: <!DOCTYPE html>
+23: <html lang="en">
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [20] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+17: while(RS.next()){
+18:     profileimg = RS.getString("profileimg");
+19: }
+20: System.out.println(profileimg);
+21: %>
+22: <!DOCTYPE html>
+23: <html lang="en">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:47:41.440 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [55]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+52:                     <hr>
+53:                     <li class="userBoard02">
+54:                         <div>EMAIL</div>
+55:                         <div><%=RS.getString("email")%></div>
+56:                     </li>
+57:                     <li class="userBoard03">
+58:                         <div>NAME</div>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: 결과 집합을 모두 소모했음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1256)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:210)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:48:14.547 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [58]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+55:                     </li>
+56:                     <li class="userBoard03">
+57:                         <div>NAME</div>
+58:                         <div><%=RS.getString("name")%></div>
+59:                     </li>
+60:                     <li class="userBoard04">
+61:                         <div class="logoutBox" onclick="logout(event)">
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: 결과 집합을 모두 소모했음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1256)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:213)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:48:15.324 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [행 [58]에서 [/BBS/bbs_main.jsp]을(를) 처리하는 중 예외 발생
+
+55:                     </li>
+56:                     <li class="userBoard03">
+57:                         <div>NAME</div>
+58:                         <div><%=RS.getString("name")%></div>
+59:                     </li>
+60:                     <li class="userBoard04">
+61:                         <div class="logoutBox" onclick="logout(event)">
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	java.sql.SQLException: 결과 집합을 모두 소모했음
+		at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:1256)
+		at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:494)
+		at org.apache.jsp.BBS.bbs_005fmain_jsp._jspService(bbs_005fmain_jsp.java:213)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:50:08.777 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [51] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+48:                 <ul class="userBoard00">
+49:                     <li class="userBoard01">
+50:                         <div class="img">
+51:                             <img src="../storage/<%=profileimg%>">
+52:                         </div>
+53:                         
+54:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [51] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+48:                 <ul class="userBoard00">
+49:                     <li class="userBoard01">
+50:                         <div class="img">
+51:                             <img src="../storage/<%=profileimg%>">
+52:                         </div>
+53:                         
+54:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:50:13.788 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [51] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+48:                 <ul class="userBoard00">
+49:                     <li class="userBoard01">
+50:                         <div class="img">
+51:                             <img src="../storage/<%=profileimg%>">
+52:                         </div>
+53:                         
+54:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [51] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+48:                 <ul class="userBoard00">
+49:                     <li class="userBoard01">
+50:                         <div class="img">
+51:                             <img src="../storage/<%=profileimg%>">
+52:                         </div>
+53:                         
+54:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:50:35.653 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [22] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+19:     email = RS.getString("email");
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [23] 행에서 오류가 발생했습니다.
+The local variable email may not have been initialized
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+26: %>
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [24] 행에서 오류가 발생했습니다.
+The local variable name may not have been initialized
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+26: %>
+27: <!DOCTYPE html>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [22] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+19:     email = RS.getString("email");
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [23] 행에서 오류가 발생했습니다.
+The local variable email may not have been initialized
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+26: %>
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [24] 행에서 오류가 발생했습니다.
+The local variable name may not have been initialized
+21: }
+22: System.out.println(profileimg);
+23:     System.out.println(email);
+24:     System.out.println(name);
+25: 
+26: %>
+27: <!DOCTYPE html>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:50:49.301 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [22] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+19:     email = RS.getString("email");
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [23] 행에서 오류가 발생했습니다.
+The local variable email may not have been initialized
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+26: %>
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [24] 행에서 오류가 발생했습니다.
+The local variable name may not have been initialized
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+26: %>
+27: <!DOCTYPE html>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [22] 행에서 오류가 발생했습니다.
+The local variable profileimg may not have been initialized
+19:     email = RS.getString("email");
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [23] 행에서 오류가 발생했습니다.
+The local variable email may not have been initialized
+20:     name = RS.getString("name");
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+26: %>
+
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [24] 행에서 오류가 발생했습니다.
+The local variable name may not have been initialized
+21: }
+22: System.out.println(profileimg);
+23: System.out.println(email);
+24: System.out.println(name);
+25: 
+26: %>
+27: <!DOCTYPE html>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:55:46.018 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [46] 행에서 오류가 발생했습니다.
+Syntax error on token ";", delete this token
+43:                 <ul class="userBoard00">
+44:                     <li class="userBoard01">
+45:                         <div class="img">
+46:                             <img src="../storage/<%=RS.getString("profileimg");%>">
+47:                         </div>
+48:                         
+49:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [46] 행에서 오류가 발생했습니다.
+Syntax error on token ";", delete this token
+43:                 <ul class="userBoard00">
+44:                     <li class="userBoard01">
+45:                         <div class="img">
+46:                             <img src="../storage/<%=RS.getString("profileimg");%>">
+47:                         </div>
+48:                         
+49:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+23-Aug-2022 21:56:04.590 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke 경로 []의 컨텍스트 내의 서블릿 [jsp]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [46] 행에서 오류가 발생했습니다.
+Syntax error on token ";", delete this token
+43:                 <ul class="userBoard00">
+44:                     <li class="userBoard01">
+45:                         <div class="img">
+46:                             <img src="../storage/<%=RS.getString("profileimg");%>">
+47:                         </div>
+48:                         
+49:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:]을(를) 발생시켰습니다.
+	org.apache.jasper.JasperException: JSP를 위한 클래스를 컴파일할 수 없습니다.: 
+
+JSP 파일 [/BBS/bbs_main.jsp]의 [46] 행에서 오류가 발생했습니다.
+Syntax error on token ";", delete this token
+43:                 <ul class="userBoard00">
+44:                     <li class="userBoard01">
+45:                         <div class="img">
+46:                             <img src="../storage/<%=RS.getString("profileimg");%>">
+47:                         </div>
+48:                         
+49:                         <span class="material-symbols-outlined" onclick="userUpdate()">edit</span>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:509)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:379)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:327)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
