@@ -6,6 +6,7 @@ body{
     width: 100%;
     height: 3500px;
     position: absolute;
+    overflow-x: hidden;
 }
 a{
     position: absolute;
@@ -256,6 +257,115 @@ a{
     border-bottom: 1px solid black;
 }
 
+.viewBorder{
+    width: 950px;
+    height: 950px;
+    z-index: 100;
+    background-color: aliceblue;
+    border: 1px solid black;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.viewBorder::-webkit-scrollbar{
+    display: none;
+}
+.viewHeader table{
+    background-color: black;
+    width: 950px;
+    height: 950px;
+    border: 1px solid black;
+}
+.viewHeader th{
+    background-color:silver;
+    border: gray;
+    font-size: 1.2em;
+    width: 150px;
+
+}
+.thead{
+    width: 950px;
+    height: 200px;
+}
+.viewHeader .profileImg{
+    width: 250px;
+    height: 200px;
+}
+.viewHeader .profileImg img{
+    max-width: 200px;
+    max-height: 200px;
+}
+.viewHeader td{
+    background-color: white;
+    border: gray;
+    width: 150px;
+}
+
+table td{
+    text-align: center;
+}
+tbody tr td{
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.writeForm{
+    width: 950px;
+    height: 950px;
+    z-index: 100;
+    background-color: aliceblue;
+    border: 1px solid black;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.writeForm form hr{
+    margin: 0;
+}
+.writeForm label{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.writeForm label:nth-child(2){
+    text-align: center;
+}
+.writeForm #title{
+    font-size: 1.5em;
+    width: 70%;
+}
+.writeForm #title:focus{
+    outline: none;
+}
+.writeForm form textarea{
+    width: 950px;
+    min-height: 800px;
+    font-size: 1.5em;
+}
+.writeForm form textarea:focus{
+    outline: none;
+}
+.writeForm form input[type="submit"]{
+    position: absolute;
+    top: 72px;
+    left: 90%;
+    padding: 5px;
+    width: 50px;
+    font-weight: bold;
+    background-color: royalblue;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    cursor: pointer;
+}
 .userBoard00{
     display: flex;
     flex-direction: column;
@@ -490,4 +600,113 @@ hr{
     height: 400px;
     background-color: cornflowerblue;
     z-index: 1000;
+}
+.footh{
+    width: 100%;
+    height: 80px;
+    background-color:rgb(96, 105, 133);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: gainsboro;
+    padding: 10px 0 5px 0;
+}
+.footb{
+    width: 80%;
+    height: 260px;
+    position: relative;
+    top: 0%;
+    left:50%;
+    transform: translateX(-50%);
+    /* background-color: beige; */
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.sheepIcon{
+    width: 154px;
+    height: 117px;
+    background-image: url(../IMG/sheep-ani.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: 
+        sheep 0.5s infinite steps(8),
+        move1 10s infinite linear;
+}
+@keyframes move1 {
+    from {
+        left: 120%;
+    }
+
+    to {
+        left: -30%;
+    }
+}
+.sheepIcon2{
+    width: 154px;
+    height: 117px;
+    background-image: url(../IMG/sheep-ani.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: 
+        sheep 0.5s infinite steps(8),
+        move2 5s infinite linear;
+}
+@keyframes move2 {
+    from {
+        left: 120%;
+    }
+
+    to {
+        left: -30%;
+    }
+}
+.sheepIcon3{
+    width: 154px;
+    height: 117px;
+    background-image: url(../IMG/sheep-ani.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: 
+        sheep 0.5s infinite steps(8),
+        move3 8s infinite linear;
+}
+@keyframes move3 {
+    from {
+        left: 120%;
+    }
+
+    to {
+        left: -30%;
+    }
+}
+.sheepIcon4{
+    width: 154px;
+    height: 117px;
+    background-image: url(../IMG/sheep-ani.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: 
+        sheep 0.5s infinite steps(8),
+        move4 13s infinite linear;
+}
+@keyframes move4 {
+    from {
+        left: 120%;
+    }
+
+    to {
+        left: -30%;
+    }
+}
+@keyframes sheep {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -1310px 0;
+    }
 }

@@ -540,3 +540,6 @@ Stacktrace:]을(를) 발생시켰습니다.
 22-Aug-2022 20:37:46.780 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@35cd68d4')
 22-Aug-2022 22:52:43.689 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 22-Aug-2022 22:52:43.689 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+22-Aug-2022 22:52:46.589 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+22-Aug-2022 22:52:46.589 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+22-Aug-2022 22:52:46.590 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@45bf6f39')
