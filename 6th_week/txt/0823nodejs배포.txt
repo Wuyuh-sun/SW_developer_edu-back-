@@ -1,3 +1,8 @@
+카카오 이미지검색
+공공데이터 코로나
+mvc2=서블릿 30분설명
+
+
 
 새로운폴더 mytest생성
 C:~~> 새로운작업플젝이름 mytest생성
@@ -33,7 +38,9 @@ app.js문서에서 다시한번 매핑
   ㄴapp.use('/guest', guestRouter);
    웹브라우저 http://localhost:3000/guest
 
-
+	고전적인방법 ajax
+	jQuery의  ajax
+	nodejs + 공공데이터/카카오개발자 restAPI연동
 
 
 

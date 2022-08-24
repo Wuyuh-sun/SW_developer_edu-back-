@@ -1,0 +1,28 @@
+문제1]
+AAA.jsp문서 입력한 내용
+ BBB.jsp문서 값전달후 화면출력
+
+문제2] 
+ WebContent
+  storage폴더있어야 함
+  WEB-INF
+    ㄴlib폴더
+       cos.jar파일있어야 함
+
+문제3] 
+storage폴더에 접근 application 
+
+문제4] BBB.jsp문서에 기술 <%@ page ~~ %>
+import="com.oreilly.servlet.multipart폴더 DefaultFileRenamePolicy클래스"    
+import="com.oreilly.servlet폴더 MultipartRequest클래스"
+
+String path = application.getRealpath(".\storage");
+MultipartRequest mr=new MultipartRequest(request,path,size,"utf-8") ;
+
+
+문제4] bbb.jsp문서 우리가 올린 이미지 출력
+      우리가 올린=업로드한 이미지 다운로드 
+<%=request.getContextPath()%>/storage공용폴더/파일명 
+
+
+
