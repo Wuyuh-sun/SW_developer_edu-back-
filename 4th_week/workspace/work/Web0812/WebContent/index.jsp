@@ -13,7 +13,8 @@
  
  <script type="text/javascript">
     //웹브라우저에서 제공되는 객체 DOM돔 window,document,location문서이동,history,image,screen
-    setTimeout("location.href='guestList.jsp'" , 3000) ;
+    //setTimeout("location.href='guestList.jsp'" , 3000) ;
+    setTimeout("location.href='testList.jsp'" , 3000) ;
  </script>
 </head> 
 <body>
@@ -32,7 +33,7 @@
     <img src="./images/lollipop.gif" />
     <img src="./images/marshmallow.gif" />
     <img src="./images/nougat.gif" /> 
-    <br style="font-size:2em;"> 페이징+검색 guestList.jsp </br>
+    <br style="font-size:2em;"> testList.jsp </br>
 
     <p>
   </div>

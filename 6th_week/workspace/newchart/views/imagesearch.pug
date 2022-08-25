@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title #{title}
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  script(src='./javascripts/jquery-3.6.0.min.js')
+  link(rel='stylesheet' href='./stylesheets/layout.css')
+  script(src='./javascripts/fancybox.umd.js')
+  link(rel='stylesheet' href='./stylesheets/fancybox.css')
+
+
+
+.searchForm
+  input#search(type='text' placeholder='검색버튼 눌려주세요' value='김고은' )
+  button.btn
+    span.material-icons search
+ul.resultList
+
+script.
+  const resultList = $(".resultList");
+  const search = $("#search");
+  const btnSearch = $(".searchForm  .btn");
+
+  search.on("keyup", function (e) {
+    resultList.html(""); //기존내용삭제
+    console.log(e.target);
+    if (e.keyCode == 13) {
+      loadImage();
+    }
+  });
+
+  btnSearch.on("click", function () {
+    loadImage();
+  });
+
+  function loadImage() {
+    resultList.html(""); //기존내용삭제
+    const searchImg = search.val();
+    console.log("검색키워드=" + searchImg);
+    $.ajax({
+      url: `https://dapi.kakao.com/v2/search/image?query=${searchImg}&size=60`,
+      headers: {
+        Authorization: "KakaoAK 여러분껏술cd1a",
+      },
+    }).done(function (data) {
+      let tempHtml = "";
+      const documents = data.documents;
+      $.each(documents, function (idx, item) {
+        tempHtml += `<li> 
+                    <a href="${item.image_url}" data-fancybox="gallery" data-caption="${item.display_sitename}"> 
+                        <img src="${item.thumbnail_url}">
+                    </a> 
+                </li>`;
+      });
+      resultList.append(tempHtml);
+    });
+  } 

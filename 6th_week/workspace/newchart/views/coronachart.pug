@@ -1,0 +1,89 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title covid19 &#xC2DC;&#xB3C4;&#xD604;&#xD669;
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='./stylesheets/air.css')
+  script(src='./javascripts/jquery-3.6.0.min.js')
+  script(src='./javascripts/axios.min.js')
+  script(src='./javascripts/chart.min.js')
+  style.
+    #coronaChart {
+    width: 1200px ;
+    height: 600px ;
+    margin:100px auto
+    }
+ul.resultList
+  // <li> </li>
+canvas#coronaChart
+
+
+script.
+  //const labels = [ '검역', '서울',   '부산',   '대구',   '인천',   '제주',  ]; //원본
+  const labels = [  ]; // 공공데이터에서 데이터 땡겨옴
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'corona',
+      backgroundColor: [],  //backgroundColor: 'rgb(255,0,0)',
+      borderColor: 'rgb(255, 99, 132)',  // borderColor: 'rgb(255, 99, 132)',
+      //data: [0, 10, 5, 2, 20, 30, 45], //원본
+      data: [],  // 공공데이터에서 데이터 땡겨옴
+    }]
+  };
+
+    const config = [
+          {
+          type: 'bar' ,
+          data: data,
+          options: {}
+          },
+          {
+          type: 'line',
+          data: data,
+          options: {}
+          }
+    ];
+
+  
+      $.ajax({
+        url:
+          "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson" +
+          "?serviceKey=8zd여러분껏%3D%3D" +
+          "&startCreateDt=20220819" +
+          "&endCreateDt=20220819" +
+          "&_type=json",
+      }).done(function (res) {
+        console.log(res);
+        let tempHtml = "";
+        const coronaData = res.response.body.items.item;
+        console.log(coronaData);
+        $.each(coronaData, function (idx, item) {
+          console.log(item);
+          labels.push(item.gubun)
+          data.datasets[0].data.push(item.localOccCnt);
+
+          //컬러색변경
+          data.datasets[0].backgroundColor.push(`
+            rgb(
+            ${Math.floor(Math.random()*256)},
+            ${Math.floor(Math.random()*256)},
+            ${Math.floor(Math.random()*256)}
+            )
+          `);
+          tempHtml += `<li>${item.gubun}:${item.localOccCnt} </li>`;
+        });
+        //네모난박스대신 차트 $(".resultList").append(tempHtml);
+        //https://www.chartjs.org/docs/latest/charts/bar.html
+        console.log(tempHtml);
+        const config =  {
+          type: 'bar',
+          data: data,
+          options: {}
+        }
+      
+        const myChart = new Chart(document.getElementById('coronaChart'),config );
+      });

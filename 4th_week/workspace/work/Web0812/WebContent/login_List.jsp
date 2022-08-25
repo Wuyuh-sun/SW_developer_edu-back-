@@ -4,9 +4,9 @@
 <html> <head>
 <title> [loginList.jsp]</title>
    <style type="text/css">
-	  *{font-size:14pt; font-weight:bold;  font-family: Comic Sans MS ; margin-left: 10px; }
-	  a{font-size:14pt; text-decoration:none; font-weight:bold; color:blue;  font-family: Comic Sans MS ; }
-	  a:hover{font-size:16pt; text-decoration:underline; color:green;  font-family: Comic Sans MS ; }
+	  *{font-size:16pt; font-weight:bold;  font-family: Comic Sans MS ; margin-left: 3px; }
+	  a{font-size:16pt; text-decoration:none; font-weight:bold; color:blue;  font-family: Comic Sans MS ; }
+	  a:hover{font-size:20pt; text-decoration:underline; color:green;  font-family: Comic Sans MS ; }
    </style>
 </head>
 <body>   
@@ -39,7 +39,7 @@
 <%  
  }else{
    out.println("<font size=7 color=red><b></b>"+usera+"님 로그인실패</font><p>");
-   out.println("<font size=7><a href='login.jsp'>[로그인]</a></font>");
+   out.println("<font size=7><a href='login_Ajax.jsp'>[로그인]</a></font>");
    out.println("<font size=7><a href='index.jsp'>[index]</a></font>");	
  }
 %>

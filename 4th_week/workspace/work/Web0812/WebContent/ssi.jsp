@@ -4,6 +4,9 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.*"  %> 
 
+<%@ page import="net.hb.common.TestBean" %>
+<%@ page import="net.hb.common.TestDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>

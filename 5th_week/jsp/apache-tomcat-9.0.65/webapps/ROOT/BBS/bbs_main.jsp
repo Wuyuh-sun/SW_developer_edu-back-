@@ -69,7 +69,7 @@
                     function logout(e){
                         fetch('../logout.jsp', {
                         }).then((res)=>{
-                            location.reload();
+                            location.href="../index.jsp";
                         });
                     }
                 </script>
@@ -311,6 +311,27 @@
         </ul>
     </div>
 
+    <div class="userInfoUpdateForm">
+        <div class="updateLayout">
+        <div class="updateCloseBtn" onclick="updateClose()">X</div>
+            <form action="" class="updateForm">
+                <div class="updateProfile">
+                    <div class="updateState">
+                        <span class="material-icons">mode</span>
+                    </div>
+                    <img src="../IMG/이준호.jpg" alt="">
+                </div>
+                <label for="changeemail">EMAIL</label>
+                <input type="email" name="changeemail" id="changeemail" value="sessionEmail" readonly>
+                <label for="changepassword">PASSWORD</label>
+                <input type="password" name="changepassword" id="changepassword" value="sessionPW">
+                <label for="changename">NAME</label>
+                <input type="text" name="changename" id="changename" value="sessionName">
+                <input type="submit" value="SAVE">
+            </form>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="footh">
             Kyungil University - Department of Computer Engineering
@@ -324,7 +345,18 @@
             <div class="sheepIcon4"></div>
         </div>
     </div>
-  
+    <script>
+
+        const userInfoUpdateForm = document.querySelector(".userInfoUpdateForm");
+        function updateClose(){
+            history.replaceState({}, null, location.pathname);
+            // userInfoUpdateForm.style.display = "none";
+        }
+        function userUpdate(){
+            location.href = "?userupdate";
+            // userInfoUpdateForm.style.display = "block";
+        }
+    </script>
 </body>
 </html>
 <%}%>
