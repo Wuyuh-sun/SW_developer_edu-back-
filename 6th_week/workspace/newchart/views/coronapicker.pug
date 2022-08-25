@@ -41,7 +41,7 @@ script.
     function loadCorona(date) {
         console.log(date);
         $.ajax({   //?ServiceKey=Wn여러분꺼3D%3D&startCreateDt=${date}&endCreateDt=${date}&_type=json`, 뒤쪽
-        url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?ServiceKey=Wn여러분꺼%3D%3D&startCreateDt=${date}&endCreateDt=${date}&_type=json`,
+        url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?ServiceKey=Wn여러분꺼D&startCreateDt=${date}&endCreateDt=${date}&_type=json`,
         }).done(function (res) {
         const coronaData = res.response.body.items.item;
         let tempHtml = "";

@@ -8,15 +8,15 @@ import java.sql.*;
 public class TestDAO  extends Testssi{ //Data Access Object
 	
  public TestDAO() {
-   try {
-    //생성자구현호출TestDAO dao = new TestDAO() 	  
+   try {	  
     CN=Testssi.getConnection();
-   }catch(Exception e) {}
+    System.out.println("TestDAO생성자 db연결성공 8-25-목요일 11:14분 출력 ") ; 
+   }catch(Exception e){ System.out.println(e); }
  }//end
 
  
  public void testInsertSave(String dtitle, int dpay, int dcode) {
-  try { //신규등록처리에서 html태그제거,css제거,javascript제거 
+  try {
  	msg="insert into test(title,pay,wdate,code) values(?,?,sysdate,?)";
  	PST=CN.prepareStatement(msg);
  	   PST.setString(1, dtitle);
@@ -24,8 +24,8 @@ public class TestDAO  extends Testssi{ //Data Access Object
  	   PST.setInt(3, dcode);
  	PST.executeUpdate();
  	System.out.println("TestDAO.java testInsertSave(1,2,3)함수 저장성공\n");
-  }catch (Exception e){	}
- }//testInsert함수 end
+  }catch (Exception e){	System.out.println("저장에러 " + e) ; }
+ }//testInsertSave함수 end
 
  
  public  ArrayList<TestBean>  testSelectAll() {

@@ -24,6 +24,7 @@
 
 <script type="text/javascript">
 	var req=false; //XMLHttpRequest객체 필요
+	
 	init=function(){
 		//req객체 초기화
 		//Ajax는 XMLHttpRequest객체를 생성하는 것이
@@ -73,8 +74,8 @@
 		post방식일 경우 body부분에 전송할 문자열을
 		지정해서 보낸다.
 		*/
-		
-	}//---------------
+	}//getUserInfo---------------
+	
 	updatePage=function(){
 		//alert(req.readyState+"/"+req.status);
 		if(req.readyState==4 && req.status==200){
@@ -85,7 +86,7 @@
 			var data=res.split("|");
 			//split('구분자') :구분자'|'를 기준으로
 			//문자열을 쪼개어 배열형태로 반환한다.
-			var mIdx=data[0];
+			var mIdx=data[0];    
 			var mName=data[1];
 			var mAddr=data[2];
 			//alert(typeof mIdx);
@@ -107,7 +108,7 @@
 			
 		}
 		
-	}
+	} //updatePage---------------
 	
 	window.onload=init;
 </script>

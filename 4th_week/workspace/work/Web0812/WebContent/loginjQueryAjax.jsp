@@ -29,7 +29,7 @@
      $('#btnlogin').click( function( ){  
 			$.ajax({
 			  "url"  : "loginjSave.jsp" ,
-			  "type" : "get",
+			  "type" : "get",  //document.getElementById("userid").value; 
 			  "data" : {UID: $('#userid').val(), UPWD: $('#pwd').val( )} ,
 			   "beforeSend": function( ){ 
 					$('#loading-mask').show();
@@ -42,7 +42,7 @@
 					$('#loading-mask').fadeOut( );
 					$('#msgIN').empty();
 					$('#msg').html(data);
-				}, 1000);
+				}, 300);
 			  },
 			  "error": function(data){$('#loading-mask').fadeOut(); }
 			});

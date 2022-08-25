@@ -1,0 +1,70 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title #{title};
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='./stylesheets/fancybox.css')
+  link(rel='stylesheet' href='./stylesheets/air.css')
+  script(src='./javascripts/greensock/gsap.min.js')
+  script(src='./javascripts/fancybox.umd.js')
+  script(src='./javascripts/jquery-3.6.0.min.js')
+  script(src='./javascripts/axios.min.js')
+
+.searchForm
+  input#search(type='text' value='서울')
+  button.btn
+    span.material-icons  search 
+ul.resultList
+  
+
+script.
+  const resultList = $(".resultList");
+  const btn = $(".searchForm  .btn");
+  const sido = $("#search");
+  btn.on("click", function () {
+    loadDust();
+  });
+
+  function loadDust() {
+    const sidoVal = sido.val();
+    resultList.html("");
+
+    $.ajax({   //?serviceKey=8z5여러분꺼%3D&numOfRows=100&returnType=json&sidoName=${sidoVal}
+      url: `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceumOfRows=100&returnType=json&sidoName=${sidoVal}`,
+    }).done(function (data) {
+      console.log(data.response.body.items);
+      console.log("bbb입력한 도시 ", sidoVal);
+      const result = data.response.body.items;
+      let tempHtml = "";
+      let pm10Emoji = "";
+
+      //https://www.science.co.il/internet/html/Smileys.php
+      $.each(result, function (idx, item) {
+        if (item.pm10Value <= 15) {
+          pm10Emoji = "&#128515";
+        } else if (item.pm10Value > 15 && item.pm10Value <= 35) {
+          pm10Emoji = "&#129327";
+        } else if (item.pm10Value > 35 && item.pm10Value <= 75) {
+          pm10Emoji = "&#128514"; //&#128514;
+        } else {
+          pm10Emoji = "&#128561";
+        }
+
+        tempHtml += `
+          <li>
+            <h2>${item.stationName}</h2>
+            <dl>
+              <dt>미세먼지</dt>
+              <dd>${item.pm10Value}</dd>
+            </dl>
+            <p class="icon">${pm10Emoji}</p>
+          </li>
+          `;
+      });
+
+      resultList.append(tempHtml);
+    });
+  } //loadDust  end
+

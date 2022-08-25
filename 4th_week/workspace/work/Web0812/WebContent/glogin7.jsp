@@ -2,7 +2,7 @@
 
 <html>
 <head>
-<title>[login.jsp]</title>
+<title>[glogin7.jsp]</title>
 	<style type="text/css">
 		input, b{font-size: 20pt; font-weight: bold;}
 		a{text-decoration: none;font-size: 20pt; color: blue; }
@@ -43,7 +43,7 @@
 	
 <div id="msg" align="center">	
 	<table width="550" border="1" cellspacing="0">
-	  <form name="myform"  method="post" action="loginSave.jsp">
+	  <form name="myform"  method="post" action="gloginSave7.jsp">
 		<tr>
 			<td width=350> <b>userid: </b></td>
 			<td> <input type="text" name="userid" id="userid" value=""></td>

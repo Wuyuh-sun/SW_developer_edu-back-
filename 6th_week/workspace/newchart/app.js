@@ -7,10 +7,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//2022-08-21
+
 var coronachartRouter = require('./routes/coronachart');
 var coronapickerRouter = require('./routes/coronapicker');
 var imagesearchRouter = require('./routes/imagesearch');
+var airRouter = require('./routes/air');
 
 var app = express();
 
@@ -27,12 +28,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-//2022-08-21  coronachartRouter
+//
 app.use('/coronachart', coronachartRouter);
 app.use('/coronapicker', coronapickerRouter);
 //app.use('/imagesearch', imagesearchRouter);
 app.use('/ssimg', imagesearchRouter);
 //http://localhost:3000/ssimg
+app.use('/air', airRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -110,7 +110,7 @@
                 <small>회원가입이 안되어있나요?</small>
                 <br>
                 <button class="signUpBtn">SIGN-UP</button>
-                <a href="./BBS/bbs_main.jsp"><small>로그인하지 않고 게시판 보기</small></a>
+                <%-- <a href="./BBS/bbs_main.jsp"><small>로그인하지 않고 게시판 보기</small></a> --%>
             </div>
         </div>
     </div>

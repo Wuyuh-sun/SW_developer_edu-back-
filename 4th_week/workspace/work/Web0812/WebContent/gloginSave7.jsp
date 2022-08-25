@@ -3,17 +3,18 @@
 
 <html>
 <head>
-  <title> [loginSave.jsp] </title>
+  <title> [gloginSave7.jsp] </title>
   <style>
     #myLogin{ margin-left: 200px; margi-top:200px; }
   </style>
 </head>
 <body>		
 <%
-  
+  //glogin.jps문서에서 내용데이터받음
   String userA=request.getParameter("userid");
   String pwdB=request.getParameter("pwd");
-  //msg7="select count(*) as cnt from login where userid='"+usera+"' and  pwd='" +pwdb+"'";
+  //msg7="select count(*) as cnt from login where userid='sky' and  pwd='1234' ";
+  //msg7="select count(*) as cnt from login where userid='"+usera+"' and  pwd='" +pwdb+"'";     
   msg="select count(*) as cnt from login where userid=? and pwd=? ";
   PST=CN.prepareStatement(msg);
   	PST.setString(1, userA);

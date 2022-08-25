@@ -39,7 +39,7 @@
    </tr>
    
 <%
- msg = "select  *  from  test order  by code";
+ msg = "select * from test order by code";
  ST = CN.createStatement(); //명령어생성
  RS = ST.executeQuery(msg); //생성된명령 ST에 쿼리문을 실행해서 결과를 RS기억해요
  while(RS.next()==true){

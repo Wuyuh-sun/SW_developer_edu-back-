@@ -77,13 +77,12 @@
 <body onLoad="firstFocus()">
   <h2>testWrite.jsp</h2>
   
-  <form name="myform" method="get"  action="testWriteSave.jsp">
+  <form name="myform" method="post"  action="nodeAdd">
     코드: <input type="text" name="code" id="code" size="6">
          <input type="button"  onClick="codeCheck();"  value="code중복체크"> <br>
     제목: <input type="text" name="title" id="title"> <br>
     급여: <input type="text"  onkeyup="payNumber();"  name="pay" id="pay" > <br>
-         <input type="button" onClick="nullCheck();" value="버튼데이터저장"> &nbsp;
-         <input type="submit" value="서브밋저장"> 
+         <input type="submit" value="서브밋저장nodeAdd"> 
          <input type="reset" value="입력취소"> 
   </form>
   
