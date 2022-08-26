@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+    <!-- -------------------------------- -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- -------------------------------- -->
+
+<script>
+    var socket;
+    $(function(){
+        //소켓 생성
+        socket=io.connect();
+
+        $('#btn').click(function(){
+            send();
+        });
+
+        //텍스트박스에 엔터값 누르면 전송하기
+        $('#txt').keyup(function(e){
+            if(e.keyCode==13){
+                send();
+            }
+        });
+
+        //서버가 보낸 메시지를 받아서 div#msg 영역에 출력해보기
+        //socket.on(1, 2) 직접기술
+    });
+    
+    function send(){
+      //직접기술
+    }
+</script>
+
+</head>
+<body>
+    <div class="container">
+       <h2>mychat08.html</h2> 
+       <h3>접속자들에게 메시지를 보내기</h3>
+       <div class="row">
+           <div class="col-md-8">
+             <input type="text" id="txt" class="form-control"
+             placeholder="Message">  
+             <button id="btn" class="btn btn-primary">
+                 Echo
+             </button>
+           </div>
+       </div>
+
+       <div class="row">
+        <div class="col-md-8">
+            <div id="msg" style="font-size:1.5em;">
+            </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+</html>
